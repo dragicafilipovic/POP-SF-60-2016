@@ -10,7 +10,6 @@ namespace POP
     {
         static void Main(string[] args)
         {
-            
         }
     }
 }

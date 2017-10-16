@@ -1,1 +1,2 @@
 c:\users\sf30-2016\documents\visual studio 2015\Projects\POP\POP\bin\Debug\POP.exe.config
+C:\Users\sf30-2016\Documents\Visual Studio 2015\Projects\POP-60\POP-SF-60-2016\POP\bin\Debug\POP.exe.config
