@@ -1,4 +1,5 @@
 ﻿using POP.Model;
+using POP.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace POP
         static List<TipNamjestaja> TipNamestaj { get; set; } = new List<TipNamjestaja>();
         static void Main(string[] args)
         {
-            var s1 = new Salon()
+            /*var s1 = new Salon()
             {
                 ID = 1,
                 Naziv = "Forma FTNale",
@@ -157,9 +158,37 @@ namespace POP
                 if()
             }
 
-        } while():
+        } while():*/
+
+            var namjestaj = Projekat.Instance.Namjestaj;
+            namjestaj.Add(new Namjestaj() { ID = 28, Naziv = "Remix Knjaz" });
+            Projekat.Instance.Namjestaj = namjestaj;
+            foreach (var stavka in namjestaj)
+            {
+                Console.WriteLine($"{stavka.Naziv}");
+            }
+
+            var tipNamjestaja = Projekat.Instance.TipNamjestaja;
+            tipNamjestaja.Add(new TipNamjestaja() { ID = 12, Naziv = "Garnitura" });
+            Projekat.Instance.TipNamjestaja = tipNamjestaja;
+            foreach (var tip in tipNamjestaja)
+            {
+                Console.WriteLine($"{tip.Naziv}");
+            }
+            var akcija = new List<Akcija>();
+            Projekat.Instance.Akcija = akcija;
+            foreach (var popust in akcija)
+            {
+                Console.WriteLine($"{popust.NamjestajNaAkciji}");
+            }
+            Console.ReadLine();
+
+
+        }
+
+
+
     }
-    
 }
     
 

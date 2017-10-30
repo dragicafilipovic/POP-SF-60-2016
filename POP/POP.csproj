@@ -48,13 +48,20 @@
     <Compile Include="Model\Korisnik.cs" />
     <Compile Include="Model\Namjestaj.cs" />
     <Compile Include="Model\ProdajaNamjestaja.cs" />
+    <Compile Include="Model\Projekat.cs" />
     <Compile Include="Model\Salon.cs" />
     <Compile Include="Model\TipNamjestaja.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\GenericSerializer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Data\namjestaj.xml" />
+    <Content Include="Data\tipNamjestaja.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

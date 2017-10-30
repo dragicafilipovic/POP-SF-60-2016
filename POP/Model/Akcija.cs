@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace POP.Model
 {
-    class Akcija
+    public class Akcija
     {
         public int ID  { get; set; }
         public DateTime PocetakAkcije { get; set; }

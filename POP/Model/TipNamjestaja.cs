@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace POP.Model
 {
-    class TipNamjestaja
+    public class TipNamjestaja
     {
         public int ID { get; set; }
         public string Naziv { get; set; }
