@@ -10,4 +10,24 @@
     <Naziv>Garnitura</Naziv>
     <Obrisan>false</Obrisan>
   </TipNamjestaja>
+  <TipNamjestaja>
+    <ID>12</ID>
+    <Naziv>Garnitura</Naziv>
+    <Obrisan>false</Obrisan>
+  </TipNamjestaja>
+  <TipNamjestaja>
+    <ID>12</ID>
+    <Naziv>Garnitura</Naziv>
+    <Obrisan>false</Obrisan>
+  </TipNamjestaja>
+  <TipNamjestaja>
+    <ID>12</ID>
+    <Naziv>Garnitura</Naziv>
+    <Obrisan>false</Obrisan>
+  </TipNamjestaja>
+  <TipNamjestaja>
+    <ID>12</ID>
+    <Naziv>Garnitura</Naziv>
+    <Obrisan>false</Obrisan>
+  </TipNamjestaja>
 </ArrayOfTipNamjestaja>

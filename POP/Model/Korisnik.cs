@@ -11,7 +11,7 @@ namespace POP.Model
         Administrator,
         Prodavac
     }
-    class Korisnik
+   public class Korisnik
     {
         public int ID { get; set; }
         public string Ime { get; set; }

@@ -10,11 +10,40 @@ namespace POP
 {
     class Program
     {
-        static List<Namjestaj> Namjestaj { get; set; } = new List<Namjestaj>();
-        static List<TipNamjestaja> TipNamestaj { get; set; } = new List<TipNamjestaja>();
+        public static List<Namjestaj> listaNamestaj { get; set; } = new List<Namjestaj>();
+        public static List<TipNamjestaja> TipNamestaj { get; set; } = new List<TipNamjestaja>();
         static void Main(string[] args)
         {
-            /*var s1 = new Salon()
+            var korisnik = new List<Korisnik>();
+            var k = new Korisnik {ID = 1, Ime = "Pera", Prezime = "Peric", KorisnickoIme = "pera", Lozinka = "12345", TipKorisnika = TipKorisnika.Administrator };
+            korisnik.Add(k);
+            Projekat.Instance.Korisnik = korisnik;
+
+            var usluga = new List<DodatnaUsluga>();
+            var u = new DodatnaUsluga { ID = 1, NazivUsluge = "Prevoz", CijenaUsluge = 2000 };
+            usluga.Add(u);
+            Projekat.Instance.DodatnaUsluga = usluga;
+
+            var tipNamjestaja = Projekat.Instance.TipNamjestaja;
+            tipNamjestaja.Add(new TipNamjestaja() { ID = 12, Naziv = "Garnitura" });
+            Projekat.Instance.TipNamjestaja = tipNamjestaja;
+            foreach (var tip in tipNamjestaja)
+            {
+                Console.WriteLine($"{tip.Naziv}");
+            }
+            var NamjestajNaAkciji = Projekat.Instance.Namjestaj;
+            var praznaLista = new List<Namjestaj>();
+            praznaLista.Add(NamjestajNaAkciji[0]);
+            var akcija = new List<Akcija>();
+            akcija.Add(new Akcija() { ID = 1, PocetakAkcije = DateTime.Now, ZavrsetakAkcije = DateTime.Parse("1.12.2017"), Popust = 20, NamjestajNaAkciji = praznaLista});
+            Projekat.Instance.Akcija = akcija;
+            foreach (var popust in akcija)
+            {
+                Console.WriteLine($"{popust.NamjestajNaAkciji}");
+            }
+            Console.ReadLine();
+
+            var s1 = new Salon()
             {
                 ID = 1,
                 Naziv = "Forma FTNale",
@@ -42,8 +71,8 @@ namespace POP
                 KolicinaUMagacina = 6
 
             };
-           Namjestaj.Add(n1);
-           TipNamestaj.Add(t1);
+            listaNamestaj.Add(n1);
+            TipNamestaj.Add(t1);
             IspisGlavnogMenija();
         }
 
@@ -88,8 +117,11 @@ namespace POP
 
             switch (izbor)
             {
+                case 3:
+                    BrisanjeNamjestaja();
+                    break;
                 case 2:
-            //        DodavanjeNamjestaja();
+                    DodavanjeNamjestaja();
                     break;
                 case 1:
                     IzlistajNamjestaj();
@@ -104,92 +136,142 @@ namespace POP
 
         private static void IzlistajNamjestaj()
         {
-            for (int i = 0; i < Namjestaj.Count; i++)
+            for (int i = 0; i < listaNamestaj.Count; i++)
             {
-                if (Namjestaj[i].Obrisan)
+                if (listaNamestaj[i].Obrisan)
                 {
-                    Console.WriteLine($"{i + 1 }.{Namjestaj[i].Naziv}, cena: {Namjestaj[i].JedinicnaCijena}");
-                } 
+                    Console.WriteLine($"{i + 1 }.{listaNamestaj[i].Naziv}, cena: {listaNamestaj[i].JedinicnaCijena}");
+                }
             }
             IspisMenijaNamjestaja();
         }
-
-    }
-
-    private static void DodavanjeNamjestaja()
-    {
-        var noviNamjestaj = new Namjestaj();
-        noviNamjestaj.ID = Namjestaj.Count + 1;
-        Console.WriteLine("Unesite naziv namestaja: ");
-        noviNamjestaj.Naziv = Console.ReadLine();
-        Console.WriteLine("Unesite siftu namestaja: ");
-        noviNamjestaj.Sifra = Console.ReadLine();
-        Console.WriteLine("Unesite cijenu namestaja: ");
-        noviNamjestaj.JedinicnaCijena = double.Parse(Console.ReadLine());
-        Console.WriteLine("Koliko komada namjestaja se nalazi u magacinu: ");
-        noviNamjestaj.KolicinaUMagacina = int.Parse(Console.ReadLine());
-        Console.WriteLine("Unesite tip namjestaja: ");
-        String nazivTipaNamjetaja = Console.ReadLine();
-
-        string nazivNamjestaja = "";
-        TipNamjestaja trazeniTipNamjestaja;
-        do
+        private static void DodavanjeNamjestaja()
         {
+            var tipoviNamestaja = Projekat.Instance.TipNamjestaja;
+            var ukupanNamjestaj = Projekat.Instance.Namjestaj;
+            var noviNamjestaj = new Namjestaj();
+            noviNamjestaj.ID = ukupanNamjestaj.Count + 1;
+            Console.WriteLine("Unesite naziv namestaja: ");
+            noviNamjestaj.Naziv = Console.ReadLine();
+            Console.WriteLine("Unesite siftu namestaja: ");
+            noviNamjestaj.Sifra = Console.ReadLine();
+            Console.WriteLine("Unesite cijenu namestaja: ");
+            noviNamjestaj.JedinicnaCijena = double.Parse(Console.ReadLine());
+            Console.WriteLine("Koliko komada namjestaja se nalazi u magacinu: ");
+            noviNamjestaj.KolicinaUMagacina = int.Parse(Console.ReadLine());
             Console.WriteLine("Unesite tip namjestaja: ");
-            nazivNamjestaja = Console.ReadLine();
-            foreach (var tipNamjestaja in  )
-            { }
+            String nazivTipaNamjetaja = Console.ReadLine();
+            bool indikator = false;
+            int idNamjestaja = 0;
+            TipNamjestaja trazeniTipNamjestaja = null;
+            do
+            {
+                Console.WriteLine("Unesite tip namjestaja: ");
+                idNamjestaja = int.Parse(Console.ReadLine());
+                foreach (var tipNamjestaja in tipoviNamestaja)
+                {
+                    if (tipNamjestaja.ID == idNamjestaja)
+                    {
+                        trazeniTipNamjestaja = tipNamjestaja;
+                        indikator = true;
+                    }
+                }
+            } while (indikator);
+            ukupanNamjestaj.Add(noviNamjestaj);
+            Projekat.Instance.Namjestaj = ukupanNamjestaj;
         }
-        Namjestaj.Add(nazivNamjestaja);
 
-    }
-
-    private static void IzmjenaNamjestaja()
-    {
-        Namjestaj trazeniNamjestaj = null;
-        string nazivTrazenogNamjestaja = ""
-        do
+        private static void IzmjenaNamjestaja()
         {
-            Console.WriteLine("Unesite naziv namjestaja koji mjenjate: ");
-            nazivTrazenogNamjestaja = Console.ReadLine();
+            var ukupanNamjestaj = Projekat.Instance.Namjestaj;
+            Namjestaj trazeniNamjestaj = null;
+            int idNamjestaja = 0;
+            bool indikator = false;
 
-            foreach(var namjestaj in Namjestaj)
+            do
             {
-                if()
-            }
+                Console.WriteLine("Unesite id namjestaja koji mjenjate: ");
+                idNamjestaja = int.Parse(Console.ReadLine());
 
-        } while():*/
+                foreach (var n in ukupanNamjestaj)
+                {
+                    if (idNamjestaja == n.ID)
+                    {
+                        trazeniNamjestaj = n;
+                        indikator = true;
+                    }
+                }
 
-            var namjestaj = Projekat.Instance.Namjestaj;
-            namjestaj.Add(new Namjestaj() { ID = 28, Naziv = "Remix Knjaz" });
-            Projekat.Instance.Namjestaj = namjestaj;
-            foreach (var stavka in namjestaj)
+            } while (indikator);
+            Console.WriteLine("Odaberite izmjenu koju zelite da izvrsite: ");
+            Console.WriteLine("1.Izmjena naziva/n 2.Izmjena sifre/n 3.Izmjena cijene/n 4.Izmjena kolicine u magacinu/n 5.Izmjena tipa namjestaja");
+            int izbor = int.Parse(Console.ReadLine());
+            switch (izbor)
             {
-                Console.WriteLine($"{stavka.Naziv}");
-            }
+                case 1:
+                    Console.WriteLine("Unesite naziv za izmjenu:");
+                    trazeniNamjestaj.Naziv = Console.ReadLine();
+                    break;
+                case 2:
+                    Console.WriteLine("Unesite sifru za izmjenu: ");
+                    trazeniNamjestaj.Sifra = Console.ReadLine();
+                    break;
+                case 3:
+                    Console.WriteLine("Unesite cijenu za izmjenu: ");
+                    trazeniNamjestaj.JedinicnaCijena = double.Parse(Console.ReadLine());
+                    break;
+                case 4:
+                    Console.WriteLine("Unesite kolicinu za izmjenu: ");
+                    trazeniNamjestaj.KolicinaUMagacina = int.Parse(Console.ReadLine());
+                    break;
+                case 5:
+                    Console.WriteLine("Unesite tip za izmjenu: ");
+                    var tipoviNamestaja = Projekat.Instance.TipNamjestaja;
+                    bool indikator2 = false;
+                    TipNamjestaja trazeniTipNamjestaja = null;
+                    do
+                    {
+                        Console.WriteLine("Unesite tip namjestaja: ");
+                        idNamjestaja = int.Parse(Console.ReadLine());
+                        foreach (var tipN in tipoviNamestaja)
+                        {
+                            if (tipN.ID == idNamjestaja)
+                            {
+                                trazeniTipNamjestaja = tipN;
+                                indikator = true;
+                            }
+                        }
+                    } while (indikator2);
+                    trazeniNamjestaj.TipNamjestaja = trazeniTipNamjestaja;
+                    Projekat.Instance.Namjestaj = ukupanNamjestaj;
+                    break;
 
-            var tipNamjestaja = Projekat.Instance.TipNamjestaja;
-            tipNamjestaja.Add(new TipNamjestaja() { ID = 12, Naziv = "Garnitura" });
-            Projekat.Instance.TipNamjestaja = tipNamjestaja;
-            foreach (var tip in tipNamjestaja)
-            {
-                Console.WriteLine($"{tip.Naziv}");
             }
-            var akcija = new List<Akcija>();
-            Projekat.Instance.Akcija = akcija;
-            foreach (var popust in akcija)
-            {
-                Console.WriteLine($"{popust.NamjestajNaAkciji}");
-            }
-            Console.ReadLine();
-
 
         }
 
+            private static void BrisanjeNamjestaja()
+        {
+            var ukupanNamjestaj = Projekat.Instance.Namjestaj;
+            Console.WriteLine("Unesite id namjestaja koji zelite da obrisete: ");
+            int ID = int.Parse(Console.ReadLine());
+            foreach (Namjestaj n in ukupanNamjestaj)
+            {
+               if (n.ID == ID)
+                {
+                    n.Obrisan = true;
+                }
+            }
+            Projekat.Instance.Namjestaj = ukupanNamjestaj;
 
-
+        }
+        
+  
     }
+
 }
+
+
     
 
 

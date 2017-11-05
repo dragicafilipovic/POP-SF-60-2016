@@ -6,3 +6,10 @@ C:\Users\TEMP.FTN.001\Desktop\SF-60-2016\POP-SF-60-2016\POP\bin\Debug\POP.exe
 C:\Users\TEMP.FTN.001\Desktop\SF-60-2016\POP-SF-60-2016\POP\bin\Debug\POP.pdb
 C:\Users\TEMP.FTN.001\Desktop\SF-60-2016\POP-SF-60-2016\POP\obj\Debug\POP.exe
 C:\Users\TEMP.FTN.001\Desktop\SF-60-2016\POP-SF-60-2016\POP\obj\Debug\POP.pdb
+C:\Users\lenovo\Desktop\POP\POP-SF-60-2016\POP\bin\Debug\POP.exe.config
+C:\Users\lenovo\Desktop\POP\POP-SF-60-2016\POP\bin\Debug\POP.exe
+C:\Users\lenovo\Desktop\POP\POP-SF-60-2016\POP\bin\Debug\POP.pdb
+C:\Users\lenovo\Desktop\POP\POP-SF-60-2016\POP\obj\Debug\POP.csprojResolveAssemblyReference.cache
+C:\Users\lenovo\Desktop\POP\POP-SF-60-2016\POP\obj\Debug\POP.csproj.CoreCompileInputs.cache
+C:\Users\lenovo\Desktop\POP\POP-SF-60-2016\POP\obj\Debug\POP.exe
+C:\Users\lenovo\Desktop\POP\POP-SF-60-2016\POP\obj\Debug\POP.pdb

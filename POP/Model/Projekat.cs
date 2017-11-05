@@ -14,6 +14,38 @@ namespace POP.Model
         private List<Namjestaj> namjestaj;
         private List<TipNamjestaja> tipNamjestaja;
         private List<Akcija> akcija;
+        private List<Korisnik> korisnik;
+        private List<DodatnaUsluga> usluga;
+
+        public List<DodatnaUsluga> DodatnaUsluga 
+        {
+            get
+            {
+                this.usluga = GenericSerializer.Deserialize<DodatnaUsluga>("usluga.xml");
+                return this.usluga;
+            }
+            set
+            {
+                this.usluga = value;
+                GenericSerializer.Serialize<DodatnaUsluga>("usluga.xml", usluga);
+            }
+        }
+
+
+        public List<Korisnik> Korisnik
+        {
+            get
+            {
+                this.korisnik = GenericSerializer.Deserialize<Korisnik>("korisnik.xml");
+                return this.korisnik;
+            }
+            set
+            {
+                this.korisnik = value;
+                GenericSerializer.Serialize<Korisnik>("korisnik.xml", korisnik);
+            }
+        }
+
 
         public List<Namjestaj> Namjestaj
         {
@@ -57,7 +89,7 @@ namespace POP.Model
             }
         }
 
-
+     
 
     }
 }
