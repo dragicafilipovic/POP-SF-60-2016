@@ -11,12 +11,5 @@ namespace POP.Model
         public int ID { get; set; }
         public string Naziv { get; set; }
         public bool Obrisan { get; set; }
-        public static TipNamjestaja GetByID(int id)
-        {
-            if ()
-            {
-
-            }
-        }
     }
 }

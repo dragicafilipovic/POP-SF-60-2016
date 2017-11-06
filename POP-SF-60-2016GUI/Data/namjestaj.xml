@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfNamjestaj xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Namjestaj>
+    <ID>1</ID>
+    <Naziv>Socijalno osvjetljenje</Naziv>
+    <JedinicnaCijena>0</JedinicnaCijena>
+    <KolicinaUMagacina>0</KolicinaUMagacina>
+    <Obrisan>false</Obrisan>
+    <TipNamjestaja>
+      <ID>1</ID>
+      <Naziv>Socijalno osvjetljenje</Naziv>
+      <Obrisan>false</Obrisan>
+    </TipNamjestaja>
+  </Namjestaj>
+  <Namjestaj>
+    <ID>28</ID>
+    <Naziv>Remix Knjaz</Naziv>
+    <JedinicnaCijena>0</JedinicnaCijena>
+    <KolicinaUMagacina>0</KolicinaUMagacina>
+    <Obrisan>false</Obrisan>
+  </Namjestaj>
+  <Namjestaj>
+    <ID>28</ID>
+    <Naziv>Remix Knjaz</Naziv>
+    <JedinicnaCijena>0</JedinicnaCijena>
+    <KolicinaUMagacina>0</KolicinaUMagacina>
+    <Obrisan>false</Obrisan>
+  </Namjestaj>
+</ArrayOfNamjestaj>

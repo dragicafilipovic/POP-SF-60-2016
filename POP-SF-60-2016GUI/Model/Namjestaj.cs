@@ -15,9 +15,5 @@ namespace POP.Model
         public int KolicinaUMagacina { get; set; }
         public bool Obrisan { get; set; }
         public TipNamjestaja TipNamjestaja { get; set; }
-        public override string ToString()
-        {
-            return $"{ Naziv }, { JedinicnaCijena },{TipNamjestaja.GetByID()}";
-        }
     }
 }
