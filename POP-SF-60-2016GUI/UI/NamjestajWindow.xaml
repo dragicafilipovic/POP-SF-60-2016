@@ -15,10 +15,10 @@
             <RowDefinition Height="81*"/>
             <RowDefinition Height="211*"/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Grid.Column="0"  Content="Naziv:" FontSize="15" Grid.ColumnSpan="2"/>
-        <TextBox Grid.Row="0" Grid.Column="1" Width="Auto" Name="tbNaziv"/>
-        <Button Grid.Row="1" Grid.Column="1" Content="Sacuvaj" Height="30" Width="60" Margin="107,8,31,9" />
-        <Button Grid.Row="1" Grid.Column="1" Content="Izadji" Height="30" Width="60" Margin="10,8,128,9"/>
+        <Label Grid.Row="0" Grid.Column="0"  Content="Naziv:" FontSize="15" Grid.ColumnSpan="2" Margin="0,0,0,49" Grid.RowSpan="2"/>
+        <TextBox Grid.Row="0" Grid.Column="1" FontSize="15" HorizontalAlignment="Left" Name="tbNaziv" Width="218"/>
+        <Button Grid.Row="1" Grid.Column="1" Content="Sacuvaj" Height="30" Width="60" Margin="107,8,31,9" Click="SacuvajIzmjene"/>
+        <Button Grid.Row="1" Grid.Column="1" Content="Izadji" Height="30" Width="60" Margin="10,8,128,9" Click="Izadji"/>
 
     </Grid>
 </Window>

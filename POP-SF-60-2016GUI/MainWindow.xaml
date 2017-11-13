@@ -13,7 +13,7 @@
         </Grid.RowDefinitions>
         <ListBox Grid.Row="0" FontSize="20" Name="lbNamjestaj"/>
         <Button Grid.Row="1" Content="Dodaj" Height="40" Width="80" Margin="151,34,286,35" Click="DodajNamjestaj"/>
-        <Button Grid.Row="1" Content="Izmjeni" Height="40" Width="80" Margin="25,34,412,35" Click="IzmjenaNamjestaj"/>
+        <Button Grid.Row="1" Content="Izmjeni" Height="40" Width="80" Margin="25,34,412,35" Click="IzmjenaNamjestaja"/>
         <Button Grid.Row="1" Content="Brisanje" Height="40" Width="80" Margin="282,34,155,35" />
         <Button Grid.Row="1" Content="Zatvori" Height="40" Width="80" Margin="411,34,26,35" Click="ZatvoriProzor"/>
     </Grid>

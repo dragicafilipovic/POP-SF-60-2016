@@ -43,16 +43,16 @@ namespace POP_SF_60_2016GUI.UI
             this.tbNaziv.Text = namjestaj.Naziv;
         }
 
-        private void SacuvajIzmjene(object sender, RenderingEventArgs e)
+        private void SacuvajIzmjene(object sender, RoutedEventArgs e)
         {
             var listaNamjestaja = Projekat.Instance.Namjestaj;
-       
+
             switch (operacija)
             {
                 case Operacija.DODAVANJE:
                     var noviNamjestaj = new Namjestaj()
                     {
-                        ID = listaNamjestaja.Count + 1, 
+                        ID = listaNamjestaja.Count + 1,
                         Naziv = this.tbNaziv.Text
                     };
                     listaNamjestaja.Add(noviNamjestaj);
@@ -67,17 +67,16 @@ namespace POP_SF_60_2016GUI.UI
                         }
                     }
                     break;
-                
+
             }
 
             Projekat.Instance.Namjestaj = listaNamjestaja;
             Close();
         }
 
-        private void Izadji(object sender, RenderingEventArgs e)
+        private void Izadji(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
-
     }
 }

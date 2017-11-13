@@ -52,23 +52,21 @@ namespace POP_SF_60_2016GUI
            
         }
 
-        public void IzmjenaNamjestaja(object sender, RenderingEventArgs e)
-        {
-            var izaberiNamjestaj = (Namjestaj)lbNamjestaj.SelectedItem;
-            var namjestajProzor = new NamjestajWindow(izaberiNamjestaj, NamjestajWindow.Operacija.IZMJENA);
-            namjestajProzor.Show();
-
-        }
-
-        public void ZatvoriProzor(object sender, RenderingEventArgs e)
-        {
-            this.Close();
-        }
-
         private void WindowActivate(object sender, EventArgs e)
         {
             OsvjeziPrikaz();
         }
-        
+
+        private void ZatvoriProzor(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void IzmjenaNamjestaja(object sender, RoutedEventArgs e)
+        {
+            var izaberiNamjestaj = (Namjestaj)lbNamjestaj.SelectedItem;
+            var namjestajProzor = new NamjestajWindow(izaberiNamjestaj, NamjestajWindow.Operacija.IZMJENA);
+            namjestajProzor.Show();
+        }
     }
 }

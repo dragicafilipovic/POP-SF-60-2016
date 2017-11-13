@@ -14,6 +14,11 @@ namespace POP.Model
         public double JedinicnaCijena { get; set; }
         public int KolicinaUMagacina { get; set; }
         public bool Obrisan { get; set; }
-        public TipNamjestaja TipNamjestaja { get; set; }
+        public int tipNamjestaja { get; set; }
+
+        public override string ToString()
+        {
+            return $"Naziv{Naziv}, Cena{JedinicnaCijena} tip namestaja {TipNamjestaja.GetID(tipNamjestaja)}";
+        }
     }
 }

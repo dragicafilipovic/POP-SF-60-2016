@@ -11,5 +11,17 @@ namespace POP.Model
         public int ID { get; set; }
         public string Naziv { get; set; }
         public bool Obrisan { get; set; }
+
+        public static TipNamjestaja GetID(int ID)
+        {
+            foreach (var TipNamjestaja in Projekat.Instance.TipNamjestaja)
+            {
+                if (TipNamjestaja.ID.Equals(ID))
+                {
+                    return TipNamjestaja;
+                }
+            }
+            return null;
+        }
     }
 }
