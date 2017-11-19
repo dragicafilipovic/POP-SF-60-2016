@@ -26,47 +26,35 @@ namespace POP_SF_60_2016GUI
         {
             InitializeComponent();
 
-            OsvjeziPrikaz();
         }
 
-        private void OsvjeziPrikaz()
+        private void Prijava_Click(object sender, RoutedEventArgs e)
         {
-            lbNamjestaj.Items.Clear();
-
-            foreach (var namjestaj in Projekat.Instance.Namjestaj)
+            var korisnici = Projekat.Instance.Korisnik;
+            foreach (var k in korisnici)
             {
-                lbNamjestaj.Items.Add(namjestaj);
+                var korisnickoIme = tbKIme.Text;
+                var lozinka = pbLozinka.Password;
+                if (korisnickoIme == "" || lozinka == "")
+                {
+                    MessageBox.Show("Morate popuniti sva polja!", "Greska", MessageBoxButton.OK,MessageBoxImage.Warning);
+                    return;
+                } else if (korisnickoIme == k.KorisnickoIme || lozinka == k.Lozinka)
+                {
+                    GlavniWindow gw = new GlavniWindow();
+                    gw.ShowDialog();
+                    this.Close();
+                    return;
+                }
             }
 
-            lbNamjestaj.SelectedIndex = 0;
-        }
-        public void DodajNamjestaj(object sender, RoutedEventArgs e)
-        {
-            var noviNamjestaj = new Namjestaj()
-            {
-                Naziv = ""
-            };
-
-            var namjestajProzor = new NamjestajWindow(noviNamjestaj, NamjestajWindow.Operacija.DODAVANJE);
-            namjestajProzor.Show();
-           
         }
 
-        private void WindowActivate(object sender, EventArgs e)
-        {
-            OsvjeziPrikaz();
-        }
-
-        private void ZatvoriProzor(object sender, RoutedEventArgs e)
+        private void Izlaz_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-        private void IzmjenaNamjestaja(object sender, RoutedEventArgs e)
-        {
-            var izaberiNamjestaj = (Namjestaj)lbNamjestaj.SelectedItem;
-            var namjestajProzor = new NamjestajWindow(izaberiNamjestaj, NamjestajWindow.Operacija.IZMJENA);
-            namjestajProzor.Show();
-        }
+       
     }
 }

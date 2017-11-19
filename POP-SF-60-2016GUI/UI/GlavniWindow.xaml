@@ -1,0 +1,22 @@
+﻿<Window x:Class="POP_SF_60_2016GUI.UI.GlavniWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POP_SF_60_2016GUI.UI"
+        mc:Ignorable="d"
+        Title="Salon namjestaja" Height="467.299" Width="900">
+    <Grid Margin="0,0,0,2">
+        <DockPanel HorizontalAlignment="Left" Height="73" LastChildFill="False" VerticalAlignment="Top" Width="232" Background="#FFFFB300" Margin="660,0,0,0"/>
+        <DockPanel HorizontalAlignment="Left" Height="394" LastChildFill="False" Margin="660,73,0,0" VerticalAlignment="Top" Width="232" Background="#FF374D35"/>
+        <DockPanel HorizontalAlignment="Left" Height="73" LastChildFill="False" VerticalAlignment="Top" Width="660" Background="#FF374D35"/>
+        <Button Name="btnNamjestaj" Content="Namjestaj" HorizontalAlignment="Left" Margin="660,73,0,0" VerticalAlignment="Top" Width="232" Height="60" Background="#FF374D35" FontSize="18" />
+        <Button Name="btnTip" Content="Tip namjestaja" HorizontalAlignment="Left" Margin="660,133,0,0" VerticalAlignment="Top" Width="232" Height="60" FontSize="18" Background="#FF374D35"/>
+        <Button Name="btnKupac" Content="Kupci" HorizontalAlignment="Left" Margin="660,193,0,0" VerticalAlignment="Top" Width="232" Height="60" FontSize="18" Background="#FF374D35"/>
+        <Button Name="btnProdaja" Content="Prodaja" HorizontalAlignment="Left" Margin="660,253,0,0" VerticalAlignment="Top" Width="232" Height="60" FontSize="18" Background="#FF374D35"/>
+        <Button Name="btnUsluga" Content="Dodatna usluga" HorizontalAlignment="Left" Margin="660,313,0,0" VerticalAlignment="Top" Width="232" Height="60" FontSize="18" Background="#FF374D35"/>
+        <Button Name="btnAkcija" Content="Akcija" HorizontalAlignment="Left" Margin="660,373,0,0" VerticalAlignment="Top" Width="232" Height="60" FontSize="18" Background="#FF374D35"/>
+        <Label Content="MENI" HorizontalAlignment="Left" Margin="744,22,0,0" VerticalAlignment="Top" Height="32" Width="68" FontFamily="Arial" FontSize="24"/>
+
+    </Grid>
+</Window>
