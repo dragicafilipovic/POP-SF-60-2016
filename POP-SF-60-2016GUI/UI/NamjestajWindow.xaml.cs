@@ -32,16 +32,14 @@ namespace POP_SF_60_2016GUI.UI
         {
             InitializeComponent();
 
-            InicijalizacijaVrijednosti(namjestaj, operacija);
-        }
-
-        private void InicijalizacijaVrijednosti(Namjestaj namjestaj, Operacija operacija)
-        {
             this.namjestaj = namjestaj;
             this.operacija = operacija;
 
-            this.tbNaziv.Text = namjestaj.Naziv;
+            tbNaziv.DataContext = namjestaj;
+           // cbTipNamjestaja.DataContext = namjestaj;
         }
+
+       
 
         private void SacuvajIzmjene(object sender, RoutedEventArgs e)
         {
@@ -52,7 +50,7 @@ namespace POP_SF_60_2016GUI.UI
                 case Operacija.DODAVANJE:
                     var noviNamjestaj = new Namjestaj()
                     {
-                        ID = listaNamjestaja.Count + 1,
+                        Id = listaNamjestaja.Count + 1,
                         Naziv = this.tbNaziv.Text
                     };
                     listaNamjestaja.Add(noviNamjestaj);
@@ -60,7 +58,7 @@ namespace POP_SF_60_2016GUI.UI
                 case Operacija.IZMJENA:
                     foreach (var n in listaNamjestaja)
                     {
-                        if (n.ID == namjestaj.ID)
+                        if (n.Id == namjestaj.Id)
                         {
                             n.Naziv = this.tbNaziv.Text;
                             break;
