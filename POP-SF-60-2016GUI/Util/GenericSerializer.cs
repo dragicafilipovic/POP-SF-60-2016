@@ -36,7 +36,7 @@ namespace POP.Util
             {
 
 
-                var serializer = new XmlSerializer(typeof(List<T>));
+                var serializer = new XmlSerializer(typeof(ObservableCollection<T>));
                 using (var sr = new StreamReader($@"../../Data/{fileName}"))
                 {
                     return (ObservableCollection<T>) serializer.Deserialize(sr);

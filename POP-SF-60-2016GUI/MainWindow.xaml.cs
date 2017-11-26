@@ -27,28 +27,6 @@ namespace POP_SF_60_2016GUI
         public MainWindow()
         {
             InitializeComponent();
-         /*   var listUredjaja = Projekat.Instance.DodatnaUsluga;
-            var listaUID = new List<int>();
-            listaUID.Add(listUredjaja[0].Id);
-            var listaNamjestaja = Projekat.Instance.Namjestaj;
-            var listaNID = new List<int>();
-            listaNID.Add(listaNamjestaja[0].Id);
-            var prodaja = new ProdajaNamjestaja()
-            {
-                Id = 1,
-                BrojRacuna = "123456",
-                DatumProdaje = DateTime.Parse("1.1.2017"),
-              //  DodatnaUslugaID = listaUID,
-                Kupac = "Pera",
-                NamjestajProdajaID = listaNID,
-                UkupnIznos = 1000
-
-
-            };
-
-            ObservableCollection<ProdajaNamjestaja> listaProdaja =new  ObservableCollection<ProdajaNamjestaja>();
-            listaProdaja.Add(prodaja);
-            GenericSerializer.Serialize("prodajaNamjestaja.xml", listaProdaja); */
         }
 
         private void Prijava_Click(object sender, RoutedEventArgs e)

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016\POP-SF-60-2016GUI\App.xaml
-4912944494
+6297920443
 
-17-1653823864
+19-1954294818
 13738642453
-MainWindow.xaml;UI\GlavniWindow.xaml;UI\EditNamjestajWindow.xaml;UI\NamjestajProzor.xaml;
+MainWindow.xaml;UI\EditTipNamjestajaWindow.xaml;UI\GlavniWindow.xaml;UI\EditNamjestajWindow.xaml;UI\NamjestajProzor.xaml;UI\TipNamjestajaProzor.xaml;
 
 False
 

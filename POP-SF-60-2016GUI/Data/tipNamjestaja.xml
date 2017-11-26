@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfTipNamjestaja xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <TipNamjestaja>
-    <Id>12</Id>
-    <Naziv>Garnitura</Naziv>
     <Obrisan>false</Obrisan>
+    <Naziv>Garnitura</Naziv>
+    <Id>12</Id>
+  </TipNamjestaja>
+  <TipNamjestaja>
+    <Obrisan>true</Obrisan>
+    <Naziv>aa</Naziv>
+    <Id>2</Id>
   </TipNamjestaja>
 </ArrayOfTipNamjestaja>

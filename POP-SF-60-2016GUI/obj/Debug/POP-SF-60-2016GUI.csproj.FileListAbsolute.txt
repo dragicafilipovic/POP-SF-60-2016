@@ -37,3 +37,7 @@ C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016\POP-SF-60-2016GUI\obj\Debug\UI\
 C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016\POP-SF-60-2016GUI\obj\Debug\UI\NamjestajProzor.g.cs
 C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016\POP-SF-60-2016GUI\obj\Debug\UI\EditNamjestajWindow.baml
 C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016\POP-SF-60-2016GUI\obj\Debug\UI\NamjestajProzor.baml
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016\POP-SF-60-2016GUI\obj\Debug\UI\EditTipNamjestajaWindow.g.cs
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016\POP-SF-60-2016GUI\obj\Debug\UI\TipNamjestajaProzor.g.cs
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016\POP-SF-60-2016GUI\obj\Debug\UI\EditTipNamjestajaWindow.baml
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016\POP-SF-60-2016GUI\obj\Debug\UI\TipNamjestajaProzor.baml

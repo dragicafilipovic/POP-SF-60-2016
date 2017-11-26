@@ -31,5 +31,10 @@ namespace POP_SF_60_2016GUI.UI
             np.ShowDialog();
         }
 
+        private void btnTip_Click(object sender, RoutedEventArgs e)
+        {
+            TipNamjestajaProzor tnp = new TipNamjestajaProzor();
+            tnp.ShowDialog();
+        }
     }
 }
