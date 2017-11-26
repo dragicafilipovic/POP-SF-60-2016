@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\sf60-2016\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016\POP-SF-60-2016GUI\obj\Debug\
 POP_SF_60_2016GUI
 none
 false
 DEBUG;TRACE
-C:\Users\sf60-2016\Desktop\Platforme\POP-SF-60-2016GUI\App.xaml
-3-729514302
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016\POP-SF-60-2016GUI\App.xaml
+6297920443
 
-20-148749511
+23471826433
 13738642453
-MainWindow.xaml;UI\GlavniWindow.xaml;UI\NamjestajWindow.xaml;
+MainWindow.xaml;UI\EditTipNamjestajaWindow.xaml;UI\GlavniWindow.xaml;UI\EditNamjestajWindow.xaml;UI\NamjestajProzor.xaml;UI\TipNamjestajaProzor.xaml;
 
 False
 

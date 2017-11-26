@@ -9,17 +9,51 @@ namespace POP.Model
 {
     public class TipNamjestaja: INotifyPropertyChanged, ICloneable
     {
-        public int ID { get; set; }
-        public string Naziv { get; set; }
-        public bool Obrisan { get; set; }
+        private int id;
+        private string naziv;
+        private bool obrisan;
+
+        public bool Obrisan
+        {
+            get { return obrisan; }
+            set
+            {
+                obrisan = value;
+                OnPropertyCgabged("Obrisan");
+            }
+        }
+
+
+        public string Naziv
+        {
+            get { return naziv; }
+            set
+            {
+                naziv = value;
+                OnPropertyCgabged("Naziv");
+            }
+        }
+
+
+        public int Id
+        {
+            get { return id; }
+            set
+            {
+                id = value;
+                OnPropertyCgabged("Id");
+            }
+        }
+
+        
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         public static TipNamjestaja GetID(int ID)
         {
-            foreach (var TipNamjestaja in Projekat.Instance.TipNamjestajaID)
+            foreach (var TipNamjestaja in Projekat.Instance.TipoviNamjestaja)
             {
-                if (TipNamjestaja.ID.Equals(ID))
+                if (TipNamjestaja.Id.Equals(ID))
                 {
                     return TipNamjestaja;
                 }
@@ -29,14 +63,19 @@ namespace POP.Model
 
         public object Clone()
         {
-            throw new NotImplementedException();
+            return new TipNamjestaja()
+            {
+                Id = id,
+                Naziv = naziv,
+                Obrisan = obrisan
+            };
         }
 
         protected void OnPropertyCgabged(string propertyName)
         {
             if (PropertyChanged != null)
             {
-               
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
     }

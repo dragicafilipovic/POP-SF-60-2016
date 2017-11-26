@@ -26,14 +26,14 @@ namespace POP.Model
             {
                 if (tipNamjestaja == null)
                 {
-                    //tipNamjestaja = TipNamjestaja.GetByID(TipNamjestajaID);
+                    tipNamjestaja = TipNamjestaja.GetID(TipNamjestajaID);
                 }
                 return tipNamjestaja;
             }
             set
             {
                 tipNamjestaja = value;
-                TipNamjestajaID = tipNamjestaja.ID;
+                TipNamjestajaID = tipNamjestaja.Id;
                 OnPropertyCgabged("TipNamjestaja");
             }
         }
@@ -120,7 +120,7 @@ namespace POP.Model
 
         public override string ToString()
         {
-            return $"Naziv{Naziv}, Cena{JedinicnaCijena} tip namestaja {TipNamjestaja.GetID(tipNamjestajaID)}";
+            return $"Naziv{Naziv}, Cena{JedinicnaCijena} tipNamestaja {TipNamjestaja.GetID(tipNamjestajaID)}";
         }
 
         protected void OnPropertyCgabged(string propertyName)
@@ -142,6 +142,18 @@ namespace POP.Model
                 TipNamjestaja = tipNamjestaja,
                 TipNamjestajaID = tipNamjestajaID
             };
+        }
+
+        public static Namjestaj GetID(int ID)
+        {
+            foreach (var namjestaj in Projekat.Instance.Namjestaj)
+            {
+                if (namjestaj.Id.Equals(ID))
+                {
+                    return namjestaj;
+                }
+            }
+            return null;
         }
     }
 }

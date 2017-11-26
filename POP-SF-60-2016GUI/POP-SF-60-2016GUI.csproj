@@ -55,11 +55,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="UI\EditTipNamjestajaWindow.xaml.cs">
+      <DependentUpon>EditTipNamjestajaWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\GlavniWindow.xaml.cs">
       <DependentUpon>GlavniWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\NamjestajWindow.xaml.cs">
-      <DependentUpon>NamjestajWindow.xaml</DependentUpon>
+    <Compile Include="UI\EditNamjestajWindow.xaml.cs">
+      <DependentUpon>EditNamjestajWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\NamjestajProzor.xaml.cs">
+      <DependentUpon>NamjestajProzor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\TipNamjestajaProzor.xaml.cs">
+      <DependentUpon>TipNamjestajaProzor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Util\GenericSerializer.cs" />
     <Page Include="MainWindow.xaml">
@@ -74,11 +83,23 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UI\EditTipNamjestajaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\GlavniWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\NamjestajWindow.xaml">
+    <Page Include="UI\EditNamjestajWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\NamjestajProzor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\TipNamjestajaProzor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,0 +1,24 @@
+﻿<Window x:Class="POP_SF_60_2016GUI.UI.EditTipNamjestajaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POP_SF_60_2016GUI.UI"
+        mc:Ignorable="d"
+        Title="EditTipNamjestajaWindow" Height="122.681" Width="267.526">
+    <Grid Margin="0,0,0,-2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="87*"/>
+            <ColumnDefinition Width="173*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="41*"/>
+            <RowDefinition Height="53*"/>
+        </Grid.RowDefinitions>
+        <Label Content="   Naziv:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="30" Width="67"/>
+        <TextBox Grid.Column="1" Name="tbNaziv" Text="{Binding Path=Naziv}" HorizontalAlignment="Left" Height="21" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139"/>
+        <Button Content="Sacuvaj" Grid.Column="1" HorizontalAlignment="Left" Margin="0,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.262,-0.088" Click="SacuvajIzmjene"/>
+        <Button Content="Izadji" Grid.Column="1" HorizontalAlignment="Left" Margin="88,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="Izadji_Click"/>
+
+    </Grid>
+</Window>

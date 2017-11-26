@@ -1,4 +1,5 @@
-﻿using System;
+﻿using POP.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,9 +27,9 @@ namespace POP_SF_60_2016GUI.UI
 
         private void Namjestaj_Click(object sender, RoutedEventArgs e)
         {
-            //btnDodaj.Click += DodajNamjestaj;
+            NamjestajProzor np = new NamjestajProzor();
+            np.ShowDialog();
         }
-
 
     }
 }

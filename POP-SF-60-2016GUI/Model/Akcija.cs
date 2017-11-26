@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace POP.Model
 {
@@ -14,6 +16,18 @@ namespace POP.Model
         private decimal popust;
         private DateTime pocetakAkcije;
         private DateTime zavrsetakAkcije;
+        private List<int> namjestajNaAkcijiID;
+
+        public List<int> NamjestajNaAkcijiID
+        {
+            get { return namjestajNaAkcijiID; }
+            set
+            {
+                namjestajNaAkcijiID = value;
+                OnPropertyCgabged("NamjestajaNaAkcijiID");
+            }
+        }
+
 
         public DateTime ZavrsetakAkcije
         {
@@ -21,7 +35,7 @@ namespace POP.Model
             set
             {
                 zavrsetakAkcije = value;
-                OnPropertyCgabged("ZavrsenaAkcija");
+                OnPropertyCgabged("ZavrsetakAkcija");
             }
         }
 
@@ -68,9 +82,37 @@ namespace POP.Model
                 OnPropertyCgabged("Popust");
             }
         }
+        
 
 
-        public  List<Namjestaj> NamjestajNaAkciji { get; set; }
+        private ObservableCollection<Namjestaj> namjestajAkcija;
+
+        [XmlIgnore]
+        public ObservableCollection<Namjestaj> NamjestajAkcija
+
+        {
+            get
+            {
+                if(namjestajAkcija == null)
+                {
+                    foreach (var id in namjestajNaAkcijiID)
+                    {
+                        namjestajAkcija.Add(Namjestaj.GetID(id));
+                    }
+                }
+                return namjestajAkcija;
+            }
+            set
+            {
+                namjestajAkcija = value;
+                foreach (var namjestaj in namjestajAkcija)
+                {
+                    namjestajNaAkcijiID.Add(namjestaj.Id);
+                }
+            }
+        }
+
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 

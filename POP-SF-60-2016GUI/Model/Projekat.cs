@@ -17,6 +17,7 @@ namespace POP.Model
         public ObservableCollection<Korisnik> Korisnik { get; set; }
         public ObservableCollection<DodatnaUsluga> DodatnaUsluga { get; set; }
         public ObservableCollection<Akcija> Akcija { get; set; }
+        public ObservableCollection<ProdajaNamjestaja> ProdajaNamjestaja { get; set; }
 
 
         private Projekat()
@@ -26,6 +27,7 @@ namespace POP.Model
             Korisnik = GenericSerializer.Deserialize<Korisnik>("korisnik.xml");
             DodatnaUsluga = GenericSerializer.Deserialize<DodatnaUsluga>("usluga.xml");
             Akcija = GenericSerializer.Deserialize<Akcija>("akcija.xml");
+            //ProdajaNamjestaja = GenericSerializer.Deserialize<ProdajaNamjestaja>("prodajaNamjestaja.xml");
            
         }
 

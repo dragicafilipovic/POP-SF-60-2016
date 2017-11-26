@@ -1,4 +1,5 @@
 ﻿using POP.Model;
+using POP.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,45 +37,31 @@ namespace POP_SF_60_2016GUI.UI
             this.operacija = operacija;
 
             tbNaziv.DataContext = namjestaj;
-           // cbTipNamjestaja.DataContext = namjestaj;
+            tbCijena.DataContext = namjestaj;
+            tbKolicina.DataContext = namjestaj;
+            tbSifra.DataContext = namjestaj;
+            cbTipNamjestaja.ItemsSource = Projekat.Instance.TipoviNamjestaja;
+            cbTipNamjestaja.DataContext = namjestaj;
         }
-
-       
 
         private void SacuvajIzmjene(object sender, RoutedEventArgs e)
         {
             var listaNamjestaja = Projekat.Instance.Namjestaj;
-
-            switch (operacija)
+            var selekrovani = cbTipNamjestaja.SelectedItem as TipNamjestaja;
+            if (operacija == Operacija.DODAVANJE)
             {
-                case Operacija.DODAVANJE:
-                    var noviNamjestaj = new Namjestaj()
-                    {
-                        Id = listaNamjestaja.Count + 1,
-                        Naziv = this.tbNaziv.Text
-                    };
-                    listaNamjestaja.Add(noviNamjestaj);
-                    break;
-                case Operacija.IZMJENA:
-                    foreach (var n in listaNamjestaja)
-                    {
-                        if (n.Id == namjestaj.Id)
-                        {
-                            n.Naziv = this.tbNaziv.Text;
-                            break;
-                        }
-                    }
-                    break;
-
+                namjestaj.Id = listaNamjestaja.Count + 1;
+                namjestaj.TipNamjestaja = selekrovani;
+                listaNamjestaja.Add(namjestaj);
             }
-
-            Projekat.Instance.Namjestaj = listaNamjestaja;
+            GenericSerializer.Serialize("namjestaj.xml", listaNamjestaja);
             Close();
         }
 
-        private void Izadji(object sender, RoutedEventArgs e)
+        private void Izadji_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
     }
+
 }
