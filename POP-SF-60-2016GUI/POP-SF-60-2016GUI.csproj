@@ -55,6 +55,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="UI\DodatnaUslugaWindow.xaml.cs">
+      <DependentUpon>DodatnaUslugaWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EditDodatnaUslugaWindow.xaml.cs">
+      <DependentUpon>EditDodatnaUslugaWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EditKorisnikWindow.xaml.cs">
+      <DependentUpon>EditKorisnikWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\EditTipNamjestajaWindow.xaml.cs">
       <DependentUpon>EditTipNamjestajaWindow.xaml</DependentUpon>
     </Compile>
@@ -63,6 +72,9 @@
     </Compile>
     <Compile Include="UI\EditNamjestajWindow.xaml.cs">
       <DependentUpon>EditNamjestajWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\KorisnikWindow.xaml.cs">
+      <DependentUpon>KorisnikWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\NamjestajProzor.xaml.cs">
       <DependentUpon>NamjestajProzor.xaml</DependentUpon>
@@ -83,6 +95,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UI\DodatnaUslugaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\EditDodatnaUslugaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\EditKorisnikWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\EditTipNamjestajaWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -92,6 +116,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\EditNamjestajWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\KorisnikWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

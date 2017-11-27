@@ -27,7 +27,7 @@ namespace POP.Model
             Korisnik = GenericSerializer.Deserialize<Korisnik>("korisnik.xml");
             DodatnaUsluga = GenericSerializer.Deserialize<DodatnaUsluga>("usluga.xml");
             Akcija = GenericSerializer.Deserialize<Akcija>("akcija.xml");
-            //ProdajaNamjestaja = GenericSerializer.Deserialize<ProdajaNamjestaja>("prodajaNamjestaja.xml");
+            ProdajaNamjestaja = GenericSerializer.Deserialize<ProdajaNamjestaja>("prodajaNamjestaja.xml");
            
         }
 

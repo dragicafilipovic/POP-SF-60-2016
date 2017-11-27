@@ -36,5 +36,17 @@ namespace POP_SF_60_2016GUI.UI
             TipNamjestajaProzor tnp = new TipNamjestajaProzor();
             tnp.ShowDialog();
         }
+
+        private void btnKorisnik_Click(object sender, RoutedEventArgs e)
+        {
+            KorisnikWindow kw = new KorisnikWindow();
+            kw.ShowDialog();
+        }
+
+        private void btnUsluga_Click(object sender, RoutedEventArgs e)
+        {
+            DodatnaUslugaWindow duw = new DodatnaUslugaWindow();
+            duw.ShowDialog();
+        }
     }
 }

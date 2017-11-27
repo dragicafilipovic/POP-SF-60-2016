@@ -43,8 +43,8 @@ namespace POP_SF_60_2016GUI
                 } else if (korisnickoIme == k.KorisnickoIme || lozinka == k.Lozinka)
                 {
                     GlavniWindow gw = new GlavniWindow();
-                    gw.ShowDialog();
                     this.Close();
+                    gw.ShowDialog();
                     return;
                 }
             }

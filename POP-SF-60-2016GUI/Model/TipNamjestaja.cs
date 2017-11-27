@@ -13,6 +13,25 @@ namespace POP.Model
         private string naziv;
         private bool obrisan;
 
+        public string Naziv
+        {
+            get { return naziv; }
+            set
+            {
+                naziv = value;
+                OnPropertyCgabged("Naziv");
+            }
+        }
+        public int Id
+        {
+            get { return id; }
+            set
+            {
+                id = value;
+                OnPropertyCgabged("Id");
+            }
+        }
+
         public bool Obrisan
         {
             get { return obrisan; }
@@ -23,27 +42,6 @@ namespace POP.Model
             }
         }
 
-
-        public string Naziv
-        {
-            get { return naziv; }
-            set
-            {
-                naziv = value;
-                OnPropertyCgabged("Naziv");
-            }
-        }
-
-
-        public int Id
-        {
-            get { return id; }
-            set
-            {
-                id = value;
-                OnPropertyCgabged("Id");
-            }
-        }
 
         
 
@@ -77,6 +75,10 @@ namespace POP.Model
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
+        }
+        public override string ToString()
+        {
+            return $"{Naziv}";
         }
     }
 }

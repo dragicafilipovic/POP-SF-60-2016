@@ -17,44 +17,42 @@ using System.Windows.Shapes;
 namespace POP_SF_60_2016GUI.UI
 {
     /// <summary>
-    /// Interaction logic for TipNamjestajaProzor.xaml
+    /// Interaction logic for KorisnikWindow.xaml
     /// </summary>
-    public partial class TipNamjestajaProzor : Window
+    public partial class KorisnikWindow : Window
     {
-        public TipNamjestajaProzor()
+        public KorisnikWindow()
         {
-            
             InitializeComponent();
 
-            dgTipNamjestaj.ItemsSource = Projekat.Instance.TipoviNamjestaja;
+            dgKorisnik.ItemsSource = Projekat.Instance.Korisnik;
         }
 
         private void Dodaj_Click(object sender, RoutedEventArgs e)
         {
-            TipNamjestaja tn = new TipNamjestaja();
-            EditTipNamjestajaWindow etn = new EditTipNamjestajaWindow(tn, EditTipNamjestajaWindow.Operacija.DODAVANJE);
-            etn.ShowDialog();
+            Korisnik k = new Korisnik();
+            EditKorisnikWindow ekw = new EditKorisnikWindow(k, EditKorisnikWindow.Operacija.DODAVANJE);
+            ekw.ShowDialog();
         }
 
         private void Izmjena_Click(object sender, RoutedEventArgs e)
         {
-            TipNamjestaja tn = dgTipNamjestaj.SelectedItem as TipNamjestaja;
-            EditTipNamjestajaWindow etn = new EditTipNamjestajaWindow(tn, EditTipNamjestajaWindow.Operacija.IZMJENA);
-            etn.ShowDialog();
+            Korisnik k = dgKorisnik.SelectedItem as Korisnik;
+            EditKorisnikWindow ekw = new EditKorisnikWindow(k, EditKorisnikWindow.Operacija.IZMJENA);
+            ekw.ShowDialog();
         }
 
         private void Brisanje_Click(object sender, RoutedEventArgs e)
         {
-            var lista = Projekat.Instance.TipoviNamjestaja;
-            TipNamjestaja tn = dgTipNamjestaj.SelectedItem as TipNamjestaja;
-            tn.Obrisan = true;
-            GenericSerializer.Serialize("tipNamjestaja.xml", lista);
+            var lista = Projekat.Instance.Korisnik;
+            Korisnik k = dgKorisnik.SelectedItem as Korisnik;
+            k.Obrisan = true;
+            GenericSerializer.Serialize("korisnik.xml", lista);
         }
 
         private void Zatvori_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
-        
     }
 }

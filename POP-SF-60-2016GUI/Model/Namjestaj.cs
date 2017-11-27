@@ -19,6 +19,67 @@ namespace POP.Model
         private int tipNamjestajaID;
         private TipNamjestaja tipNamjestaja;
 
+        public int Id
+        {
+            get { return id; }
+            set
+            {
+                id = value;
+                OnPropertyCgabged("Id");
+            }
+        }
+
+        public string Naziv
+        {
+            get { return naziv; }
+            set
+            {
+                naziv = value;
+                OnPropertyCgabged("Naziv");
+            }
+        }
+
+        public double JedinicnaCijena
+        {
+            get { return jedinicnaCijena; }
+            set
+            {
+                jedinicnaCijena = value;
+                OnPropertyCgabged("JedinicnaCijena");
+            }
+        }
+
+        public string Sifra
+        {
+            get { return sifra; }
+            set
+            {
+                sifra = value;
+                OnPropertyCgabged("Sifra");
+            }
+        }
+
+        public int KolicinaUMagacinu
+        {
+            get { return kolicinaUMagacinu; }
+            set
+            {
+                kolicinaUMagacinu = value;
+                OnPropertyCgabged("KolicinaUMagacinu");
+            }
+        }
+
+
+        public bool Obrisan
+        {
+            get { return obrisan; }
+            set
+            {
+                obrisan = value;
+                OnPropertyCgabged("Obrisan");
+            }
+        }
+
         [XmlIgnore]
         public TipNamjestaja TipNamjestaja
         {
@@ -50,77 +111,11 @@ namespace POP.Model
         }
 
 
-        public int KolicinaUMagacinu
-        {
-            get { return kolicinaUMagacinu; }
-            set
-            {
-                kolicinaUMagacinu = value;
-                OnPropertyCgabged("KolicinaUMagacinu");
-            }
-        }
-
-
-        public string Sifra
-        {
-            get { return sifra; }
-            set
-            {
-                sifra = value;
-                OnPropertyCgabged("Sifra");
-            }
-        }
-
-
-        public bool Obrisan
-        {
-            get { return obrisan; }
-            set
-            {
-                obrisan = value;
-                OnPropertyCgabged("Obrisan");
-            }
-        }
-
-
-        public double JedinicnaCijena
-        {
-            get { return jedinicnaCijena; }
-            set
-            {
-                jedinicnaCijena = value;
-                OnPropertyCgabged("JedinicnaCijena");
-            }
-        }
-
-
-        public string Naziv
-        {
-            get { return naziv; }
-            set
-            {
-                naziv = value;
-                OnPropertyCgabged("Naziv");
-            }
-        }
-
-
-        public int Id
-        {
-            get { return id; }
-            set
-            {
-                id = value;
-                OnPropertyCgabged("Id");
-            }
-        }
-
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         public override string ToString()
         {
-            return $"Naziv{Naziv}, Cena{JedinicnaCijena} tipNamestaja {TipNamjestaja.GetID(tipNamjestajaID)}";
+            return $"Naziv{Naziv}, Cena{JedinicnaCijena}, tipNamestaja {TipNamjestaja.GetID(tipNamjestajaID)}";
         }
 
         protected void OnPropertyCgabged(string propertyName)
