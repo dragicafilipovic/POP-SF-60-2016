@@ -2,6 +2,7 @@
 using POP.Util;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,10 +22,19 @@ namespace POP_SF_60_2016GUI.UI
     /// </summary>
     public partial class AkcijaWindow : Window
     {
+        ICollectionView view;
         public AkcijaWindow()
         {
             InitializeComponent();
+
+            view = CollectionViewSource.GetDefaultView(Projekat.Instance.Akcija);
+            view.Filter = AkcijaFilter;
             dgAkcija.ItemsSource = Projekat.Instance.Akcija;
+        }
+
+        private bool AkcijaFilter(object obj)
+        {
+            return ((Akcija)obj).Obrisan == false;
         }
 
         private void Dodaj_Click(object sender, RoutedEventArgs e)
@@ -47,6 +57,7 @@ namespace POP_SF_60_2016GUI.UI
             Akcija a= dgAkcija.SelectedItem as Akcija;
             a.Obrisan = true;
             GenericSerializer.Serialize("akcija.xml", lista);
+            view.Refresh();
         }
 
         private void dgAkcija_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)

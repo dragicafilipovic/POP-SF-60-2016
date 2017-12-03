@@ -20,7 +20,7 @@ namespace POP.Model
             set
             {
                 id = value;
-                OnPropertyCgabged("Id");
+                OnPropertyChanged("Id");
             }
         }
 
@@ -30,7 +30,7 @@ namespace POP.Model
             set
             {
                 nazivUsluge = value;
-                OnPropertyCgabged("NazivUsluge");
+                OnPropertyChanged("NazivUsluge");
             }
         }
 
@@ -40,7 +40,7 @@ namespace POP.Model
             set
             {
                 cijenaUsuge = value;
-                OnPropertyCgabged("CijenaUsluge");
+                OnPropertyChanged("CijenaUsluge");
             }
         }
 
@@ -51,8 +51,13 @@ namespace POP.Model
             set
             {
                 obrisan = value;
-                OnPropertyCgabged("Obrisan");
+                OnPropertyChanged("Obrisan");
             }
+        }
+
+        public override string ToString()
+        {
+            return $"{NazivUsluge}";
         }
 
 
@@ -70,7 +75,7 @@ namespace POP.Model
 
         }
 
-        protected void OnPropertyCgabged(string propertyName)
+        protected void OnPropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)
             {

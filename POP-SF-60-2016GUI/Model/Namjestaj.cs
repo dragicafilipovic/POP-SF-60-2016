@@ -25,7 +25,7 @@ namespace POP.Model
             set
             {
                 id = value;
-                OnPropertyCgabged("Id");
+                OnPropertyChanged("Id");
             }
         }
 
@@ -35,7 +35,7 @@ namespace POP.Model
             set
             {
                 naziv = value;
-                OnPropertyCgabged("Naziv");
+                OnPropertyChanged("Naziv");
             }
         }
 
@@ -45,7 +45,7 @@ namespace POP.Model
             set
             {
                 jedinicnaCijena = value;
-                OnPropertyCgabged("JedinicnaCijena");
+                OnPropertyChanged("JedinicnaCijena");
             }
         }
 
@@ -55,7 +55,7 @@ namespace POP.Model
             set
             {
                 sifra = value;
-                OnPropertyCgabged("Sifra");
+                OnPropertyChanged("Sifra");
             }
         }
 
@@ -65,7 +65,7 @@ namespace POP.Model
             set
             {
                 kolicinaUMagacinu = value;
-                OnPropertyCgabged("KolicinaUMagacinu");
+                OnPropertyChanged("KolicinaUMagacinu");
             }
         }
 
@@ -76,7 +76,7 @@ namespace POP.Model
             set
             {
                 obrisan = value;
-                OnPropertyCgabged("Obrisan");
+                OnPropertyChanged("Obrisan");
             }
         }
 
@@ -95,7 +95,7 @@ namespace POP.Model
             {
                 tipNamjestaja = value;
                 TipNamjestajaID = tipNamjestaja.Id;
-                OnPropertyCgabged("TipNamjestaja");
+                OnPropertyChanged("TipNamjestaja");
             }
         }
 
@@ -106,7 +106,7 @@ namespace POP.Model
             set
             {
                 tipNamjestajaID = value;
-                OnPropertyCgabged("TipNamjestajaID");
+                OnPropertyChanged("TipNamjestajaID");
             }
         }
 
@@ -118,7 +118,7 @@ namespace POP.Model
             return $"{Naziv}";
         }
 
-        protected void OnPropertyCgabged(string propertyName)
+        protected void OnPropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)
             {

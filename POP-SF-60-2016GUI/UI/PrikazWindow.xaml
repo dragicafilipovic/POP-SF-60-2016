@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="PrikazWindow" Height="382" Width="553">
     <Grid>
-        <DataGrid Name="dgNamjestaj" HorizontalAlignment="Left" Height="120" Margin="23,26,0,0" VerticalAlignment="Top" Width="512"/>
-        <DataGrid Name="dgDodatnaU" HorizontalAlignment="Left" Height="123" Margin="26,172,0,0" VerticalAlignment="Top" Width="509"/>
+        <DataGrid Name="dgNamjestaj" HorizontalAlignment="Left" Height="120" Margin="23,26,0,0" VerticalAlignment="Top" Width="512" AutoGeneratingColumn="dgNamjestaj_AutoGeneratingColumn" />
+        <DataGrid Name="dgDodatnaU" HorizontalAlignment="Left" Height="123" Margin="26,172,0,0" VerticalAlignment="Top" Width="509" AutoGeneratingColumn="dgDodatnaU_AutoGeneratingColumn"/>
         <Button Content="Zatvori" HorizontalAlignment="Left" Height="27" Margin="434,314,0,0" VerticalAlignment="Top" Width="85" IsCancel="True"/>
 
     </Grid>

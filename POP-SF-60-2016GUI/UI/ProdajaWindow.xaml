@@ -11,7 +11,7 @@
             <RowDefinition Height="430*"/>
             <RowDefinition Height="109*"/>
         </Grid.RowDefinitions>
-        <DataGrid Grid.Row="0" FontSize="20" Name="dgProdaja" Margin="10,50,10,0"  />
+        <DataGrid Grid.Row="0" FontSize="20" Name="dgProdaja" Margin="10,50,10,0" AutoGeneratingColumn="dgProdaja_AutoGeneratingColumn"  />
         <Button Grid.Row="1" Content="Dodaj" Margin="26,16,493,10" Click="Dodaj_Click" />
         <Button Grid.Row="1" Content="Izmjeni" Margin="124,16,396,10" Click="Izmjena_Click"/>
         <Button Grid.Row="1" Content="Prikazi" Margin="224,16,295,10" Click="Prikaz_Click"/>

@@ -2,6 +2,7 @@
 using POP.Util;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,11 +22,20 @@ namespace POP_SF_60_2016GUI.UI
     /// </summary>
     public partial class KorisnikWindow : Window
     {
+        ICollectionView view;
         public KorisnikWindow()
         {
             InitializeComponent();
 
+            view = CollectionViewSource.GetDefaultView(Projekat.Instance.Korisnik);
+            view.Filter = KorisnikFilter;
+
             dgKorisnik.ItemsSource = Projekat.Instance.Korisnik;
+        }
+
+        private bool KorisnikFilter(object obj)
+        {
+            return ((Korisnik)obj).Obrisan == false;
         }
 
         private void Dodaj_Click(object sender, RoutedEventArgs e)
@@ -48,6 +58,7 @@ namespace POP_SF_60_2016GUI.UI
             Korisnik k = dgKorisnik.SelectedItem as Korisnik;
             k.Obrisan = true;
             GenericSerializer.Serialize("korisnik.xml", lista);
+            view.Refresh();
         }
 
         private void Zatvori_Click(object sender, RoutedEventArgs e)

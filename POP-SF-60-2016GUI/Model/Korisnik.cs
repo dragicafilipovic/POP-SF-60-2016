@@ -28,7 +28,7 @@ namespace POP.Model
             set
             {
                 id = value;
-                OnPropertyCgabged("Id");
+                OnPropertyChanged("Id");
             }
         }
         public string Ime
@@ -37,7 +37,7 @@ namespace POP.Model
             set
             {
                 ime = value;
-                OnPropertyCgabged("Ime");
+                OnPropertyChanged("Ime");
             }
         }
         public string Prezime
@@ -46,7 +46,7 @@ namespace POP.Model
             set
             {
                 prezime = value;
-                OnPropertyCgabged("Prezime");
+                OnPropertyChanged("Prezime");
             }
         }
         public string KorisnickoIme
@@ -55,7 +55,7 @@ namespace POP.Model
             set
             {
                 korisnickoIme = value;
-                OnPropertyCgabged("KorisnickoIme");
+                OnPropertyChanged("KorisnickoIme");
             }
         }
         public string Lozinka
@@ -64,7 +64,7 @@ namespace POP.Model
             set
             {
                 lozinka = value;
-                OnPropertyCgabged("Lozinka");
+                OnPropertyChanged("Lozinka");
             }
         }
         public TipKorisnika TipKorisnika
@@ -73,7 +73,7 @@ namespace POP.Model
             set
             {
                 tipKorisnika = value;
-                OnPropertyCgabged("TipKorisnika");
+                OnPropertyChanged("TipKorisnika");
             }
         }
         public bool Obrisan
@@ -82,7 +82,7 @@ namespace POP.Model
             set
             {
                 obrisan = value;
-                OnPropertyCgabged("Obrisan");
+                OnPropertyChanged("Obrisan");
             }
         }
 
@@ -101,7 +101,7 @@ namespace POP.Model
                 Obrisan = obrisan
             };
         }
-        protected void OnPropertyCgabged(string propertyName)
+        protected void OnPropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)
             {

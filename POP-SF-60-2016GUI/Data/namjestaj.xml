@@ -6,7 +6,7 @@
     <JedinicnaCijena>6000</JedinicnaCijena>
     <Sifra>1</Sifra>
     <KolicinaUMagacinu>30</KolicinaUMagacinu>
-    <Obrisan>true</Obrisan>
+    <Obrisan>false</Obrisan>
     <TipNamjestajaID>2</TipNamjestajaID>
   </Namjestaj>
   <Namjestaj>
@@ -15,7 +15,7 @@
     <JedinicnaCijena>10000</JedinicnaCijena>
     <Sifra>2</Sifra>
     <KolicinaUMagacinu>5</KolicinaUMagacinu>
-    <Obrisan>true</Obrisan>
+    <Obrisan>false</Obrisan>
     <TipNamjestajaID>12</TipNamjestajaID>
   </Namjestaj>
 </ArrayOfNamjestaj>

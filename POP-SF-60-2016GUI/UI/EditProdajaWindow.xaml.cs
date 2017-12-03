@@ -43,18 +43,22 @@ namespace POP_SF_60_2016GUI.UI
             dpDatum.DataContext = prodaja;
             tbKupac.DataContext = prodaja;
             tbRacun.DataContext = prodaja;
+            tbKolicina.DataContext = prodaja;
             tbIznos.DataContext = prodaja;
         }
 
         private void Sacuvaj_Click(object sender, RoutedEventArgs e)
         {
             var lista = Projekat.Instance.ProdajaNamjestaja;
+           
             if (operacija == Operacija.DODAVANJE)
             {
+                
                 prodaja.Id = lista.Count + 1;
                 lista.Add(prodaja);
+            
             }
-            GenericSerializer.Serialize("prodajaNamjestaj.xml", lista);
+            GenericSerializer.Serialize("prodajaNamjestaja.xml", lista);
             Close();
         }
     }

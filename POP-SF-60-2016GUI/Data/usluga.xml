@@ -12,4 +12,16 @@
     <CijenaUsluge>5000</CijenaUsluge>
     <Obrisan>false</Obrisan>
   </DodatnaUsluga>
+  <DodatnaUsluga>
+    <Id>3</Id>
+    <NazivUsluge>Usluga1</NazivUsluge>
+    <CijenaUsluge>3600</CijenaUsluge>
+    <Obrisan>true</Obrisan>
+  </DodatnaUsluga>
+  <DodatnaUsluga>
+    <Id>4</Id>
+    <NazivUsluge>uslugaa</NazivUsluge>
+    <CijenaUsluge>10</CijenaUsluge>
+    <Obrisan>true</Obrisan>
+  </DodatnaUsluga>
 </ArrayOfDodatnaUsluga>

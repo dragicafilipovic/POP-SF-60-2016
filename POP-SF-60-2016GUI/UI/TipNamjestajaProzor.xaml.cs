@@ -2,6 +2,7 @@
 using POP.Util;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,12 +22,19 @@ namespace POP_SF_60_2016GUI.UI
     /// </summary>
     public partial class TipNamjestajaProzor : Window
     {
+        ICollectionView view;
         public TipNamjestajaProzor()
         {
-            
+            view = CollectionViewSource.GetDefaultView(Projekat.Instance.TipoviNamjestaja);
+            view.Filter = TipNamjestajaFilter;
             InitializeComponent();
 
             dgTipNamjestaj.ItemsSource = Projekat.Instance.TipoviNamjestaja;
+        }
+
+        private bool TipNamjestajaFilter(object obj)
+        {
+            return ((TipNamjestaja)obj).Obrisan == false;
         }
 
         private void Dodaj_Click(object sender, RoutedEventArgs e)
@@ -49,6 +57,7 @@ namespace POP_SF_60_2016GUI.UI
             TipNamjestaja tn = dgTipNamjestaj.SelectedItem as TipNamjestaja;
             tn.Obrisan = true;
             GenericSerializer.Serialize("tipNamjestaja.xml", lista);
+            view.Refresh();
         }
 
         private void Zatvori_Click(object sender, RoutedEventArgs e)

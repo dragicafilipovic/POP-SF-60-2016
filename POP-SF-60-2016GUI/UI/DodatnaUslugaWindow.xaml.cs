@@ -2,6 +2,7 @@
 using POP.Util;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,11 +22,18 @@ namespace POP_SF_60_2016GUI.UI
     /// </summary>
     public partial class DodatnaUslugaWindow : Window
     {
+        ICollectionView view;
         public DodatnaUslugaWindow()
         {
             InitializeComponent();
+            view = CollectionViewSource.GetDefaultView(Projekat.Instance.DodatnaUsluga);
+            view.Filter = DodatnaUFilter;
 
             dgUsluga.ItemsSource = Projekat.Instance.DodatnaUsluga;
+        }
+        private bool DodatnaUFilter(object obj)
+        {
+            return ((DodatnaUsluga)obj).Obrisan == false;
         }
 
         private void Dodaj_Click(object sender, RoutedEventArgs e)
@@ -47,7 +55,8 @@ namespace POP_SF_60_2016GUI.UI
             var lista = Projekat.Instance.DodatnaUsluga;
             DodatnaUsluga du = dgUsluga.SelectedItem as DodatnaUsluga;
             du.Obrisan = true;
-            GenericSerializer.Serialize("usluga.xml", lista);  
+            GenericSerializer.Serialize("usluga.xml", lista);
+            view.Refresh();
          }
 
         private void Zatvori_Click(object sender, RoutedEventArgs e)

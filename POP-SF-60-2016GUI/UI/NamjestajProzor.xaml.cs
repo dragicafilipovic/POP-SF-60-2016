@@ -26,15 +26,15 @@ namespace POP_SF_60_2016GUI.UI
         public NamjestajProzor()
         {
             view = CollectionViewSource.GetDefaultView(Projekat.Instance.Namjestaj);
-         //   view.Filter = NamjestajFilter;
+            view.Filter = NamjestajFilter;
             InitializeComponent();
             dgNamjestaj.ItemsSource = Projekat.Instance.Namjestaj;
         }
 
-     /*   private bool NamjestajFilter(object obj)
+        private bool NamjestajFilter(object obj)
         {
-            return ((Namjestaj)obj).Obrisan = false;
-        }*/
+            return ((Namjestaj)obj).Obrisan == false;
+        }
 
         private void Dodaj_Click(object sender, RoutedEventArgs e)
         {

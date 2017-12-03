@@ -11,21 +11,13 @@
     <NamjestajProdajaID>
       <int>1</int>
     </NamjestajProdajaID>
-    <Kolicina>1</Kolicina>
     <UkupanIznos>1000</UkupanIznos>
   </ProdajaNamjestaja>
   <ProdajaNamjestaja>
     <Id>2</Id>
-    <Kupac>asd</Kupac>
-    <BrojRacuna>156</BrojRacuna>
-    <DatumProdaje>2017-06-01T00:00:00</DatumProdaje>
-    <DodatnaUslugaID>
-      <int>1</int>
-    </DodatnaUslugaID>
-    <NamjestajProdajaID>
-      <int>2</int>
-    </NamjestajProdajaID>
-    <Kolicina>3</Kolicina>
-    <UkupanIznos>100000</UkupanIznos>
+    <Kupac>aa</Kupac>
+    <BrojRacuna>123</BrojRacuna>
+    <DatumProdaje>2017-12-03T00:00:00+01:00</DatumProdaje>
+    <UkupanIznos>1000</UkupanIznos>
   </ProdajaNamjestaja>
 </ArrayOfProdajaNamjestaja>

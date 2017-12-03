@@ -46,5 +46,15 @@ namespace POP_SF_60_2016GUI.UI
             PrikazWindow pw = new PrikazWindow(pn);
             pw.ShowDialog();
         }
+
+        private void dgProdaja_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            if((string)e.Column.Header == "Id" || (string)e.Column.Header == "NamjestajProdajaID" ||
+                (string)e.Column.Header == "NamjestajProdaja" || (string)e.Column.Header == "DodatnaUslugaID" 
+                || (string)e.Column.Header == "DodatneUsluge")
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }

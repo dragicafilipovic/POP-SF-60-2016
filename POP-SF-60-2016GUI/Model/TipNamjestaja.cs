@@ -18,7 +18,7 @@ namespace POP.Model
             set
             {
                 id = value;
-                OnPropertyCgabged("Id");
+                OnPropertyChanged("Id");
             }
         }
         public string Naziv
@@ -27,7 +27,7 @@ namespace POP.Model
             set
             {
                 naziv = value;
-                OnPropertyCgabged("Naziv");
+                OnPropertyChanged("Naziv");
             }
         }
         public bool Obrisan
@@ -36,7 +36,7 @@ namespace POP.Model
             set
             {
                 obrisan = value;
-                OnPropertyCgabged("Obrisan");
+                OnPropertyChanged("Obrisan");
             }
         } 
 
@@ -64,7 +64,7 @@ namespace POP.Model
             };
         }
 
-        protected void OnPropertyCgabged(string propertyName)
+        protected void OnPropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)
             {
