@@ -3,10 +3,19 @@
   <Namjestaj>
     <Id>1</Id>
     <Naziv>Osvjetljenje</Naziv>
-    <JedinicnaCijena>0</JedinicnaCijena>
-    <Obrisan>false</Obrisan>
+    <JedinicnaCijena>6000</JedinicnaCijena>
     <Sifra>1</Sifra>
-    <KolicinaUMagacina>0</KolicinaUMagacina>
-    <TipNamjestajaID>1</TipNamjestajaID>
+    <KolicinaUMagacinu>30</KolicinaUMagacinu>
+    <Obrisan>true</Obrisan>
+    <TipNamjestajaID>2</TipNamjestajaID>
+  </Namjestaj>
+  <Namjestaj>
+    <Id>2</Id>
+    <Naziv>Krevet</Naziv>
+    <JedinicnaCijena>10000</JedinicnaCijena>
+    <Sifra>2</Sifra>
+    <KolicinaUMagacinu>5</KolicinaUMagacinu>
+    <Obrisan>true</Obrisan>
+    <TipNamjestajaID>12</TipNamjestajaID>
   </Namjestaj>
 </ArrayOfNamjestaj>

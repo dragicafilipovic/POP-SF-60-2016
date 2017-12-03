@@ -19,17 +19,42 @@ namespace POP.Model
         private List<int> dodatnaUslugaID;
         private double ukupanIznos;
 
-        public double UkupanIznos
+        public int Id
         {
-            get { return ukupanIznos; }
+            get { return id; }
             set
             {
-                ukupanIznos = value;
-                OnPropertyCgabged("UkupanIznos");
+                id = value;
+                OnPropertyCgabged("Id");
             }
         }
-
-
+        public string Kupac
+        {
+            get { return kupac; }
+            set
+            {
+                kupac = value;
+                OnPropertyCgabged("Kupac");
+            }
+        }
+        public string BrojRacuna
+        {
+            get { return brojRacuna; }
+            set
+            {
+                brojRacuna = value;
+                OnPropertyCgabged("BrojRacuna");
+            }
+        }
+        public DateTime DatumProdaje
+        {
+            get { return datumProdaje; }
+            set
+            {
+                datumProdaje = value;
+                OnPropertyCgabged("DatumProdaje");
+            }
+        }
         public List<int> DodatnaUslugaID
         {
             get { return dodatnaUslugaID; }
@@ -40,41 +65,6 @@ namespace POP.Model
                 OnPropertyCgabged("DodatnaUslugaID");
             }
         }
-
-
-        public string Kupac
-        {
-            get { return kupac; }
-            set
-            {
-                kupac = value;
-                OnPropertyCgabged("Kupac");
-            }
-        }
-
-
-        public string BrojRacuna
-        {
-            get { return brojRacuna; }
-            set
-            {
-                brojRacuna = value;
-                OnPropertyCgabged("BrojRacuna");
-            }
-        }
-
-
-        public DateTime DatumProdaje
-        {
-            get { return datumProdaje; }
-            set
-            {
-                datumProdaje = value;
-                OnPropertyCgabged("DatumProdaje");
-            }
-        }
-
-
         public List<int> NamjestajProdajaID
         {
             get { return namjestajProdajaID; }
@@ -84,18 +74,22 @@ namespace POP.Model
                 OnPropertyCgabged("NamjestajProdajaID");
             }
         }
-
-        public int Id
+        public double UkupanIznos
         {
-            get { return id; }
+            get { return ukupanIznos; }
             set
             {
-                id = value;
-                OnPropertyCgabged("Id");
+                ukupanIznos = value;
+                OnPropertyCgabged("UkupanIznos");
             }
         }
-
+ 
         public const double PDV = 0.02;
+
+        public ProdajaNamjestaja()
+        {
+            datumProdaje = DateTime.Today;
+        }
 
         private ObservableCollection<Namjestaj> namjestajProdaja;
 
@@ -107,20 +101,14 @@ namespace POP.Model
             {
                 if (namjestajProdaja == null)
                 {
-                    foreach (var id in namjestajProdajaID)
-                    {
-                        namjestajProdaja.Add(Namjestaj.GetID(id));
-                    }
+                    namjestajProdaja = NamjestajPoId(namjestajProdajaID);
                 }
                 return namjestajProdaja;
             }
             set
             {
                 namjestajProdaja = value;
-                foreach (var namjestaj in namjestajProdaja)
-                {
-                    namjestajProdajaID.Add(namjestaj.Id);
-                }
+                namjestajProdajaID = Idnamjestaja(namjestajProdaja);
             }
         }
 
@@ -133,20 +121,14 @@ namespace POP.Model
             {
                 if (dodatneUsluge == null)
                 {
-                    foreach (var id in dodatnaUslugaID)
-                    {
-                        dodatneUsluge.Add(DodatnaUsluga.GetID(id));
-                    }
+                    dodatneUsluge = DodatnaUslugaId(dodatnaUslugaID);
                 }
                 return dodatneUsluge;
             }
             set
             {
                 dodatneUsluge = value;
-                foreach (var usluga in dodatneUsluge)
-                {
-                    dodatnaUslugaID.Add(usluga.Id);
-                }
+                dodatnaUslugaID = Idusluga(dodatneUsluge);
             }
         }
 
@@ -175,6 +157,45 @@ namespace POP.Model
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
+        }
+        public static ObservableCollection<Namjestaj> NamjestajPoId(List<int> namjestajId)
+        {
+            ObservableCollection<Namjestaj> lista = new ObservableCollection<Namjestaj>();
+            foreach (var id in namjestajId)
+            {
+                lista.Add(Namjestaj.GetID(id));
+            }
+            return lista;
+        }
+
+        public static List<int> Idnamjestaja(ObservableCollection<Namjestaj> namjestaj)
+        {
+            List<int> lista=new List<int>();
+            foreach (var n in namjestaj)
+            {
+                lista.Add(n.Id);
+            }
+            return lista;
+        }
+
+        public static ObservableCollection<DodatnaUsluga> DodatnaUslugaId(List<int> uslugaId)
+        {
+            ObservableCollection<DodatnaUsluga> lista = new ObservableCollection<DodatnaUsluga>();
+            foreach (var id in uslugaId)
+            {
+                lista.Add(DodatnaUsluga.GetID(id));
+            }
+            return lista;
+        }
+
+        public static List<int> Idusluga(ObservableCollection<DodatnaUsluga> dodatnaUsluga)
+        {
+            List<int> lista = new List<int>();
+            foreach (var du in dodatnaUsluga)
+            {
+                lista.Add(du.Id);
+            }
+            return lista;
         }
     }
 }

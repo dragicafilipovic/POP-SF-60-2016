@@ -21,7 +21,7 @@
         <Button x:Name="button" Grid.ColumnSpan="2" Content="Sacuvaj" HorizontalAlignment="Left" Margin="101,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="80" Height="29" Click="Sacuvaj_Click"/>
         <Button x:Name="button1" Content="Zatvori" Grid.Column="1" HorizontalAlignment="Left" Margin="70,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="80" Height="29" Click="Zatvori_Click"/>
         <TextBox x:Name="tbNaziv" Grid.Column="1" HorizontalAlignment="Left" Height="33" Margin="10,10,0,0" TextWrapping="Wrap" Text="{Binding Path=NazivUsluge}" VerticalAlignment="Top" Width="140"/>
-        <TextBox x:Name="tbCijena" Grid.Column="1" HorizontalAlignment="Left" Height="33" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Path=CijenaUsluge}" VerticalAlignment="Top" Width="140" TextChanged="textBox1_TextChanged"/>
+        <TextBox x:Name="tbCijena" Grid.Column="1" HorizontalAlignment="Left" Height="33" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Path=CijenaUsluge}" VerticalAlignment="Top" Width="140" />
 
     </Grid>
 </Window>

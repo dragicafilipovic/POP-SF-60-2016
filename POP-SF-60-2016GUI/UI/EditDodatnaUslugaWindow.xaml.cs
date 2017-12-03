@@ -35,7 +35,7 @@ namespace POP_SF_60_2016GUI.UI
             this.usluga = usluga;
             this.operacija = operacija;
             tbNaziv.DataContext = usluga;
-            tbNaziv.DataContext = usluga;
+            tbCijena.DataContext = usluga;
         }
 
         private void Sacuvaj_Click(object sender, RoutedEventArgs e)

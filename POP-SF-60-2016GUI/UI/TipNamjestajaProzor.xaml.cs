@@ -55,6 +55,13 @@ namespace POP_SF_60_2016GUI.UI
         {
             this.Close();
         }
-        
+
+        private void dgTipNamjestaj_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            if ((string)e.Column.Header == "Id" || (string)e.Column.Header == "Obrisan")
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }

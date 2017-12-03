@@ -115,7 +115,7 @@ namespace POP.Model
 
         public override string ToString()
         {
-            return $"Naziv{Naziv}, Cena{JedinicnaCijena}, tipNamestaja {TipNamjestaja.GetID(tipNamjestajaID)}";
+            return $"{Naziv}";
         }
 
         protected void OnPropertyCgabged(string propertyName)

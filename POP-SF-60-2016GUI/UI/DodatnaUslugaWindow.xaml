@@ -11,10 +11,10 @@
             <RowDefinition Height="430*"/>
             <RowDefinition Height="109*"/>
         </Grid.RowDefinitions>
-        <DataGrid Grid.Row="0" FontSize="20" Name="dgUsluga" Margin="10,50,10,0"  />
+        <DataGrid Grid.Row="0" FontSize="20" Name="dgUsluga" Margin="10,50,10,0" AutoGeneratingColumn="dgUsluga_AutoGeneratingColumn" />
         <Button Grid.Row="1" Content="Dodaj" Margin="26,16,493,16" Click="Dodaj_Click"/>
         <Button Grid.Row="1" Content="Izmjeni" Margin="117,16,403,16" Click="Izmjena_Click" />
         <Button Grid.Row="1" Content="Brisanje" Margin="210,16,309,16" Click="Brisanje_Click"/>
-        <Button Grid.Row="1" Content="Zatvori" Width="80" Margin="502,16,10,16" Click="Zatvori_Click" />
+        <Button Grid.Row="1" Content="Zatvori" Width="80" Margin="490,16,22,16" Click="Zatvori_Click" />
     </Grid>
 </Window>

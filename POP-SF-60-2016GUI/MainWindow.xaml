@@ -55,7 +55,7 @@
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
             </Button.Background>
         </Button>
-        <Button Content="Prijava" HorizontalAlignment="Right" Margin="0,10,141,0" Grid.Row="3" VerticalAlignment="Top" Width="96" Height="33" FontSize="20" FontFamily="Gabriola" FontWeight="Bold" Grid.ColumnSpan="2" Click="Prijava_Click">
+        <Button Content="Prijava" HorizontalAlignment="Right" Margin="0,10,141,0" Grid.Row="3" VerticalAlignment="Top" Width="96" Height="33" FontSize="20" FontFamily="Gabriola" FontWeight="Bold" Grid.ColumnSpan="2" Click="Prijava_Click" IsDefault="True">
             <Button.Background>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
             </Button.Background>

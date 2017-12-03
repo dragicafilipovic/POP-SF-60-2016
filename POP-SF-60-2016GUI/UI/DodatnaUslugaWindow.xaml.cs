@@ -24,6 +24,8 @@ namespace POP_SF_60_2016GUI.UI
         public DodatnaUslugaWindow()
         {
             InitializeComponent();
+
+            dgUsluga.ItemsSource = Projekat.Instance.DodatnaUsluga;
         }
 
         private void Dodaj_Click(object sender, RoutedEventArgs e)
@@ -51,6 +53,14 @@ namespace POP_SF_60_2016GUI.UI
         private void Zatvori_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void dgUsluga_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            if((string)e.Column.Header == "Id" || (string)e.Column.Header == "Obrisan")
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

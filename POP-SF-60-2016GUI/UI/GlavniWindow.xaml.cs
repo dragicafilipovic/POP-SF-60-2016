@@ -48,5 +48,17 @@ namespace POP_SF_60_2016GUI.UI
             DodatnaUslugaWindow duw = new DodatnaUslugaWindow();
             duw.ShowDialog();
         }
+
+        private void btnAkcija_Click(object sender, RoutedEventArgs e)
+        {
+            AkcijaWindow aw = new AkcijaWindow();
+            aw.ShowDialog();
+        }
+
+        private void btnProdaja_Click(object sender, RoutedEventArgs e)
+        {
+            ProdajaWindow pw = new ProdajaWindow();
+            pw.ShowDialog();
+        }
     }
 }

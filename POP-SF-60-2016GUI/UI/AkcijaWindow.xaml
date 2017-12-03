@@ -1,0 +1,20 @@
+﻿<Window x:Class="POP_SF_60_2016GUI.UI.AkcijaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POP_SF_60_2016GUI.UI"
+        mc:Ignorable="d"
+        Title="AkcijaWindow" Height="360" Width="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="430*"/>
+            <RowDefinition Height="109*"/>
+        </Grid.RowDefinitions>
+        <DataGrid Grid.Row="0" FontSize="20" Name="dgAkcija" Margin="10,50,10,0" AutoGeneratingColumn="dgAkcija_AutoGeneratingColumn" />
+        <Button Grid.Row="1" Content="Dodaj" Margin="26,16,493,16" Click="Dodaj_Click"/>
+        <Button Grid.Row="1" Content="Izmjeni"  Margin="117,16,403,16" Click="Izmjena_Click"/>
+        <Button Grid.Row="1" Content="Brisanje" Margin="210,16,309,16" Click="Brisanje_Click" />
+        <Button Grid.Row="1" Content="Zatvori" Width="80" Margin="490,16,22,16" IsCancel="True" />
+    </Grid>
+</Window>

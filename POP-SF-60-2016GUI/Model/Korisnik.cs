@@ -22,61 +22,15 @@ namespace POP.Model
         private TipKorisnika tipKorisnika;
         private bool obrisan;
 
-        public bool Obrisan
+        public int Id
         {
-            get { return obrisan; }
+            get { return id; }
             set
             {
-                obrisan = value;
-                OnPropertyCgabged("Obrisan");
+                id = value;
+                OnPropertyCgabged("Id");
             }
         }
-
-
-        public TipKorisnika TipKorisnika
-        {
-            get { return tipKorisnika; }
-            set
-            {
-                tipKorisnika = value;
-                OnPropertyCgabged("TipKorisnika");
-            }
-        }
-
-
-        public string Lozinka
-        {
-            get { return lozinka; }
-            set
-            {
-                lozinka = value;
-                OnPropertyCgabged("Lozinka");
-            }
-        }
-
-
-        public string KorisnickoIme
-        {
-            get { return korisnickoIme; }
-            set
-            {
-                korisnickoIme = value;
-                OnPropertyCgabged("KorisnickoIme");
-            }
-        }
-
-
-        public string Prezime
-        {
-            get { return prezime; }
-            set
-            {
-                prezime = value;
-                OnPropertyCgabged("Prezime");
-            }
-        }
-
-
         public string Ime
         {
             get { return ime; }
@@ -86,15 +40,49 @@ namespace POP.Model
                 OnPropertyCgabged("Ime");
             }
         }
-
-
-        public int Id
+        public string Prezime
         {
-            get { return id; }
+            get { return prezime; }
             set
             {
-                id = value;
-                OnPropertyCgabged("Id");
+                prezime = value;
+                OnPropertyCgabged("Prezime");
+            }
+        }
+        public string KorisnickoIme
+        {
+            get { return korisnickoIme; }
+            set
+            {
+                korisnickoIme = value;
+                OnPropertyCgabged("KorisnickoIme");
+            }
+        }
+        public string Lozinka
+        {
+            get { return lozinka; }
+            set
+            {
+                lozinka = value;
+                OnPropertyCgabged("Lozinka");
+            }
+        }
+        public TipKorisnika TipKorisnika
+        {
+            get { return tipKorisnika; }
+            set
+            {
+                tipKorisnika = value;
+                OnPropertyCgabged("TipKorisnika");
+            }
+        }
+        public bool Obrisan
+        {
+            get { return obrisan; }
+            set
+            {
+                obrisan = value;
+                OnPropertyCgabged("Obrisan");
             }
         }
 

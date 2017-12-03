@@ -73,3 +73,46 @@ C:\Users\sf60-2016\Desktop\New folder (2)\POP-SF-60-2016GUI\obj\Debug\UI\Dodatna
 C:\Users\sf60-2016\Desktop\New folder (2)\POP-SF-60-2016GUI\obj\Debug\UI\EditDodatnaUslugaWindow.g.cs
 C:\Users\sf60-2016\Desktop\New folder (2)\POP-SF-60-2016GUI\obj\Debug\UI\DodatnaUslugaWindow.baml
 C:\Users\sf60-2016\Desktop\New folder (2)\POP-SF-60-2016GUI\obj\Debug\UI\EditDodatnaUslugaWindow.baml
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\POP-SF-60-2016GUI.csprojResolveAssemblyReference.cache
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\MainWindow.g.cs
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\UI\DodatnaUslugaWindow.g.cs
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\UI\EditDodatnaUslugaWindow.g.cs
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\UI\EditKorisnikWindow.g.cs
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\UI\EditTipNamjestajaWindow.g.cs
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\UI\GlavniWindow.g.cs
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\UI\EditNamjestajWindow.g.cs
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\UI\KorisnikWindow.g.cs
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\UI\NamjestajProzor.g.cs
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\UI\TipNamjestajaProzor.g.cs
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\App.g.cs
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\POP-SF-60-2016GUI_MarkupCompile.cache
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\POP-SF-60-2016GUI_MarkupCompile.lref
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\POP-SF-60-2016GUI.exe
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\POP-SF-60-2016GUI.pdb
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\bin\Debug\POP-SF-60-2016GUI.exe.config
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\bin\Debug\POP-SF-60-2016GUI.exe
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\bin\Debug\POP-SF-60-2016GUI.pdb
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\MainWindow.baml
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\UI\DodatnaUslugaWindow.baml
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\UI\EditDodatnaUslugaWindow.baml
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\UI\EditKorisnikWindow.baml
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\UI\EditTipNamjestajaWindow.baml
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\UI\GlavniWindow.baml
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\UI\EditNamjestajWindow.baml
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\UI\KorisnikWindow.baml
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\UI\NamjestajProzor.baml
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\UI\TipNamjestajaProzor.baml
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\POP-SF-60-2016GUI.g.resources
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\POP_SF_60_2016GUI.Properties.Resources.resources
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\POP-SF-60-2016GUI.csproj.GenerateResource.Cache
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\POP-SF-60-2016GUI.csproj.CoreCompileInputs.cache
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\UI\AkcijaWindow.g.cs
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\UI\EditAkcijaWindow.g.cs
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\UI\AkcijaWindow.baml
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\UI\EditAkcijaWindow.baml
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\UI\EditProdajaWindow.g.cs
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\UI\ProdajaWindow.g.cs
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\UI\EditProdajaWindow.baml
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\UI\ProdajaWindow.baml
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\UI\PrikazWindow.g.cs
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\UI\PrikazWindow.baml

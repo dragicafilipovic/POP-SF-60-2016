@@ -5,16 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF_60_2016GUI.UI"
         mc:Ignorable="d"
-        Title="Salon namjestaja" Height="466.049" Width="242.5">
+        Title="Salon namjestaja" Height="466.049" Width="242.5" ResizeMode="NoResize">
     <Grid Margin="0,0,0,2" HorizontalAlignment="Left" Width="234">
         <DockPanel HorizontalAlignment="Left" Height="73" LastChildFill="False" VerticalAlignment="Top" Width="234" Background="#FFFFB300"/>
         <DockPanel HorizontalAlignment="Left" Height="360" LastChildFill="False" Margin="0,74,0,0" VerticalAlignment="Top" Width="234" Background="#FF374D35"/>
         <Button Name="btnNamjestaj" Content="Namjestaj" HorizontalAlignment="Left" Margin="0,74,0,0" VerticalAlignment="Top" Width="232" Height="60" Background="#FF374D35" FontSize="18" Click="Namjestaj_Click" />
         <Button Name="btnTip" Content="Tip namjestaja" HorizontalAlignment="Left" Margin="0,134,0,0" VerticalAlignment="Top" Width="232" Height="60" FontSize="18" Background="#FF374D35" Click="btnTip_Click" />
         <Button Name="btnKorisnik" Content="Korisnik" HorizontalAlignment="Left" Margin="0,194,0,0" VerticalAlignment="Top" Width="232" Height="60" FontSize="18" Background="#FF374D35" Click="btnKorisnik_Click" />
-        <Button Name="btnProdaja" Content="Prodaja" HorizontalAlignment="Left" Margin="0,254,0,0" VerticalAlignment="Top" Width="232" Height="60" FontSize="18" Background="#FF374D35" />
+        <Button Name="btnProdaja" Content="Prodaja" HorizontalAlignment="Left" Margin="0,254,0,0" VerticalAlignment="Top" Width="232" Height="60" FontSize="18" Background="#FF374D35" Click="btnProdaja_Click" />
         <Button Name="btnUsluga" Content="Dodatna usluga" HorizontalAlignment="Left" Margin="0,314,0,0" VerticalAlignment="Top" Width="232" Height="60" FontSize="18" Background="#FF374D35" Click="btnUsluga_Click" />
-        <Button Name="btnAkcija" Content="Akcija" HorizontalAlignment="Left" Margin="0,374,0,0" VerticalAlignment="Top" Width="232" Height="60" FontSize="18" Background="#FF374D35" />
+        <Button Name="btnAkcija" Content="Akcija" HorizontalAlignment="Left" Margin="0,374,0,0" VerticalAlignment="Top" Width="232" Height="60" FontSize="18" Background="#FF374D35" Click="btnAkcija_Click" />
         <Label Content="MENI" HorizontalAlignment="Left" Margin="82,21,0,0" VerticalAlignment="Top" Height="32" Width="68" FontFamily="Arial" FontSize="24"/>
 
     </Grid>

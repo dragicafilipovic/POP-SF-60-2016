@@ -14,6 +14,26 @@ namespace POP.Model
         private bool obrisan;
         private double cijenaUsuge;
 
+        public int Id
+        {
+            get { return id; }
+            set
+            {
+                id = value;
+                OnPropertyCgabged("Id");
+            }
+        }
+
+        public string NazivUsluge
+        {
+            get { return nazivUsluge; }
+            set
+            {
+                nazivUsluge = value;
+                OnPropertyCgabged("NazivUsluge");
+            }
+        }
+
         public double CijenaUsluge
         {
             get { return cijenaUsuge; }
@@ -35,27 +55,6 @@ namespace POP.Model
             }
         }
 
-
-        public string NazivUsluge
-        {
-            get { return nazivUsluge; }
-            set
-            {
-                nazivUsluge= value;
-                OnPropertyCgabged("NazivUsluge");
-            }
-        }
-
-
-        public int Id
-        {
-            get { return id; }
-            set
-            {
-                id = value;
-                OnPropertyCgabged("Id");
-            }
-        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

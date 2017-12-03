@@ -36,22 +36,21 @@ namespace POP_SF_60_2016GUI.UI
             this.namjestaj = namjestaj;
             this.operacija = operacija;
 
+            cbTipNamjestaja.ItemsSource = Projekat.Instance.TipoviNamjestaja;
+
             tbNaziv.DataContext = namjestaj;
             tbCijena.DataContext = namjestaj;
             tbKolicina.DataContext = namjestaj;
             tbSifra.DataContext = namjestaj;
-            cbTipNamjestaja.ItemsSource = Projekat.Instance.TipoviNamjestaja;
             cbTipNamjestaja.DataContext = namjestaj;
         }
 
         private void SacuvajIzmjene(object sender, RoutedEventArgs e)
         {
             var listaNamjestaja = Projekat.Instance.Namjestaj;
-            var selekrovani = cbTipNamjestaja.SelectedItem as TipNamjestaja;
             if (operacija == Operacija.DODAVANJE)
             {
                 namjestaj.Id = listaNamjestaja.Count + 1;
-                namjestaj.TipNamjestaja = selekrovani;
                 listaNamjestaja.Add(namjestaj);
             }
             GenericSerializer.Serialize("namjestaj.xml", listaNamjestaja);

@@ -3,7 +3,13 @@
   <DodatnaUsluga>
     <Id>1</Id>
     <NazivUsluge>Prevoz</NazivUsluge>
+    <CijenaUsluge>3000</CijenaUsluge>
     <Obrisan>false</Obrisan>
-    <CijenaUsluge>2000</CijenaUsluge>
+  </DodatnaUsluga>
+  <DodatnaUsluga>
+    <Id>2</Id>
+    <NazivUsluge>Usluga</NazivUsluge>
+    <CijenaUsluge>5000</CijenaUsluge>
+    <Obrisan>false</Obrisan>
   </DodatnaUsluga>
 </ArrayOfDodatnaUsluga>

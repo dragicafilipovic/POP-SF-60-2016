@@ -40,6 +40,11 @@ namespace POP_SF_60_2016GUI.UI
             tbKIme.DataContext = korisnik;
             cbTipKorisnika.ItemsSource = Enum.GetValues(typeof(TipKorisnika)).Cast<TipKorisnika>();
             cbTipKorisnika.DataContext = korisnik;
+
+            if(operacija == Operacija.IZMJENA)
+            {
+                tbKIme.IsReadOnly = true;
+            }
         }
 
         private void Sacuvaj_Click(object sender, RoutedEventArgs e)
