@@ -50,10 +50,9 @@ namespace POP_SF_60_2016GUI.UI
             var listaNamjestaja = Projekat.Instance.Namjestaj;
             if (operacija == Operacija.DODAVANJE)
             {
-                namjestaj.Id = listaNamjestaja.Count + 1;
-                listaNamjestaja.Add(namjestaj);
+                Namjestaj.Create(namjestaj);
             }
-            GenericSerializer.Serialize("namjestaj.xml", listaNamjestaja);
+            Namjestaj.Update(namjestaj);
             Close();
         }
 

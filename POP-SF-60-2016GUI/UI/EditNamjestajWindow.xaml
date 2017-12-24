@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF_60_2016GUI.UI"
         mc:Ignorable="d"
-        Title="NamjestajWindow" Height="350" Width="410">
+        Title="NamjestajWindow" Height="350" Width="410" Background="#FF374D35">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="55*"/>
-            <ColumnDefinition Width="146*"/>
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="37*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="45*"/>
@@ -19,18 +19,18 @@
             <RowDefinition Height="45*"/>
             <RowDefinition Height="80*"/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Grid.Column="0"  Content="Naziv:" FontSize="15" Margin="0,10,0,0"/>
-        <TextBox Grid.Row="0" Grid.Column="1" Width="Auto" Name="tbNaziv" Text="{Binding Path=Naziv}" Margin="60,10,58,0"/>
-        <Button Grid.Row="5" Grid.Column="1" Content="Sacuvaj" Margin="162,30,36,26" RenderTransformOrigin="0.486,-0.266" Click="SacuvajIzmjene" />
-        <Label x:Name="lbTipnamjestaja" FontSize="15" Content="Tip namjestaja:" HorizontalAlignment="Left" Margin="0,10,0,0" Grid.Row="1" VerticalAlignment="Top" Height="37" Width="110"/>
-        <ComboBox x:Name="cbTipNamjestaja" SelectedItem="{Binding Path=TipNamjestaja}" Grid.Column="1" HorizontalAlignment="Left" Margin="60,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="174" Height="37"/>
-        <Button Content="Izadji" Grid.Column="1" HorizontalAlignment="Left" Margin="27,30,0,0" Grid.Row="5" VerticalAlignment="Top" Width="100" Height="28" Click="Izadji_Click"/>
-        <Label Content="Sifra:" FontSize="15" HorizontalAlignment="Left" Height="27" Grid.Row="2" VerticalAlignment="Top" Width="81" Margin="0,10,0,0"/>
-        <Label Content="Cijena:" FontSize="15" HorizontalAlignment="Left" Height="37" Margin="0,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="81"/>
-        <Label Content="Kolicina:" FontSize="15" HorizontalAlignment="Left" Height="27" Margin="0,10,0,0" Grid.Row="4" VerticalAlignment="Top" Width="81"/>
-        <TextBox Grid.Column="1" Name="tbSifra" Text="{Binding Path=Sifra}"  HorizontalAlignment="Left" Height="37" Margin="60,10,0,0" Grid.Row="2" TextWrapping="Wrap"  VerticalAlignment="Top" Width="174"/>
-        <TextBox Grid.Column="1" Name="tbCijena" Text="{Binding Path= JedinicnaCijena}" HorizontalAlignment="Left" Height="37" Margin="60,10,0,0" Grid.Row="3" TextWrapping="Wrap"  VerticalAlignment="Top" Width="174"/>
-        <TextBox Grid.Column="1" Name="tbKolicina" Text="{Binding Path= KolicinaUMagacinu}" HorizontalAlignment="Left" Height="37" Margin="60,10,0,0" Grid.Row="4" TextWrapping="Wrap"  VerticalAlignment="Top" Width="174"/>
+        <Label Grid.Row="0" Grid.Column="0"  Content="Naziv:" FontSize="15" Margin="25,10,45,0" Width="110"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Width="Auto" VerticalAlignment="Top" Name="tbNaziv" Text="{Binding Path=Naziv}" Margin="27,10,21,0" Height="37"/>
+        <Button Grid.Row="5" Grid.Column="1" Content="Sacuvaj" Margin="116,30,21,26" RenderTransformOrigin="0.486,-0.266" Click="SacuvajIzmjene" />
+        <Label x:Name="lbTipnamjestaja" FontSize="15" Content="Tip namjestaja:" HorizontalAlignment="Left" Margin="25,5,0,0" Grid.Row="1" VerticalAlignment="Top" Height="37" Width="110"/>
+        <ComboBox x:Name="cbTipNamjestaja" SelectedItem="{Binding Path=TipNamjestaja}" Grid.Column="1"  Margin="27,10,21,0" Grid.Row="1" VerticalAlignment="Top" Width="174" Height="37"/>
+        <Button Content="Izadji" Grid.Column="1" Margin="10,30,0,0" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Top" Height="28" Click="Izadji_Click" Width="85"/>
+        <Label Content="Sifra:" FontSize="15" Height="37" Grid.Row="2" VerticalAlignment="Top" Margin="25,10,45,0"/>
+        <Label Content="Cijena:" FontSize="15" Height="37" Margin="25,10,45,0" Grid.Row="3" VerticalAlignment="Top"/>
+        <Label Content="Kolicina:" FontSize="15"  Height="37" Margin="25,10,45,0" Grid.Row="4" VerticalAlignment="Top"/>
+        <TextBox Grid.Column="1" Name="tbSifra" Text="{Binding Path=Sifra}"  HorizontalAlignment="Left" Height="37" Margin="27,10,0,0" Grid.Row="2" TextWrapping="Wrap"  VerticalAlignment="Top" Width="174"/>
+        <TextBox Grid.Column="1" Name="tbCijena" Text="{Binding Path= Cijena}" HorizontalAlignment="Left" Height="37" Margin="27,10,0,0" Grid.Row="3" TextWrapping="Wrap"  VerticalAlignment="Top" Width="174"/>
+        <TextBox Grid.Column="1" Name="tbKolicina" Text="{Binding Path= Kolicina}" HorizontalAlignment="Left" Height="37" Margin="27,10,0,0" Grid.Row="4" TextWrapping="Wrap"  VerticalAlignment="Top" Width="174"/>
 
 
 

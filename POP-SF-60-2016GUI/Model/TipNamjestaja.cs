@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -75,5 +79,91 @@ namespace POP.Model
         {
             return $"{Naziv}";
         }
+
+        #region CRUD
+        public static ObservableCollection<TipNamjestaja> GetAll()
+        {
+            var tipoviNamjestaja = new ObservableCollection<TipNamjestaja>();
+
+            using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
+            {
+                SqlCommand cmd = con.CreateCommand();
+                SqlDataAdapter da = new SqlDataAdapter();
+                DataSet ds = new DataSet();
+
+                cmd.CommandText = "SELECT * FROM TipNamjestaja WHERE Obrisan = 0;";
+                da.SelectCommand = cmd;
+                da.Fill(ds, "TipNamjestaja");
+
+                foreach (DataRow row in ds.Tables["TipNamjestaja"].Rows)
+                {
+                    var tn = new TipNamjestaja();
+                    tn.Id = Convert.ToInt32(row["Id"]);
+                    tn.Naziv = row["Naziv"].ToString();
+                    tn.Obrisan = bool.Parse(row["Obrisan"].ToString());
+
+                    tipoviNamjestaja.Add(tn);
+                }
+            }
+            return tipoviNamjestaja;
+        }
+
+        public static TipNamjestaja Create(TipNamjestaja tn)
+        {
+
+            using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
+            {
+                con.Open();
+
+                SqlCommand cmd = con.CreateCommand();
+
+                cmd.CommandText = "INSERT INTO TipNamjestaja (Naziv, Obrisan) VALUES (@Naziv, @Obrisan);";
+                cmd.CommandText += "SELECT SCOPE_IDENTITY();";
+
+                cmd.Parameters.AddWithValue("Naziv", tn.Naziv);
+                cmd.Parameters.AddWithValue("Obrisan", tn.Obrisan);
+
+                tn.Id = int.Parse(cmd.ExecuteScalar().ToString());
+            }
+
+            Projekat.Instance.TipoviNamjestaja.Add(tn);
+            return tn;
+        }
+        public static void Update(TipNamjestaja tn)
+        {
+
+            using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
+            {
+                con.Open();
+
+                SqlCommand cmd = con.CreateCommand();
+
+                cmd.CommandText = "UPDATE TipNamjestaja SET Naziv = @Naziv, Obrisan = @Obrisan WHERE Id = @Id;";
+                cmd.CommandText += "SELECT SCOPE_IDENTITY();";
+
+                cmd.Parameters.AddWithValue("Id", tn.Id);
+                cmd.Parameters.AddWithValue("Naziv", tn.Naziv);
+                cmd.Parameters.AddWithValue("Obrisan", tn.Obrisan);
+
+                cmd.ExecuteNonQuery();
+            }
+
+            foreach (var tipNamjestaja in Projekat.Instance.TipoviNamjestaja)
+            {
+                if (tn.Id == tipNamjestaja.Id)
+                {
+                    tipNamjestaja.Naziv = tn.Naziv;
+                    tipNamjestaja.Obrisan = tn.Obrisan;
+                }
+            }
+        }
+
+        public static void Delete(TipNamjestaja tn)
+        {
+            tn.Obrisan = true;
+            Update(tn);
+        }
+
+        #endregion
     }
 }

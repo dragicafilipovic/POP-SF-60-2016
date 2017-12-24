@@ -2,20 +2,65 @@
 <ArrayOfNamjestaj xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Namjestaj>
     <Id>1</Id>
-    <Naziv>Osvjetljenje</Naziv>
-    <JedinicnaCijena>6000</JedinicnaCijena>
-    <Sifra>1</Sifra>
-    <KolicinaUMagacinu>30</KolicinaUMagacinu>
+    <TipNamjestajaID>1</TipNamjestajaID>
+    <Naziv>Ultra polica</Naziv>
+    <Sifra>UL1PO</Sifra>
+    <Cijena>123</Cijena>
+    <Kolicina>2</Kolicina>
     <Obrisan>false</Obrisan>
-    <TipNamjestajaID>2</TipNamjestajaID>
   </Namjestaj>
   <Namjestaj>
     <Id>2</Id>
-    <Naziv>Krevet</Naziv>
-    <JedinicnaCijena>10000</JedinicnaCijena>
-    <Sifra>2</Sifra>
-    <KolicinaUMagacinu>5</KolicinaUMagacinu>
+    <TipNamjestajaID>2</TipNamjestajaID>
+    <Naziv>Bijeli regal</Naziv>
+    <Sifra>BR1RE</Sifra>
+    <Cijena>125</Cijena>
+    <Kolicina>5</Kolicina>
     <Obrisan>false</Obrisan>
-    <TipNamjestajaID>12</TipNamjestajaID>
+  </Namjestaj>
+  <Namjestaj>
+    <Id>3</Id>
+    <TipNamjestajaID>3</TipNamjestajaID>
+    <Naziv>Crna ugaona</Naziv>
+    <Sifra>CR1UG</Sifra>
+    <Cijena>500</Cijena>
+    <Kolicina>10</Kolicina>
+    <Obrisan>false</Obrisan>
+  </Namjestaj>
+  <Namjestaj>
+    <Id>4</Id>
+    <TipNamjestajaID>1</TipNamjestajaID>
+    <Naziv>Ultra polica</Naziv>
+    <Sifra>UL1PO</Sifra>
+    <Cijena>123</Cijena>
+    <Kolicina>2</Kolicina>
+    <Obrisan>false</Obrisan>
+  </Namjestaj>
+  <Namjestaj>
+    <Id>5</Id>
+    <TipNamjestajaID>2</TipNamjestajaID>
+    <Naziv>Bijeli regal</Naziv>
+    <Sifra>BR1RE</Sifra>
+    <Cijena>125</Cijena>
+    <Kolicina>5</Kolicina>
+    <Obrisan>false</Obrisan>
+  </Namjestaj>
+  <Namjestaj>
+    <Id>6</Id>
+    <TipNamjestajaID>3</TipNamjestajaID>
+    <Naziv>Crna ugaona</Naziv>
+    <Sifra>CR1UG</Sifra>
+    <Cijena>500</Cijena>
+    <Kolicina>10</Kolicina>
+    <Obrisan>false</Obrisan>
+  </Namjestaj>
+  <Namjestaj>
+    <Id>1002</Id>
+    <TipNamjestajaID>1002</TipNamjestajaID>
+    <Naziv>a</Naziv>
+    <Sifra>a1</Sifra>
+    <Cijena>0</Cijena>
+    <Kolicina>0</Kolicina>
+    <Obrisan>true</Obrisan>
   </Namjestaj>
 </ArrayOfNamjestaj>

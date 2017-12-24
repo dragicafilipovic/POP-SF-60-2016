@@ -43,10 +43,8 @@ namespace POP_SF_60_2016GUI.UI
             var listaTipovaNamjestaja = Projekat.Instance.TipoviNamjestaja;
             if (operacija == Operacija.DODAVANJE)
             {
-                tipNamjestaja.Id = listaTipovaNamjestaja.Count + 1;
-                listaTipovaNamjestaja.Add(tipNamjestaja);
+                TipNamjestaja.Create(tipNamjestaja); 
             }
-            GenericSerializer.Serialize("tipNamjestaja.xml", listaTipovaNamjestaja);
             Close();
         }
 

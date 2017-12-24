@@ -52,10 +52,8 @@ namespace POP_SF_60_2016GUI.UI
             var lista = Projekat.Instance.Korisnik;
             if(operacija == Operacija.DODAVANJE)
             {
-                korisnik.Id = lista.Count + 1;
-                lista.Add(korisnik);
+                Korisnik.Create(korisnik);
             }
-            GenericSerializer.Serialize("korisnik.xml", lista);
             Close();
         }
 

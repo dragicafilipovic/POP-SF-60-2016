@@ -48,6 +48,7 @@ namespace POP_SF_60_2016GUI.UI
             Namjestaj n = dgNamjestaj.SelectedItem as Namjestaj;
             NamjestajWindow enw = new NamjestajWindow(n, NamjestajWindow.Operacija.IZMJENA);
             enw.ShowDialog();
+            view.Refresh();
         }
 
         private void Brisanje_Click(object sender, RoutedEventArgs e)

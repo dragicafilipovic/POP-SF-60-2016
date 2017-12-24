@@ -43,10 +43,8 @@ namespace POP_SF_60_2016GUI.UI
             var lista = Projekat.Instance.DodatnaUsluga;
             if (operacija == Operacija.DODAVANJE)
             {
-                usluga.Id = lista.Count + 1;
-                lista.Add(usluga);
+                DodatnaUsluga.Create(usluga);
             }
-            GenericSerializer.Serialize("usluga.xml", lista);
             Close();
         }
 

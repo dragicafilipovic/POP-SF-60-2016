@@ -5,16 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF_60_2016GUI.UI"
         mc:Ignorable="d"
-        Title="ProdajaWindow" Height="300" Width="600" ResizeMode="NoResize">
+        Title="ProdajaWindow" Height="500" Width="900" ResizeMode="NoResize" Background="#FF374D35">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="430*"/>
             <RowDefinition Height="109*"/>
         </Grid.RowDefinitions>
-        <DataGrid Grid.Row="0" FontSize="20" Name="dgProdaja" Margin="10,50,10,0" AutoGeneratingColumn="dgProdaja_AutoGeneratingColumn"  />
-        <Button Grid.Row="1" Content="Dodaj" Margin="26,16,493,10" Click="Dodaj_Click" />
-        <Button Grid.Row="1" Content="Izmjeni" Margin="124,16,396,10" Click="Izmjena_Click"/>
-        <Button Grid.Row="1" Content="Prikazi" Margin="224,16,295,10" Click="Prikaz_Click"/>
-        <Button Grid.Row="1" Content="Zatvori" Width="80" Margin="491,16,23,10" IsCancel="True" />
+        <DataGrid Grid.Row="0" FontSize="20" Name="dgProdaja" Margin="10,50,10,0" CanUserAddRows="False" ColumnWidth="*" AutoGeneratingColumn="dgProdaja_AutoGeneratingColumn"  />
+        <Button Grid.Row="1" Content="Prodaja" Margin="10,33,789,26" Click="Dodaj_Click" />
+        <Button Grid.Row="1" Content="Izmjena" Margin="151,33,648,26" Click="Izmjena_Click"/>
+        <Button Grid.Row="1" Content="Prikaz" Margin="302,33,497,26" Click="Prikaz_Click"/>
+        <Button Content="Zatvori" Margin="775,33,24,26" IsCancel="True" Grid.Row="1" />
     </Grid>
 </Window>

@@ -116,3 +116,4 @@ C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\UI\EditProdajaWind
 C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\UI\ProdajaWindow.baml
 C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\UI\PrikazWindow.g.cs
 C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\UI\PrikazWindow.baml
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\POP-SF-60-2016GUI_Content.g.cs

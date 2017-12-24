@@ -3,25 +3,13 @@
   <DodatnaUsluga>
     <Id>1</Id>
     <NazivUsluge>Prevoz</NazivUsluge>
-    <CijenaUsluge>3000</CijenaUsluge>
+    <CijenaUsluge>2500</CijenaUsluge>
     <Obrisan>false</Obrisan>
   </DodatnaUsluga>
   <DodatnaUsluga>
     <Id>2</Id>
-    <NazivUsluge>Usluga</NazivUsluge>
-    <CijenaUsluge>5000</CijenaUsluge>
-    <Obrisan>false</Obrisan>
-  </DodatnaUsluga>
-  <DodatnaUsluga>
-    <Id>3</Id>
-    <NazivUsluge>Usluga1</NazivUsluge>
-    <CijenaUsluge>3600</CijenaUsluge>
-    <Obrisan>true</Obrisan>
-  </DodatnaUsluga>
-  <DodatnaUsluga>
-    <Id>4</Id>
-    <NazivUsluge>uslugaa</NazivUsluge>
-    <CijenaUsluge>10</CijenaUsluge>
+    <NazivUsluge>a</NazivUsluge>
+    <CijenaUsluge>0</CijenaUsluge>
     <Obrisan>true</Obrisan>
   </DodatnaUsluga>
 </ArrayOfDodatnaUsluga>

@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF_60_2016GUI.UI"
         mc:Ignorable="d"
-        Title="EditProdajaWindow" Height="420" Width="350">
-    <Grid>
+        Title="EditProdajaWindow" Height="420" Width="350" Background="#FF374D35">
+    <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="28*"/>
             <ColumnDefinition Width="29*"/>
