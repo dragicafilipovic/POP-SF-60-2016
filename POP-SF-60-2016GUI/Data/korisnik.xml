@@ -11,11 +11,20 @@
   </Korisnik>
   <Korisnik>
     <Id>2</Id>
-    <Ime>aa</Ime>
+    <Ime>a</Ime>
     <Prezime>aa</Prezime>
     <KorisnickoIme>a</KorisnickoIme>
     <Lozinka>a</Lozinka>
     <TipKorisnika>Prodavac</TipKorisnika>
     <Obrisan>true</Obrisan>
+  </Korisnik>
+  <Korisnik>
+    <Id>3</Id>
+    <Ime>a</Ime>
+    <Prezime>a</Prezime>
+    <KorisnickoIme>a</KorisnickoIme>
+    <Lozinka>a</Lozinka>
+    <TipKorisnika>Prodavac</TipKorisnika>
+    <Obrisan>false</Obrisan>
   </Korisnik>
 </ArrayOfKorisnik>
