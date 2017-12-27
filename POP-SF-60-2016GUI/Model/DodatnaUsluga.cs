@@ -160,7 +160,7 @@ namespace POP.Model
 
                 SqlCommand cmd = con.CreateCommand();
 
-                cmd.CommandText = "UPDATE DodatnaUsluga SET NazivUsluge = @NazivUsluge,  CijenaUsluge = @CijenaUsluge, Obrisan = @Obrisan, WHERE Id = @Id; ";
+                cmd.CommandText = "UPDATE DodatnaUsluga SET NazivUsluge = @NazivUsluge,  CijenaUsluge = @CijenaUsluge, Obrisan = @Obrisan WHERE Id = @Id; ";
                 cmd.CommandText += "SELECT SCOPE_IDENTITY();";
 
                 cmd.Parameters.AddWithValue("Id", du.Id);

@@ -56,6 +56,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Stavke.cs" />
     <Compile Include="UI\AkcijaWindow.xaml.cs">
       <DependentUpon>AkcijaWindow.xaml</DependentUpon>
     </Compile>
@@ -88,6 +89,9 @@
     </Compile>
     <Compile Include="UI\NamjestajProzor.xaml.cs">
       <DependentUpon>NamjestajProzor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PrikazAkcijaWindow.xaml.cs">
+      <DependentUpon>PrikazAkcijaWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\PrikazWindow.xaml.cs">
       <DependentUpon>PrikazWindow.xaml</DependentUpon>
@@ -152,6 +156,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\NamjestajProzor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\PrikazAkcijaWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -59,8 +59,8 @@
     <TipNamjestajaID>1002</TipNamjestajaID>
     <Naziv>a</Naziv>
     <Sifra>a1</Sifra>
-    <Cijena>0</Cijena>
-    <Kolicina>0</Kolicina>
+    <Cijena>30</Cijena>
+    <Kolicina>3</Kolicina>
     <Obrisan>true</Obrisan>
   </Namjestaj>
 </ArrayOfNamjestaj>

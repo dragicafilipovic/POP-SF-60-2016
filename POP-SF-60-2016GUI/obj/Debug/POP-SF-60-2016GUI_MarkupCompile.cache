@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\App.xaml
-15-1281163231
+16-1704847250
 2-136411049
-28-1850613233
+30-74900835
 14598183689
-MainWindow.xaml;UI\AkcijaWindow.xaml;UI\DodatnaUslugaWindow.xaml;UI\EditAkcijaWindow.xaml;UI\EditDodatnaUslugaWindow.xaml;UI\EditKorisnikWindow.xaml;UI\EditProdajaWindow.xaml;UI\EditTipNamjestajaWindow.xaml;UI\GlavniWindow.xaml;UI\EditNamjestajWindow.xaml;UI\KorisnikWindow.xaml;UI\NamjestajProzor.xaml;UI\PrikazWindow.xaml;UI\ProdajaWindow.xaml;UI\TipNamjestajaProzor.xaml;
+MainWindow.xaml;UI\AkcijaWindow.xaml;UI\DodatnaUslugaWindow.xaml;UI\EditAkcijaWindow.xaml;UI\EditDodatnaUslugaWindow.xaml;UI\EditKorisnikWindow.xaml;UI\EditProdajaWindow.xaml;UI\EditTipNamjestajaWindow.xaml;UI\GlavniWindow.xaml;UI\EditNamjestajWindow.xaml;UI\KorisnikWindow.xaml;UI\NamjestajProzor.xaml;UI\PrikazAkcijaWindow.xaml;UI\PrikazWindow.xaml;UI\ProdajaWindow.xaml;UI\TipNamjestajaProzor.xaml;
 
-True
+False
 

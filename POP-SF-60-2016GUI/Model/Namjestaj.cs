@@ -223,12 +223,13 @@ namespace POP.Model
 
                 SqlCommand cmd = con.CreateCommand();
 
-                cmd.CommandText = "UPDATE Namjestaj SET TipNamjestajaID = @TipNamjestajaID Naziv = @Naziv Cijena = @Cijena Kolicina = @Kolicina Obrisan = @Obrisan WHERE Id = @Id;";
+                cmd.CommandText = "UPDATE Namjestaj SET  Naziv = @Naziv, TipNamjestajaID = @TipNamjestajaID, Sifra = @Sifra, Cijena = @Cijena, Kolicina = @Kolicina, Obrisan = @Obrisan WHERE Id = @Id;";
                 cmd.CommandText += "SELECT SCOPE_IDENTITY();";
 
                 cmd.Parameters.AddWithValue("Id", n.Id);
                 cmd.Parameters.AddWithValue("Naziv", n.Naziv);
                 cmd.Parameters.AddWithValue("TipNamjestajaID", n.tipNamjestajaID);
+                cmd.Parameters.AddWithValue("Sifra", n.Sifra);
                 cmd.Parameters.AddWithValue("Cijena", n.Cijena);
                 cmd.Parameters.AddWithValue("Kolicina", n.Kolicina);
                 cmd.Parameters.AddWithValue("Obrisan", n.Obrisan);
@@ -243,8 +244,8 @@ namespace POP.Model
                     namjestaj.tipNamjestajaID = n.TipNamjestajaID;
                     namjestaj.Naziv = n.Naziv;
                     namjestaj.Cijena = n.Cijena;
+                    namjestaj.Sifra = n.Sifra;
                     namjestaj.Kolicina = n.Kolicina;
-                    namjestaj.TipNamjestaja = n.TipNamjestaja;
                     namjestaj.Obrisan = n.Obrisan;
                 }
             }
@@ -264,7 +265,7 @@ namespace POP.Model
                 SqlDataAdapter da = new SqlDataAdapter();
                 DataSet ds = new DataSet();
 
-                cmd.CommandText = "SELECT * FROM Namjestaj WHERE Obrisan = 0 AND Id=@Dd;";
+                cmd.CommandText = "SELECT * FROM Namjestaj WHERE Obrisan = 0 AND Id=@Id;";
                 cmd.Parameters.AddWithValue("@Id", id);
                 da.SelectCommand = cmd;
                 da.Fill(ds, "Namjestaj");

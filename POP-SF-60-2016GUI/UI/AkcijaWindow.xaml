@@ -13,8 +13,9 @@
         </Grid.RowDefinitions>
         <DataGrid Grid.Row="0" FontSize="20" Name="dgAkcija" Margin="10,74,10,0" ColumnWidth="*" CanUserAddRows="False" AutoGeneratingColumn="dgAkcija_AutoGeneratingColumn" />
         <Button Content="Dodaj" Margin="10,33,781,26" Click="Dodaj_Click" Grid.Row="1"/>
-        <Button Grid.Row="1" Content="Izmjeni"  Margin="157,33,635,26" Click="Izmjena_Click"/>
-        <Button Grid.Row="1" Content="Obrisi" Margin="288,33,504,26" Click="Brisanje_Click" />
+        <Button Grid.Row="1" Content="Izmjeni"  Margin="141,33,651,26" Click="Izmjena_Click"/>
+        <Button Grid.Row="1" Content="Obrisi" Margin="270,33,522,26" Click="Brisanje_Click" RenderTransformOrigin="0.156,0.634" />
         <Button Grid.Row="1" Content="Zatvori" Margin="749,33,43,26" IsCancel="True" RenderTransformOrigin="1.316,0.468" />
+        <Button Content="Prikaz" Margin="407,33,388,26" Grid.Row="1" Width="97" Height="36" Click="Prikaz_Click"/>
     </Grid>
 </Window>

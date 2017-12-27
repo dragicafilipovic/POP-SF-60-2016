@@ -50,13 +50,14 @@ namespace POP_SF_60_2016GUI.UI
             Korisnik k = dgKorisnik.SelectedItem as Korisnik;
             EditKorisnikWindow ekw = new EditKorisnikWindow(k, EditKorisnikWindow.Operacija.IZMJENA);
             ekw.ShowDialog();
+            view.Refresh();
         }
 
         private void Brisanje_Click(object sender, RoutedEventArgs e)
         {
             var lista = Projekat.Instance.Korisnik;
             Korisnik k = dgKorisnik.SelectedItem as Korisnik;
-            k.Obrisan = true;
+            Korisnik.Delete(k);
             GenericSerializer.Serialize("korisnik.xml", lista);
             view.Refresh();
         }

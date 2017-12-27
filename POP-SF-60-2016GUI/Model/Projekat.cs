@@ -26,7 +26,8 @@ namespace POP.Model
             Namjestaj = Model.Namjestaj.GetAll();
             Korisnik = Model.Korisnik.GetAll();
             DodatnaUsluga = Model.DodatnaUsluga.GetAll();
-            Akcija = GenericSerializer.Deserialize<Akcija>("akcija.xml");
+
+            Akcija = Model.Akcija.GetAll();
             ProdajaNamjestaja = GenericSerializer.Deserialize<ProdajaNamjestaja>("prodajaNamjestaja.xml");
            
         }

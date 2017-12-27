@@ -55,7 +55,7 @@ namespace POP_SF_60_2016GUI.UI
         {
             var lista = Projekat.Instance.TipoviNamjestaja;
             TipNamjestaja tn = dgTipNamjestaj.SelectedItem as TipNamjestaja;
-            tn.Obrisan = true;
+            TipNamjestaja.Delete(tn);
             GenericSerializer.Serialize("tipNamjestaja.xml", lista);
             view.Refresh();
         }

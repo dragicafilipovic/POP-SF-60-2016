@@ -1,13 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfTipNamjestaja xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <TipNamjestaja>
-    <Id>12</Id>
-    <Naziv>Garnitura</Naziv>
+    <Id>1</Id>
+    <Naziv>Polica</Naziv>
     <Obrisan>false</Obrisan>
   </TipNamjestaja>
   <TipNamjestaja>
     <Id>2</Id>
+    <Naziv>Regal</Naziv>
+    <Obrisan>false</Obrisan>
+  </TipNamjestaja>
+  <TipNamjestaja>
+    <Id>3</Id>
+    <Naziv>Ugaona</Naziv>
+    <Obrisan>false</Obrisan>
+  </TipNamjestaja>
+  <TipNamjestaja>
+    <Id>4</Id>
+    <Naziv>Polica</Naziv>
+    <Obrisan>false</Obrisan>
+  </TipNamjestaja>
+  <TipNamjestaja>
+    <Id>5</Id>
+    <Naziv>Regal</Naziv>
+    <Obrisan>false</Obrisan>
+  </TipNamjestaja>
+  <TipNamjestaja>
+    <Id>6</Id>
+    <Naziv>Ugaona</Naziv>
+    <Obrisan>false</Obrisan>
+  </TipNamjestaja>
+  <TipNamjestaja>
+    <Id>1002</Id>
     <Naziv>aa</Naziv>
+    <Obrisan>false</Obrisan>
+  </TipNamjestaja>
+  <TipNamjestaja>
+    <Id>2002</Id>
+    <Naziv>c</Naziv>
     <Obrisan>true</Obrisan>
   </TipNamjestaja>
 </ArrayOfTipNamjestaja>

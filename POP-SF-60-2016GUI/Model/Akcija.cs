@@ -41,9 +41,6 @@ namespace POP.Model
             }
         }
         
-
-
-
         public decimal Popust
         {
             get { return popust; }
@@ -139,24 +136,25 @@ namespace POP.Model
                     a.Obrisan = bool.Parse(row["Obrisan"].ToString());
 
                     DataSet ds2 = new DataSet();
-                    cmd.CommandText = "SELECT NId FROM NaAkciji WHERE AkId=@id;";
-                    cmd.Parameters.AddWithValue("@id", a.Id);
-                    da.SelectCommand = cmd;
-                    da.Fill(ds, "Akcija");
-                    ObservableCollection<Namjestaj> namejestaj = new ObservableCollection<Namjestaj>();
+                    SqlCommand cmd2 = con.CreateCommand();
+                    cmd2.CommandText = "SELECT NId FROM NaAkciji WHERE AkId=@Id;";
+                    cmd2.Parameters.AddWithValue("@Id", a.Id);
+                    da.SelectCommand = cmd2;
+                    da.Fill(ds2, "NaAkciji");
+                    ObservableCollection<Namjestaj> namjestaj = new ObservableCollection<Namjestaj>();
                     foreach (DataRow dr in ds2.Tables["NaAkciji"].Rows)
                     {
                         int id = int.Parse(dr["NId"].ToString());
-                        namejestaj.Add(Namjestaj.GetByid(id));
+                        namjestaj.Add(Namjestaj.GetByid(id));
                     }
-                    a.NamjestajNaAkciji = namejestaj;
+                    a.NamjestajNaAkciji = namjestaj;
                     akcija.Add(a);
                 }
             }
             return akcija;
         }
 
-        public static Akcija Create(Akcija a)
+       public static Akcija Create(Akcija a)
         {
 
             using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
@@ -180,7 +178,7 @@ namespace POP.Model
                     cmd.CommandText = "INSERT INTO NaAkciji(NId,AkId,Obrisan) VALUES(@NId,@AId,@Obrisan)";
                     cmd.Parameters.AddWithValue("@NId", item.Id);
                     cmd.Parameters.AddWithValue("@AId", a.Id);
-                    cmd.Parameters.AddWithValue("@Obrisan", '0');
+                    cmd.Parameters.AddWithValue("@Obrisan", false);
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -208,6 +206,15 @@ namespace POP.Model
                 cmd.Parameters.AddWithValue("Obrisan", a.Obrisan);
 
                 cmd.ExecuteNonQuery();
+
+                foreach (var item in a.namjestajNaAkciji)
+                {
+                    cmd.CommandText = "UPDATE NaAkciji SET NId = @NId, AId = @AId, Obrisan = @Obrisan;";
+                    cmd.CommandText += "SELECT SCOPE_IDENTITY();";
+                    cmd.Parameters.AddWithValue("@NId", item.Id);
+                    cmd.Parameters.AddWithValue("@AId", a.Id);
+                    cmd.Parameters.AddWithValue("@Obrisan", false);
+                }
             }
 
             foreach (var akcija in Projekat.Instance.Akcija)
@@ -218,6 +225,7 @@ namespace POP.Model
                     akcija.ZavrsetakAkcije = a.ZavrsetakAkcije;
                     akcija.Popust = a.Popust;
                     akcija.Obrisan = a.Obrisan;
+                    akcija.NamjestajNaAkciji = a.NamjestajNaAkciji;
                 }
             }
         }

@@ -45,6 +45,7 @@ namespace POP_SF_60_2016GUI.UI
             {
                 TipNamjestaja.Create(tipNamjestaja); 
             }
+            TipNamjestaja.Update(tipNamjestaja);
             Close();
         }
 

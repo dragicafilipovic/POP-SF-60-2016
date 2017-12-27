@@ -45,6 +45,7 @@ namespace POP_SF_60_2016GUI.UI
             {
                 DodatnaUsluga.Create(usluga);
             }
+            DodatnaUsluga.Update(usluga);
             Close();
         }
 

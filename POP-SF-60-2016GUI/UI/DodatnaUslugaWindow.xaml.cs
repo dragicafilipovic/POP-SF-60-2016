@@ -54,7 +54,7 @@ namespace POP_SF_60_2016GUI.UI
         {
             var lista = Projekat.Instance.DodatnaUsluga;
             DodatnaUsluga du = dgUsluga.SelectedItem as DodatnaUsluga;
-            du.Obrisan = true;
+            DodatnaUsluga.Delete(du);
             GenericSerializer.Serialize("usluga.xml", lista);
             view.Refresh();
          }

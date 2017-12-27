@@ -55,7 +55,7 @@ namespace POP_SF_60_2016GUI.UI
         {
             var lista = Projekat.Instance.Namjestaj;
             Namjestaj n = dgNamjestaj.SelectedItem as Namjestaj;
-            n.Obrisan = true;
+            Namjestaj.Delete(n);
             GenericSerializer.Serialize("namjestaj.xml", lista);
             view.Refresh();
         }

@@ -2,10 +2,37 @@
 <ArrayOfAkcija xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Akcija>
     <Id>1</Id>
-    <NamjestajNaAkcijiID>1</NamjestajNaAkcijiID>
-    <Popust>1500</Popust>
-    <PocetakAkcije>2017-12-12T00:00:00</PocetakAkcije>
-    <ZavrsetakAkcije>2017-12-20T00:00:00</ZavrsetakAkcije>
+    <NamjestajNaAkciji>
+      <Namjestaj>
+        <Id>1</Id>
+        <TipNamjestajaID>1</TipNamjestajaID>
+        <Naziv>Ultra polica</Naziv>
+        <Sifra>UL1PO</Sifra>
+        <Cijena>123</Cijena>
+        <Kolicina>2</Kolicina>
+        <Obrisan>false</Obrisan>
+      </Namjestaj>
+      <Namjestaj>
+        <Id>1</Id>
+        <TipNamjestajaID>1</TipNamjestajaID>
+        <Naziv>Ultra polica</Naziv>
+        <Sifra>UL1PO</Sifra>
+        <Cijena>123</Cijena>
+        <Kolicina>2</Kolicina>
+        <Obrisan>false</Obrisan>
+      </Namjestaj>
+    </NamjestajNaAkciji>
+    <Popust>20</Popust>
+    <PocetakAkcije>2017-12-11T00:00:00</PocetakAkcije>
+    <ZavrsetakAkcije>2017-01-12T00:00:00</ZavrsetakAkcije>
+    <Obrisan>false</Obrisan>
+  </Akcija>
+  <Akcija>
+    <Id>2</Id>
+    <NamjestajNaAkciji />
+    <Popust>50</Popust>
+    <PocetakAkcije>2017-12-11T00:00:00</PocetakAkcije>
+    <ZavrsetakAkcije>2017-01-12T00:00:00</ZavrsetakAkcije>
     <Obrisan>false</Obrisan>
   </Akcija>
 </ArrayOfAkcija>

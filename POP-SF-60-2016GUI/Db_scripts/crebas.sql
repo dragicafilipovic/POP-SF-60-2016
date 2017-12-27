@@ -52,3 +52,29 @@ CREATE TABLE NaAkciji (
 	FOREIGN KEY (NId) REFERENCES Namjestaj(Id),
 	Obrisan BIT
 );
+
+CREATE TABLE Prodaja(
+	Id INT PRIMARY KEY IDENTITY(1, 1),
+	DatumProdaje DATETIME,
+	BrRacuna INT,
+	Kupac VARCHAR(40),
+	UkupanIznos DECIMAL,
+	Obrisan BIT
+);
+
+CREATE TABLE Stavka(
+	Id INT PRIMARY KEY IDENTITY(1, 1),
+	Kolicina INT,
+	PId INT,
+	NId INT,
+	FOREIGN KEY (PId) REFERENCES Prodaja(Id),
+	FOREIGN KEY (NId) REFERENCES Namjestaj(Id)
+);
+
+CREATE TABLE ProdateUsluge (
+	Id INT PRIMARY KEY IDENTITY(1, 1),
+	PId INT,
+	UslugaId INT,
+	FOREIGN KEY (PId) REFERENCES Prodaja(Id),
+	FOREIGN KEY (UslugaId) REFERENCES DodatnaUsluga(Id)
+);

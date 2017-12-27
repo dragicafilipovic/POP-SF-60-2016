@@ -55,18 +55,25 @@ namespace POP_SF_60_2016GUI.UI
         {
             var lista = Projekat.Instance.Akcija;
             Akcija a= dgAkcija.SelectedItem as Akcija;
-            a.Obrisan = true;
+            Akcija.Delete(a);
             GenericSerializer.Serialize("akcija.xml", lista);
             view.Refresh();
         }
 
         private void dgAkcija_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
-            if((string)e.Column.Header == "Id" || (string)e.Column.Header == "NamjestajNaAkcijiID"
+            if((string)e.Column.Header == "Id" || (string)e.Column.Header == "NamjestajNaAkciji"
                 ||(string)e.Column.Header == "Obrisan")
             {
                 e.Cancel = true;
             }
+        }
+
+        private void Prikaz_Click(object sender, RoutedEventArgs e)
+        {
+            Akcija a = dgAkcija.SelectedItem as Akcija;
+            PrikazAkcijaWindow paw = new PrikazAkcijaWindow(a);
+            paw.ShowDialog();
         }
     }
 }

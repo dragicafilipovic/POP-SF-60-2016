@@ -36,25 +36,32 @@ namespace POP_SF_60_2016GUI.UI
             this.akcija = akcija;
             this.operacija = operacija;
 
-            cbNamjestajAkcija.ItemsSource = Projekat.Instance.Namjestaj;
+            dgNAkcija.ItemsSource = Projekat.Instance.Namjestaj;
 
             tbPopust.DataContext = akcija;
             dpPocetak.DataContext = akcija;
             dpKraj.DataContext = akcija;
-            cbNamjestajAkcija.DataContext = akcija;
+            
         }
 
         private void Sacuvaj_Click(object sender, RoutedEventArgs e)
         {
             var lista = Projekat.Instance.Akcija;
-            var selekrovani = cbNamjestajAkcija.SelectedItem as Namjestaj;
+            var selekrovani = dgNAkcija.SelectedItem as Namjestaj;
             if (operacija == Operacija.DODAVANJE)
             {
-                akcija.Id = lista.Count + 1;
-                lista.Add(akcija);
+                Akcija.Create(akcija);
             }
+            Akcija.Update(akcija);
+                
+
             GenericSerializer.Serialize("akcija.xml", lista);
             Close();
+        }
+
+        private void dgNAkcija_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+
         }
     }
 }
