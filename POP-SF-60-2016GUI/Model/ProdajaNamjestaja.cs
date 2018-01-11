@@ -206,6 +206,8 @@ namespace POP.Model
         #region CRUD
         public static ObservableCollection<ProdajaNamjestaja> GetAll()
         {
+            try
+            {
                 var prodaja = new ObservableCollection<ProdajaNamjestaja>();
 
                 using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
@@ -226,6 +228,7 @@ namespace POP.Model
                         p.BrojRacuna = row["BrojRacuna"].ToString();
                         p.Kupac = row["Kupac"].ToString();
                         p.UkupanIznos = double.Parse(row["UkupanIznos"].ToString());
+                        p.Obrisan = bool.Parse(row["Obrisan"].ToString());
 
                         DataSet ds3 = new DataSet();
                         SqlCommand cmd3 = con.CreateCommand();
@@ -255,7 +258,8 @@ namespace POP.Model
                             {
                                 Id = int.Parse(dr["StId"].ToString()),
                                 Kolicina = int.Parse(dr["Kolicina"].ToString()),
-                                NamjestajID = int.Parse(dr["NId"].ToString())
+                                NamjestajID = int.Parse(dr["NId"].ToString()),
+                                Obrisan = bool.Parse(dr["Obrisan"].ToString())
                             };
                             p.NamjestajPro.Add(s);
                         }
@@ -264,7 +268,12 @@ namespace POP.Model
                     }
                 }
                 return prodaja;
-            
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Greska prilikom ucitavanja prodaje namjestaja!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                return null;
+            }
         }
 
         public static ProdajaNamjestaja Create(ProdajaNamjestaja p)
@@ -328,6 +337,8 @@ namespace POP.Model
 
         public static void Update(ProdajaNamjestaja p)
         {
+            try
+            {
                 using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
                 {
                     con.Open();
@@ -358,10 +369,14 @@ namespace POP.Model
 
                     }
                 }
-
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Greska prilikom izmjene prodaje namjestaja!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
 
         }
-        
+
 
         #endregion
     }

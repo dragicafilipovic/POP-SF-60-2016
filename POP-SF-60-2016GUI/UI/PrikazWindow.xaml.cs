@@ -33,7 +33,7 @@ namespace POP_SF_60_2016GUI.UI
         private void dgNamjestaj_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
             if((string)e.Column.Header == "Id" || (string)e.Column.Header == "Obrisan" ||
-                (string)e.Column.Header == "TipNamjestajaID")
+                (string)e.Column.Header == "TipNamjestajaId" || (string)e.Column.Header == "NamjestajID")
             {
                 e.Cancel = true;
             }

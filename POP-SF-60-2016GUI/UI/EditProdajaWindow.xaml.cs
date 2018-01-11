@@ -51,7 +51,10 @@ namespace POP_SF_60_2016GUI.UI
 
             for (int i = 0; i < prodaja.NamjestajPro.Count; i++)
             {
-                cijenaN += prodaja.NamjestajPro[i].Namjestaj.Cijena * prodaja.NamjestajPro[i].Kolicina;
+                if (prodaja.NamjestajPro[i].Namjestaj.Cijena > 0)
+                    cijenaN += prodaja.NamjestajPro[i].Namjestaj.AkcijskaCijena;
+                else
+                    cijenaN += prodaja.NamjestajPro[i].Namjestaj.Cijena;
             }
 
             for (int i = 0; i < prodaja.DodatnaU.Count; i++)
@@ -61,10 +64,12 @@ namespace POP_SF_60_2016GUI.UI
 
             if (operacija == Operacija.DODAVANJE)
             {
-                
                 prodaja.Id = lista.Count + 1;
+                for (int i = 0; i < prodaja.NamjestajPro.Count; i++)
+                {
+                    prodaja.UkupanIznos = (cijenaN * prodaja.NamjestajPro[i].Kolicina) + cijenaU + ((prodaja.UkupanIznos)*20)/100;
+                }
                 ProdajaNamjestaja.Create(prodaja);
-            
             }
             ProdajaNamjestaja.Update(prodaja);
             Close();

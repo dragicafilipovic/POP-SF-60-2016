@@ -17,7 +17,7 @@
   <Akcija>
     <Id>3</Id>
     <Popust>15</Popust>
-    <PocetakAkcije>2018-01-11T00:00:00+01:00</PocetakAkcije>
+    <PocetakAkcije>2018-01-11T00:00:00</PocetakAkcije>
     <ZavrsetakAkcije>2018-01-28T00:00:00</ZavrsetakAkcije>
     <Obrisan>false</Obrisan>
   </Akcija>

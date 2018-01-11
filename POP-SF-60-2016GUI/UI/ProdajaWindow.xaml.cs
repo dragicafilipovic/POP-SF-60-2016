@@ -35,6 +35,7 @@ namespace POP_SF_60_2016GUI.UI
             view = CollectionViewSource.GetDefaultView(Projekat.Instance.ProdajaNamjestaja);
             view.Filter = ProdajaFilter;
             dgProdaja.ItemsSource = Projekat.Instance.ProdajaNamjestaja;
+
         }
 
         private bool ProdajaFilter(object obj)
@@ -81,5 +82,6 @@ namespace POP_SF_60_2016GUI.UI
                 e.Cancel = true;
             }
         }
+
     }
 }

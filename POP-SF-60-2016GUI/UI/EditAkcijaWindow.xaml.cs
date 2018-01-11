@@ -64,7 +64,7 @@ namespace POP_SF_60_2016GUI.UI
                 Akcija.Create(akcija);
             }
             Akcija.Update(akcija);
-                
+               
 
             GenericSerializer.Serialize("akcija.xml", lista);
             Close();
