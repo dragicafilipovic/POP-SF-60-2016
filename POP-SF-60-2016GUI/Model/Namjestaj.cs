@@ -330,7 +330,7 @@ namespace POP.Model
             }
             catch (Exception)
             {
-                MessageBox.Show("Greska!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Greska n!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
                 return null;
             }
         }

@@ -18,10 +18,13 @@ INSERT INTO DodatnaUsluga(NazivUsluge, CijenaUsluge, Obrisan)
 VALUES ('Prevoz', 2000, 0)
 
 INSERT INTO Akcija(PocetakAkcije, ZavrsetakAkcije, Popust, Obrisan) 
-VALUES ('12.11.2017' , '1.12.2017', 20, 0);
+VALUES ('1.1.2018' , '22.1.2018', 20, 0);
 
 INSERT INTO NaAkciji (AkId, NId, Obrisan) 
 VALUES (1,1,0);
+
+INSERT INTO Salon (Naziv,Adresa,BrTelefona,Email,AdresaSajta,Pib,MaticniBr,BrojZiroRacuna) 
+VALUES('SNamjestaj','Bulevar Oslobodjenja 32,Novi Sad','123-456-789','snamj@gmail.com','www.snamjestaj.com','123456789',123456,'12-245-456-1597');
 
 
 

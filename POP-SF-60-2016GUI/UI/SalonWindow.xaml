@@ -7,18 +7,8 @@
         mc:Ignorable="d"
         Title="SalonWindow" Height="400" Width="738.728" Background="#FF374D35" ResizeMode="NoResize">
     <Grid>
-        <DataGrid HorizontalAlignment="Left" Height="293" Name="dgSalon" Margin="28,10,0,0" VerticalAlignment="Top" Width="683"/>
-        <Button Content="Izmjena" Name="btnIzmjena" HorizontalAlignment="Left" Height="32" Margin="28,324,0,0" VerticalAlignment="Top" Width="95" RenderTransformOrigin="0.5,0.5" Click="btnIzmjena_Click">
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0.76"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
-        <Button Content="Zatvori" HorizontalAlignment="Left" Height="32" Margin="616,329,0,0" VerticalAlignment="Top" Width="95" IsCancel="True"/>
-
+        <DataGrid HorizontalAlignment="Left" Height="293" Name="dgSalon" ColumnWidth="*" CanUserAddRows="False" Margin="28,10,0,0" VerticalAlignment="Top" Width="683" AutoGeneratingColumn="dgSalon_AutoGeneratingColumn"/>
+        <Button Content="Izmjena" Name="btnIzmjena" HorizontalAlignment="Left" Height="32" Margin="28,324,0,0" VerticalAlignment="Top" Width="95" Click="btnIzmjena_Click"/>
+        <Button Content="Zatvori" HorizontalAlignment="Left" Height="32" Margin="616,324,0,0" VerticalAlignment="Top" Width="95" IsCancel="True"/>
     </Grid>
 </Window>

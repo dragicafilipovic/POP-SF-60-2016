@@ -50,7 +50,16 @@ namespace POP_SF_60_2016GUI.UI
 
         private void Izmjena_Click(object sender, RoutedEventArgs e)
         {
-            
+            Akcija Selektovani = dgAkcija.SelectedItem as Akcija;
+            Akcija kopija = (Akcija)Selektovani.Clone();
+            var a = new EditAkcijaWindow(kopija, EditAkcijaWindow.Operacija.IZMJENA);
+            if (a.ShowDialog() == true)
+            {
+                int index = Projekat.Instance.Akcija.IndexOf(Selektovani);
+                Akcija.Update(kopija);
+                view.Refresh();
+            }
+            view.Refresh();
         }
 
         private void Brisanje_Click(object sender, RoutedEventArgs e)

@@ -206,8 +206,6 @@ namespace POP.Model
         #region CRUD
         public static ObservableCollection<ProdajaNamjestaja> GetAll()
         {
-            try
-            {
                 var prodaja = new ObservableCollection<ProdajaNamjestaja>();
 
                 using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
@@ -263,17 +261,10 @@ namespace POP.Model
                         }
 
                         prodaja.Add(p);
-
-
                     }
                 }
                 return prodaja;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Greska prilikom ucitavanja prodaje namjestaja!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
-                return null;
-            }
+            
         }
 
         public static ProdajaNamjestaja Create(ProdajaNamjestaja p)
@@ -296,6 +287,23 @@ namespace POP.Model
 
                     p.Id = int.Parse(cmd.ExecuteScalar().ToString());
 
+                    for (int i = 0; i < p.NamjestajPro.Count; i++)
+                    {
+                        SqlCommand cmd2 = con.CreateCommand();
+                        cmd2.CommandText = "INSERT INTO Stavka(PId, Kolicina, NId, Obrisan) VALUES(@PId, @Kolicina, @NId, @Obrisan2)";
+                        cmd2.Parameters.AddWithValue("@PId", p.Id);
+                        cmd2.Parameters.AddWithValue("@Kolicina", p.NamjestajPro[i].Kolicina);
+                        cmd2.Parameters.AddWithValue("@NId", p.NamjestajPro[i].Namjestaj.Id);
+                        cmd2.Parameters.AddWithValue("@Obrisan2", p.Obrisan);
+                        cmd2.ExecuteNonQuery();
+                    }
+
+                    foreach (var item in p.NamjestajPro)
+                    {
+                        item.Namjestaj.Kolicina = item.Namjestaj.Kolicina - item.Kolicina;
+                        Namjestaj.Update(item.Namjestaj);
+                    }
+
                     for (int i = 0; i < p.DodatnaU.Count; i++)
                     {
                         SqlCommand cmd3 = con.CreateCommand();
@@ -306,23 +314,6 @@ namespace POP.Model
                         cmd3.ExecuteNonQuery();
                     }
 
-                    for (int i = 0; i < p.NamjestajPro.Count; i++)
-                    {
-                        SqlCommand cmd2 = con.CreateCommand();
-                        cmd2.CommandText = "INSERT INTO Stavka(PId, Kolicina, NId, Obrisan) VALUES(@PId, @Kolicina, @NId, @Obrisan2)";
-                        cmd2.Parameters.AddWithValue("@PId", p.Id);
-                        cmd2.Parameters.AddWithValue("@Kolicina", p.NamjestajPro[i].Kolicina);
-                        cmd2.Parameters.AddWithValue("@NId", p.NamjestajPro[i].Id);
-                        cmd2.Parameters.AddWithValue("@Obrisan2", p.Obrisan);
-                        cmd2.ExecuteNonQuery();
-                    }
-
-
-                    foreach (var item in p.NamjestajPro)
-                    {
-                        item.Namjestaj.Kolicina = item.Namjestaj.Kolicina - item.Kolicina;
-                        Namjestaj.Update(item.Namjestaj);
-                    }
                 }
 
                 Projekat.Instance.ProdajaNamjestaja.Add(p);
@@ -337,15 +328,13 @@ namespace POP.Model
 
         public static void Update(ProdajaNamjestaja p)
         {
-            try
-            {
                 using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
                 {
                     con.Open();
 
                     SqlCommand cmd = con.CreateCommand();
 
-                    cmd.CommandText = "UPDATE ProdajaNamestaja SET DatumProdaje=@DatumProdaje, BrojRacuna=@BrojRacuna, Kupac=@Kupac, UkupanIznos=@UkupanIznos, Obrisa = @Obrisan WHERE Id=@Id;";
+                    cmd.CommandText = "UPDATE Prodaja SET DatumProdaje=@DatumProdaje, BrojRacuna=@BrojRacuna, Kupac=@Kupac, UkupanIznos=@UkupanIznos, Obrisan=@Obrisan WHERE Id=@Id;";
                     cmd.CommandText += "SELECT SCOPE_IDENTITY();";
                     cmd.Parameters.AddWithValue("Id", p.Id);
                     cmd.Parameters.AddWithValue("DatumProdaje", p.DatumProdaje);
@@ -357,23 +346,19 @@ namespace POP.Model
 
                     cmd.ExecuteNonQuery();
                 }
-                foreach (var namjestajPro in Projekat.Instance.ProdajaNamjestaja)
+                foreach (var item in Projekat.Instance.ProdajaNamjestaja)
                 {
-                    if (namjestajPro.Id == p.Id)
+                    if (item.Id == p.Id)
                     {
-                        namjestajPro.DatumProdaje = p.DatumProdaje;
-                        namjestajPro.BrojRacuna = p.BrojRacuna;
-                        namjestajPro.Kupac = p.Kupac;
-                        namjestajPro.UkupanIznos = p.UkupanIznos;
-                        namjestajPro.Obrisan = p.Obrisan;
+                        item.DatumProdaje = p.DatumProdaje;
+                        item.BrojRacuna = p.BrojRacuna;
+                        item.Kupac = p.Kupac;
+                        item.UkupanIznos = p.UkupanIznos;
+                        item.Obrisan = p.Obrisan;
 
                     }
                 }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Greska prilikom izmjene prodaje!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
+
 
         }
         

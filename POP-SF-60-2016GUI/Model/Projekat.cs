@@ -29,9 +29,10 @@ namespace POP.Model
             Namjestaj = Model.Namjestaj.GetAll();
             Korisnik = Model.Korisnik.GetAll();
             DodatnaUsluga = Model.DodatnaUsluga.GetAll();
-
+            Salon = Model.Salon.GetAll();
             Akcija = Model.Akcija.GetAll();
-    //        ProdajaNamjestaja = Model.ProdajaNamjestaja.GetAll();
+            ProdajaNamjestaja = Model.ProdajaNamjestaja.GetAll();
+            
            
         }
 

@@ -30,6 +30,7 @@ namespace POP_SF_60_2016GUI.UI
                 btnTip.Visibility = Visibility.Hidden;
                 btnUsluga.Visibility = Visibility.Hidden;
                 btnKorisnik.Visibility = Visibility.Hidden;
+                btnSalon.Visibility = Visibility.Hidden;
             }
         }
 
@@ -67,6 +68,12 @@ namespace POP_SF_60_2016GUI.UI
         {
             ProdajaWindow pw = new ProdajaWindow();
             pw.ShowDialog();
+        }
+
+        private void btnSalon_Click(object sender, RoutedEventArgs e)
+        {
+            SalonWindow sw = new SalonWindow();
+            sw.ShowDialog();
         }
     }
 }

@@ -211,7 +211,7 @@ namespace POP.Model
         }
 
 
-        public static DodatnaUsluga GetById(int id)
+        public static DodatnaUsluga GetById(int Id)
         {
             try
             {
@@ -221,8 +221,8 @@ namespace POP.Model
                     SqlDataAdapter da = new SqlDataAdapter();
                     DataSet ds = new DataSet();
 
-                    cmd.CommandText = "SELECT * FROM DodatneUsluge WHERE Obrisan=0 AND Id=@id;";
-                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.CommandText = "SELECT * FROM DodatnaUsluga WHERE Obrisan=0 AND Id=@Id;";
+                    cmd.Parameters.AddWithValue("@Id", Id);
                     da.SelectCommand = cmd;
                     da.Fill(ds, "DodatneUsluge");
 
@@ -240,7 +240,7 @@ namespace POP.Model
             }
             catch (Exception)
             {
-                MessageBox.Show("Greska!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Greska U!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
                 return null;
             }
         }

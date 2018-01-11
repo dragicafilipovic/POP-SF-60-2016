@@ -17,7 +17,6 @@
             <RowDefinition Height="52*"/>
             <RowDefinition Height="52*"/>
             <RowDefinition Height="170*"/>
-            <RowDefinition Height="52*"/>
             <RowDefinition Height="61*"/>
         </Grid.RowDefinitions>
         <Label Content="Namjestaj na prodaji: " HorizontalAlignment="Left" Height="31" Margin="10,10,0,0" VerticalAlignment="Top" Width="148" Grid.ColumnSpan="2"/>
@@ -31,9 +30,9 @@
         <Button Content="Izadji" HorizontalAlignment="Left" Height="30" Margin="44,21,0,0" Grid.Row="6" VerticalAlignment="Top" Width="90" IsCancel="True" Grid.Column="1"/>
         <Button Content="Sacuvaj" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="182,21,0,0" Grid.Row="6" VerticalAlignment="Top" Width="90" Click="Sacuvaj_Click"/>
         <DataGrid x:Name="dgNamjestaj" HorizontalAlignment="Left" Height="146" CanUserAddRows="False" ColumnWidth="*" Margin="163,10,0,0" VerticalAlignment="Top" Width="390" AutoGeneratingColumn="dgNamjestaj_AutoGeneratingColumn" Grid.ColumnSpan="2"/>
-        <DataGrid x:Name="dgDUsluga" Grid.Column="1" HorizontalAlignment="Left" Height="149"  CanUserAddRows="False" ColumnWidth="*" Margin="12,10,0,0" Grid.Row="4" VerticalAlignment="Top" Width="260" AutoGeneratingColumn="dgDUsluga_AutoGeneratingColumn"/>
+        <DataGrid x:Name="dgDUsluga" HorizontalAlignment="Left" Height="149"  CanUserAddRows="False" ColumnWidth="*" Margin="163,10,0,0" Grid.Row="4" VerticalAlignment="Top" Width="390" AutoGeneratingColumn="dgDUsluga_AutoGeneratingColumn" Grid.ColumnSpan="2"/>
         <Button Content="Preuzmi" Grid.Column="1" HorizontalAlignment="Left" Height="31" Name="btnPreuzmiN" Margin="377,10,0,0" VerticalAlignment="Top" Width="89" Click="btnPreuzmiN_Click"/>
-        <Button Content="Preuzmi" Grid.Column="1" HorizontalAlignment="Left" Height="32" Name="btnPreuzmiDU" Margin="272,10,0,0" Grid.Row="4" VerticalAlignment="Top" Width="89" Click="btnPreuzmiDU_Click"/>
+        <Button Content="Preuzmi" Grid.Column="1" HorizontalAlignment="Left" Height="32" Name="btnPreuzmiDU" Margin="377,10,0,0" Grid.Row="4" VerticalAlignment="Top" Width="89" Click="btnPreuzmiDU_Click"/>
 
     </Grid>
 </Window>

@@ -24,6 +24,8 @@ namespace POP.Model
         private string adresa;
         private string naziv;
 
+
+
         public string Naziv
         {
             get { return naziv; }
@@ -140,11 +142,11 @@ namespace POP.Model
                 Naziv = naziv,
                 Adresa = adresa,
                 BrTelefona = BrTelefona,
-                BrojZiroRacuna = brojZiroRacuna,
+                Email = email,
+                AdresaSajta = adresaSajta,
                 Pib = pib,
                 MaticniBr = maticniBr,
-                Email = email,
-                AdresaSajta = adresaSajta
+                BrojZiroRacuna = brojZiroRacuna,
             };
 
         }
@@ -163,21 +165,21 @@ namespace POP.Model
                     SqlDataAdapter da = new SqlDataAdapter();
                     DataSet ds = new DataSet();
 
-                    cmd.CommandText = "SELECT * FROM Salon;";
+                    cmd.CommandText = "SELECT * FROM Salon ";
                     da.SelectCommand = cmd;
                     da.Fill(ds, "Salon");
 
-                    foreach (DataRow row in ds.Tables["Saalon"].Rows)
+                    foreach (DataRow row in ds.Tables["Salon"].Rows)
                     {
                         var s = new Salon();
-                        s.Id = Convert.ToInt32(row["NId"]);
+                        s.Id = int.Parse(row["Id"].ToString());
                         s.Naziv = row["Naziv"].ToString();
                         s.Adresa = row["Adresa"].ToString();
                         s.BrTelefona = row["BrTelefona"].ToString();
                         s.Email = row["Email"].ToString();
                         s.AdresaSajta = row["AdresaSajta"].ToString();
                         s.Pib = row["Pib"].ToString();
-                        s.MaticniBr = int.Parse(row["MaticniBr"].ToString());
+                        s.MaticniBr = Convert.ToInt32(row["MaticniBr"]);
                         s.BrojZiroRacuna = row["BrojZiroRacuna"].ToString();
 
                         salon.Add(s);

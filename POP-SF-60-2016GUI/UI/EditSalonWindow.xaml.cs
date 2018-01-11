@@ -18,9 +18,12 @@ namespace POP_SF_60_2016GUI.UI
     /// <summary>
     /// Interaction logic for EditSalonWindow.xaml
     /// </summary>
+    /// 
     public partial class EditSalonWindow : Window
     {
+
         private Salon salon;
+
         public EditSalonWindow(Salon salon)
         {
             InitializeComponent();
@@ -40,7 +43,7 @@ namespace POP_SF_60_2016GUI.UI
         private void btnSacuvaj_Click(object sender, RoutedEventArgs e)
         {
             Salon.Update(salon);
-            Close();
+            this.Close();
         }
     }
 }

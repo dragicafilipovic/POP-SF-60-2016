@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF_60_2016GUI.UI"
         mc:Ignorable="d"
-        Title="PreuzmiNamjestaj" Height="500" Width="439" Background= "#FF374D35" ResizeMode="NoResize">
+        Title="PreuzmiNamjestaj" Height="381" Width="439" Background= "#FF374D35" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="291*"/>
@@ -13,8 +13,8 @@
         </Grid.ColumnDefinitions>
         <DataGrid x:Name="dgnamjestaj" HorizontalAlignment="Left" CanUserAddRows="False" ColumnWidth="*" Height="176" Margin="10,29,0,0" VerticalAlignment="Top" Width="410" AutoGeneratingColumn="dgnamjestaj_AutoGeneratingColumn"/>
         <Button x:Name="btnPreuzmi" Content="Preuzmi" HorizontalAlignment="Left" Height="27" Margin="336,311,0,0" VerticalAlignment="Top" Width="84" Click="btnPreuzmi_Click"/>
-        <Label Content="Kolicina: " Name="lbKolicina" HorizontalAlignment="Left" Height="32" Margin="10,235,0,0" VerticalAlignment="Top" Width="102"/>
-        <TextBox HorizontalAlignment="Left" Height="32" Name="tbKolicina" Margin="99,235,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147"/>
+        <Label Content="Kolicina namjestaja: " Name="lbKolicina" HorizontalAlignment="Left" Height="32" Margin="10,235,0,0" VerticalAlignment="Top" Width="116"/>
+        <TextBox HorizontalAlignment="Left" Height="32" Name="tbKolicina" Margin="131,235,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147"/>
 
     </Grid>
 </Window>
