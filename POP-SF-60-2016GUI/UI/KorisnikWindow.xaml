@@ -5,16 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF_60_2016GUI.UI"
         mc:Ignorable="d"
-        Title="KorisnikWindow" Height="500" Width="900" Background="#FF374D35">
+        Title="KorisnikWindow" Height="500" Width="900" Background="#FF374D35" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="430*"/>
             <RowDefinition Height="109*"/>
         </Grid.RowDefinitions>
-        <DataGrid Grid.Row="0" FontSize="20" Name="dgKorisnik" Margin="10,50,10,0" CanUserAddRows="False" ColumnWidth="*" AutoGeneratingColumn="dgKorisnik_AutoGeneratingColumn"  />
+        <DataGrid Grid.Row="0" FontSize="20" Name="dgKorisnik" Margin="10,74,10,0" CanUserAddRows="False" ColumnWidth="*" AutoGeneratingColumn="dgKorisnik_AutoGeneratingColumn"  />
         <Button Grid.Row="1" Content="Dodaj" Margin="10,38,787,21" Click="Dodaj_Click"  />
         <Button Grid.Row="1" Content="Izmjeni" Height="36" Margin="143,38,654,0" Click="Izmjena_Click" RenderTransformOrigin="-0.168,0.415" VerticalAlignment="Top" />
         <Button Grid.Row="1" Content="Brisanje" Margin="274,38,524,21" Click="Brisanje_Click" RenderTransformOrigin="0.462,0.194" />
         <Button Grid.Row="1" Content="Zatvori" Margin="774,38,23,21" Click="Zatvori_Click" />
+        <TextBox HorizontalAlignment="Left" Height="30" Name="tbPretraga" Margin="10,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
+        <Button Content="Pretraga" HorizontalAlignment="Left" Name="btnPretraga" Height="30" Margin="215,21,0,0" VerticalAlignment="Top" Width="80" Click="btnPretraga_Click"/>
+        <Label Content="Sortiranje: " HorizontalAlignment="Left" Height="30" Margin="562,21,0,0" VerticalAlignment="Top" Width="92"/>
+        <ComboBox HorizontalAlignment="Left" Height="30" Name="cbSort" Margin="659,21,0,0" VerticalAlignment="Top" Width="190" SelectionChanged="cbSort_SelectionChanged"/>
     </Grid>
 </Window>

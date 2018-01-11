@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF_60_2016GUI.UI"
         mc:Ignorable="d"
-        Title="AkcijaWindow" Height="500" Width="900" Background="#FF374D35">
+        Title="AkcijaWindow" Height="500" Width="900" Background="#FF374D35" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="430*"/>
@@ -17,5 +17,9 @@
         <Button Grid.Row="1" Content="Obrisi" Margin="270,33,522,26" Click="Brisanje_Click" RenderTransformOrigin="0.156,0.634" />
         <Button Grid.Row="1" Content="Zatvori" Margin="749,33,43,26" IsCancel="True" RenderTransformOrigin="1.316,0.468" />
         <Button Content="Prikaz" Margin="407,33,388,26" Grid.Row="1" Width="97" Height="36" Click="Prikaz_Click"/>
+        <TextBox HorizontalAlignment="Left" Height="30" Name="tbPretraga" Margin="10,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
+        <Button Content="Pretraga" HorizontalAlignment="Left" Name="btnPretraga" Height="30" Margin="215,21,0,0" VerticalAlignment="Top" Width="80" Click="btnPretraga_Click"/>
+        <Label Content="Sortiranje: " HorizontalAlignment="Left" Height="30" Margin="562,21,0,0" VerticalAlignment="Top" Width="92"/>
+        <ComboBox HorizontalAlignment="Left" Name="cbSort" Height="30" Margin="659,21,0,0" VerticalAlignment="Top" Width="190" SelectionChanged="cbSort_SelectionChanged"/>
     </Grid>
 </Window>

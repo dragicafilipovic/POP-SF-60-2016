@@ -1,0 +1,45 @@
+﻿<Window x:Class="POP_SF_60_2016GUI.UI.EditSalonWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POP_SF_60_2016GUI.UI"
+        mc:Ignorable="d"
+        Title="EditSalonWindow" Height="550" Width="426.012" Background="#FF374D35" ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="211*"/>
+            <ColumnDefinition Width="207*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="52*"/>
+            <RowDefinition Height="52*"/>
+            <RowDefinition Height="52*"/>
+            <RowDefinition Height="52*"/>
+            <RowDefinition Height="52*"/>
+            <RowDefinition Height="52*"/>
+            <RowDefinition Height="52*"/>
+            <RowDefinition Height="52*"/>
+            <RowDefinition Height="70*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Naziv:" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" VerticalAlignment="Top" Width="133"/>
+        <TextBox Grid.Column="1" Name ="tbNaziv" Text="{Binding Path=Naziv}" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
+        <Label Content="Adresa:" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="133"/>
+        <Label Content="Broj telefona:" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="133"/>
+        <Label Content="Email:" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="133"/>
+        <Label Content="Adresa sajta:" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" Grid.Row="4" VerticalAlignment="Top" Width="133"/>
+        <Label Content="PIB:" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" Grid.Row="5" VerticalAlignment="Top" Width="133"/>
+        <Label Content="Maticni broj:" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" Grid.Row="6" VerticalAlignment="Top" Width="133"/>
+        <Label Content="Broj ziro racuna:" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" Grid.Row="7" VerticalAlignment="Top" Width="133"/>
+        <TextBox Grid.Column="1" Name="tbAdresa" Text="{Binding Path=Adresa}" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
+        <TextBox Grid.Column="1" Name="tbBrTel" Text="{Binding Path=BrTelefona}" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
+        <TextBox Grid.Column="1" Name="tbEmail" Text="{Binding Path=Email}" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
+        <TextBox Grid.Column="1" Name="tbAdresaS" Text="{Binding Path=AdresaSajta}" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
+        <TextBox Grid.Column="1" Name="tbPib" Text="{Binding Path=Pib}" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
+        <TextBox Grid.Column="1" Name="tbMaticniBr" Text="{Binding Path=MaticniBr}" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" Grid.Row="6" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
+        <TextBox Grid.Column="1" Name="tbRacun" Text="{Binding Path=BrojZiroRacuna}" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" Grid.Row="7" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
+        <Button Grid.ColumnSpan="2" Content="Izadji" HorizontalAlignment="Left" Height="32" Margin="172,23,0,0" Grid.Row="8" VerticalAlignment="Top" Width="95" IsCancel="True"/>
+        <Button Content="Sacuvaj" Name="btnSacuvaj" Grid.Column="1" HorizontalAlignment="Left" Height="32" Margin="88,23,0,0" Grid.Row="8" VerticalAlignment="Top" Width="95" Click="btnSacuvaj_Click"/>
+
+    </Grid>
+</Window>

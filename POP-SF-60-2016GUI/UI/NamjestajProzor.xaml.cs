@@ -23,12 +23,17 @@ namespace POP_SF_60_2016GUI.UI
     public partial class NamjestajProzor : Window
     {
         ICollectionView view;
+
+ //       public Namjestaj Selektovani { get; set; }
         public NamjestajProzor()
         {
             view = CollectionViewSource.GetDefaultView(Projekat.Instance.Namjestaj);
             view.Filter = NamjestajFilter;
             InitializeComponent();
             dgNamjestaj.ItemsSource = Projekat.Instance.Namjestaj;
+            //           Selektovani = dgNamjestaj.SelectedItem as Namjestaj;
+            List<string> ponudjeno = new List<string>() { "Naziv","Sifra", "Cijena", "Kolicina", "Tip Namjestaja"};
+            cbSort.ItemsSource = ponudjeno;
         }
 
         private bool NamjestajFilter(object obj)
@@ -41,13 +46,20 @@ namespace POP_SF_60_2016GUI.UI
             Namjestaj n = new Namjestaj();
             NamjestajWindow enw = new NamjestajWindow(n,NamjestajWindow.Operacija.DODAVANJE);
             enw.ShowDialog();
+            view.Refresh();
         }
 
         private void Izmjena_Click(object sender, RoutedEventArgs e)
         {
-            Namjestaj n = dgNamjestaj.SelectedItem as Namjestaj;
-            NamjestajWindow enw = new NamjestajWindow(n, NamjestajWindow.Operacija.IZMJENA);
-            enw.ShowDialog();
+            Namjestaj Selektovani = dgNamjestaj.SelectedItem as Namjestaj;
+            Namjestaj kopija = (Namjestaj)Selektovani.Clone();
+            var namjestaj = new NamjestajWindow(kopija, NamjestajWindow.Operacija.IZMJENA);
+            if (namjestaj.ShowDialog() == true)
+            {
+                int index = Projekat.Instance.Namjestaj.IndexOf(Selektovani);
+                Namjestaj.Update(kopija);
+                view.Refresh();
+            }
             view.Refresh();
         }
 
@@ -55,8 +67,10 @@ namespace POP_SF_60_2016GUI.UI
         {
             var lista = Projekat.Instance.Namjestaj;
             Namjestaj n = dgNamjestaj.SelectedItem as Namjestaj;
-            Namjestaj.Delete(n);
-            GenericSerializer.Serialize("namjestaj.xml", lista);
+            if (MessageBox.Show($"Da li zelite da izbrisete: {n.Naziv}", "Brisanje", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                Namjestaj.Delete(n);
+            }
             view.Refresh();
         }
 
@@ -72,6 +86,24 @@ namespace POP_SF_60_2016GUI.UI
             {
                 e.Cancel = true;
             }
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var tekst = cbSort.SelectedItem as string;
+            if (tekst == "Tip Namjestaja")
+                tekst = "TipNamjestaja.Naziv";
+            else if (tekst == "Naziv")
+                tekst = "Namjestaj.Naziv";
+            view = CollectionViewSource.GetDefaultView(Namjestaj.Order(tekst));
+            dgNamjestaj.ItemsSource = view;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var tekst = tbPretraga.Text.Trim();
+            view = CollectionViewSource.GetDefaultView(Namjestaj.Search(tekst));
+            dgNamjestaj.ItemsSource = view;
         }
     }
 }

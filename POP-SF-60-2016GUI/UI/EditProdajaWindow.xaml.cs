@@ -35,31 +35,70 @@ namespace POP_SF_60_2016GUI.UI
             this.prodaja = prodaja;
             this.operacija = operacija;
 
-            cbNamjestaj.ItemsSource = Projekat.Instance.Namjestaj;
-            cbUsluga.ItemsSource = Projekat.Instance.DodatnaUsluga;
-
-            cbNamjestaj.DataContext = prodaja;
-            cbUsluga.DataContext = prodaja;
             dpDatum.DataContext = prodaja;
             tbKupac.DataContext = prodaja;
             tbRacun.DataContext = prodaja;
-            tbKolicina.DataContext = prodaja;
-            tbIznos.DataContext = prodaja;
+
+            dgNamjestaj.ItemsSource = prodaja.NamjestajPro;
+            dgDUsluga.ItemsSource = prodaja.DodatnaU;
         }
 
         private void Sacuvaj_Click(object sender, RoutedEventArgs e)
         {
             var lista = Projekat.Instance.ProdajaNamjestaja;
-           
+            double cijenaN = 0;
+            double cijenaU = 0;
+
+            for (int i = 0; i < prodaja.NamjestajPro.Count; i++)
+            {
+                cijenaN += prodaja.NamjestajPro[i].Namjestaj.Cijena * prodaja.NamjestajPro[i].Kolicina;
+            }
+
+            for (int i = 0; i < prodaja.DodatnaU.Count; i++)
+            {
+                cijenaU += prodaja.DodatnaU[i].CijenaUsluge;
+            }
+
             if (operacija == Operacija.DODAVANJE)
             {
                 
                 prodaja.Id = lista.Count + 1;
-                lista.Add(prodaja);
+                ProdajaNamjestaja.Create(prodaja);
             
             }
-            GenericSerializer.Serialize("prodajaNamjestaja.xml", lista);
+            ProdajaNamjestaja.Update(prodaja);
             Close();
+        }
+
+        private void btnPreuzmiN_Click(object sender, RoutedEventArgs e)
+        {
+            PreuzmiNamjestaj pn = new PreuzmiNamjestaj(PreuzmiNamjestaj.TipOperacije.Prodaja);
+            if (pn.ShowDialog() == true)
+            prodaja.NamjestajPro.Add(pn.Stavke);
+        }
+
+        private void btnPreuzmiDU_Click(object sender, RoutedEventArgs e)
+        {
+            PreuzmiDodatnuUslugu pdu = new PreuzmiDodatnuUslugu();
+            if (pdu.ShowDialog() == true)
+            prodaja.DodatnaU.Add(pdu.IzabranaU);
+        }
+
+        private void dgDUsluga_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            if ((string)e.Column.Header == "Id" || (string)e.Column.Header == "Obrisan")
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void dgNamjestaj_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            if ((string)e.Column.Header == "Obrisan" || (string)e.Column.Header == "Id" || (string)e.Column.Header == "Sifra"
+            || (string)e.Column.Header == "TipNamjestajaID")
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

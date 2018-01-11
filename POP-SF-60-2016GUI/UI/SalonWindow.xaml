@@ -1,0 +1,24 @@
+﻿<Window x:Class="POP_SF_60_2016GUI.UI.SalonWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POP_SF_60_2016GUI.UI"
+        mc:Ignorable="d"
+        Title="SalonWindow" Height="400" Width="738.728" Background="#FF374D35" ResizeMode="NoResize">
+    <Grid>
+        <DataGrid HorizontalAlignment="Left" Height="293" Name="dgSalon" Margin="28,10,0,0" VerticalAlignment="Top" Width="683"/>
+        <Button Content="Izmjena" Name="btnIzmjena" HorizontalAlignment="Left" Height="32" Margin="28,324,0,0" VerticalAlignment="Top" Width="95" RenderTransformOrigin="0.5,0.5" Click="btnIzmjena_Click">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.76"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button Content="Zatvori" HorizontalAlignment="Left" Height="32" Margin="616,329,0,0" VerticalAlignment="Top" Width="95" IsCancel="True"/>
+
+    </Grid>
+</Window>

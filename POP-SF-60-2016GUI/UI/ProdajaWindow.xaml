@@ -11,10 +11,14 @@
             <RowDefinition Height="430*"/>
             <RowDefinition Height="109*"/>
         </Grid.RowDefinitions>
-        <DataGrid Grid.Row="0" FontSize="20" Name="dgProdaja" Margin="10,50,10,0" CanUserAddRows="False" ColumnWidth="*" AutoGeneratingColumn="dgProdaja_AutoGeneratingColumn"  />
+        <DataGrid Grid.Row="0" FontSize="20" Name="dgProdaja" Margin="10,76,10,0" CanUserAddRows="False" ColumnWidth="*" AutoGeneratingColumn="dgProdaja_AutoGeneratingColumn"  />
         <Button Grid.Row="1" Content="Prodaja" Margin="10,33,789,26" Click="Dodaj_Click" />
-        <Button Grid.Row="1" Content="Izmjena" Margin="151,33,648,26" Click="Izmjena_Click"/>
+        <Button Grid.Row="1" Content="Izmjena" Name="btnIzmjena" Margin="151,33,648,26" Click="Izmjena_Click"/>
         <Button Grid.Row="1" Content="Prikaz" Margin="302,33,497,26" Click="Prikaz_Click"/>
         <Button Content="Zatvori" Margin="775,33,24,26" IsCancel="True" Grid.Row="1" />
+        <TextBox HorizontalAlignment="Left" Height="30" Margin="10,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
+        <Button Content="Pretraga" HorizontalAlignment="Left" Height="30" Margin="215,21,0,0" VerticalAlignment="Top" Width="80"/>
+        <Label Content="Sortiranje: " HorizontalAlignment="Left" Height="30" Margin="562,21,0,0" VerticalAlignment="Top" Width="92"/>
+        <ComboBox HorizontalAlignment="Left" Height="30" Margin="659,21,0,0" VerticalAlignment="Top" Width="190"/>
     </Grid>
 </Window>

@@ -5,12 +5,13 @@
 );
 GO
 CREATE TABLE Namjestaj (
-	Id INT PRIMARY KEY IDENTITY(1,1),
+	NId INT PRIMARY KEY IDENTITY(1,1),
 	TipNamjestajaID INT, 
 	Naziv VARCHAR(100),
 	Sifra VARCHAR(20),
 	Cijena NUMERIC(9,2),
 	Kolicina INT,
+	AkcijskaCijena NUMERIC(9,2),
 	Obrisan BIT,
 	FOREIGN KEY (TipNamjestajaID) REFERENCES TipNamjestaja(Id)
 );
@@ -39,7 +40,7 @@ CREATE TABLE Akcija (
 	Id INT PRIMARY KEY IDENTITY(1,1),
 	PocetakAkcije DATETIME, 
 	ZavrsetakAkcije DATETIME,
-	Popust INT,
+	Popust NUMERIC(9,2),
 	Obrisan BIT
 );
 
@@ -49,26 +50,27 @@ CREATE TABLE NaAkciji (
 	AkId INT,
 	NId INT,
 	FOREIGN KEY (AkId) REFERENCES Akcija(Id),
-	FOREIGN KEY (NId) REFERENCES Namjestaj(Id),
+	FOREIGN KEY (NId) REFERENCES Namjestaj(NId),
 	Obrisan BIT
 );
 
 CREATE TABLE Prodaja(
 	Id INT PRIMARY KEY IDENTITY(1, 1),
 	DatumProdaje DATETIME,
-	BrRacuna INT,
+	BrojRacuna VARCHAR(50),
 	Kupac VARCHAR(40),
 	UkupanIznos DECIMAL,
 	Obrisan BIT
 );
 
 CREATE TABLE Stavka(
-	Id INT PRIMARY KEY IDENTITY(1, 1),
-	Kolicina INT,
+	StId INT PRIMARY KEY IDENTITY(1, 1),
 	PId INT,
+	Kolicina INT,
 	NId INT,
 	FOREIGN KEY (PId) REFERENCES Prodaja(Id),
-	FOREIGN KEY (NId) REFERENCES Namjestaj(Id)
+	FOREIGN KEY (NId) REFERENCES Namjestaj(NId),
+	Obrisan BIT
 );
 
 CREATE TABLE ProdateUsluge (
@@ -76,5 +78,18 @@ CREATE TABLE ProdateUsluge (
 	PId INT,
 	UslugaId INT,
 	FOREIGN KEY (PId) REFERENCES Prodaja(Id),
-	FOREIGN KEY (UslugaId) REFERENCES DodatnaUsluga(Id)
+	FOREIGN KEY (UslugaId) REFERENCES DodatnaUsluga(Id),
+	Obrisan BIT
+);
+
+CREATE TABLE Salon(
+	Id INT IDENTITY(1,1) PRIMARY KEY,
+	Naziv VARCHAR(50),
+	Adresa VARCHAR(50),
+	BrTelefona VARCHAR(30),
+	Email VARCHAR(30),
+	AdresaSajta VARCHAR(30),
+	Pib VARCHAR(30),
+	MaticniBr INT ,
+	BrojZiroRacuna VARCHAR(30)
 );

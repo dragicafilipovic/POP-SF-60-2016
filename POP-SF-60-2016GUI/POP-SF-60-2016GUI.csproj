@@ -90,6 +90,12 @@
     <Compile Include="UI\NamjestajProzor.xaml.cs">
       <DependentUpon>NamjestajProzor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\PreuzmiDodatnuUslugu.xaml.cs">
+      <DependentUpon>PreuzmiDodatnuUslugu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PreuzmiNamjestaj.xaml.cs">
+      <DependentUpon>PreuzmiNamjestaj.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\PrikazAkcijaWindow.xaml.cs">
       <DependentUpon>PrikazAkcijaWindow.xaml</DependentUpon>
     </Compile>
@@ -156,6 +162,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\NamjestajProzor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\PreuzmiDodatnuUslugu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\PreuzmiNamjestaj.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

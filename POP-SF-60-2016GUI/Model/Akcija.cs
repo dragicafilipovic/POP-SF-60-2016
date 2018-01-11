@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Xml.Serialization;
 
 namespace POP.Model
@@ -16,7 +17,7 @@ namespace POP.Model
     {
         private int id;
         private bool obrisan;
-        private decimal popust;
+        private double popust;
         private DateTime pocetakAkcije;
         private DateTime zavrsetakAkcije;
         private ObservableCollection<Namjestaj> namjestajNaAkciji;
@@ -31,6 +32,7 @@ namespace POP.Model
             }
         }
 
+        [XmlIgnore]
         public ObservableCollection<Namjestaj> NamjestajNaAkciji
         {
             get { return namjestajNaAkciji; }
@@ -41,7 +43,7 @@ namespace POP.Model
             }
         }
         
-        public decimal Popust
+        public double Popust
         {
             get { return popust; }
             set
@@ -64,6 +66,7 @@ namespace POP.Model
         {
             pocetakAkcije = DateTime.Today;
             zavrsetakAkcije = DateTime.Today;
+            NamjestajNaAkciji = new ObservableCollection<Namjestaj>();
         }
 
         public DateTime ZavrsetakAkcije
@@ -114,119 +117,141 @@ namespace POP.Model
         #region CRUD
         public static ObservableCollection<Akcija> GetAll()
         {
-            var akcija = new ObservableCollection<Akcija>();
-
-            using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
+            try
             {
-                SqlCommand cmd = con.CreateCommand();
-                SqlDataAdapter da = new SqlDataAdapter();
-                DataSet ds = new DataSet();
+                var akcija = new ObservableCollection<Akcija>();
 
-                cmd.CommandText = "SELECT * FROM Akcija WHERE Obrisan = 0;";
-                da.SelectCommand = cmd;
-                da.Fill(ds, "Akcija");
-
-                foreach (DataRow row in ds.Tables["Akcija"].Rows)
+                using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
                 {
-                    var a = new Akcija();
-                    a.Id = Convert.ToInt32(row["Id"]);
-                    a.PocetakAkcije = DateTime.Parse(row["PocetakAkcije"].ToString());
-                    a.ZavrsetakAkcije = DateTime.Parse(row["ZavrsetakAkcije"].ToString());
-                    a.Popust = decimal.Parse(row["Popust"].ToString());
-                    a.Obrisan = bool.Parse(row["Obrisan"].ToString());
+                    SqlCommand cmd = con.CreateCommand();
+                    SqlDataAdapter da = new SqlDataAdapter();
+                    DataSet ds = new DataSet();
 
-                    DataSet ds2 = new DataSet();
-                    SqlCommand cmd2 = con.CreateCommand();
-                    cmd2.CommandText = "SELECT NId FROM NaAkciji WHERE AkId=@Id;";
-                    cmd2.Parameters.AddWithValue("@Id", a.Id);
-                    da.SelectCommand = cmd2;
-                    da.Fill(ds2, "NaAkciji");
-                    ObservableCollection<Namjestaj> namjestaj = new ObservableCollection<Namjestaj>();
-                    foreach (DataRow dr in ds2.Tables["NaAkciji"].Rows)
+                    cmd.CommandText = "SELECT * FROM Akcija WHERE Obrisan = 0;";
+                    da.SelectCommand = cmd;
+                    da.Fill(ds, "Akcija");
+
+                    foreach (DataRow row in ds.Tables["Akcija"].Rows)
                     {
-                        int id = int.Parse(dr["NId"].ToString());
-                        namjestaj.Add(Namjestaj.GetByid(id));
+                        var a = new Akcija();
+                        a.Id = Convert.ToInt32(row["Id"]);
+                        a.PocetakAkcije = DateTime.Parse(row["PocetakAkcije"].ToString());
+                        a.ZavrsetakAkcije = DateTime.Parse(row["ZavrsetakAkcije"].ToString());
+                        a.Popust = double.Parse(row["Popust"].ToString());
+                        a.Obrisan = bool.Parse(row["Obrisan"].ToString());
+
+                        DataSet ds2 = new DataSet();
+                        SqlCommand cmd2 = con.CreateCommand();
+                        cmd2.CommandText = "SELECT NId FROM NaAkciji WHERE AkId=@Id;";
+                        cmd2.Parameters.AddWithValue("@Id", a.Id);
+                        da.SelectCommand = cmd2;
+                        da.Fill(ds2, "NaAkciji");
+                        ObservableCollection<Namjestaj> namjestaj = new ObservableCollection<Namjestaj>();
+                        foreach (DataRow dr in ds2.Tables["NaAkciji"].Rows)
+                        {
+                            int id = int.Parse(dr["NId"].ToString());
+                            namjestaj.Add(Namjestaj.GetByid(id));
+                        }
+                        a.NamjestajNaAkciji = namjestaj;
+                        akcija.Add(a);
                     }
-                    a.NamjestajNaAkciji = namjestaj;
-                    akcija.Add(a);
                 }
+                return akcija;
             }
-            return akcija;
+            catch (Exception)
+            {
+                MessageBox.Show("Greska kod ucitavanja akcije!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                return null;
+            }
         }
 
        public static Akcija Create(Akcija a)
         {
-
-            using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
+            try
             {
-                con.Open();
-
-                SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "INSERT INTO Akcija (PocetakAkcije, ZavrsetakAkcije, Popust, Obrisan)  VALUES (@PocetakAkcije, @ZavrsetakAkcije, @Popust, @Obrisan);";
-                cmd.CommandText += "SELECT SCOPE_IDENTITY();";
-                
-
-                cmd.Parameters.AddWithValue("PocetakAkcije", a.PocetakAkcije);
-                cmd.Parameters.AddWithValue("ZavrsetakAkcije", a.ZavrsetakAkcije);
-                cmd.Parameters.AddWithValue("Popust", a.Popust);
-                cmd.Parameters.AddWithValue("Obrisan", a.Obrisan);
-
-                a.Id = int.Parse(cmd.ExecuteScalar().ToString());
-
-                foreach(var item in a.NamjestajNaAkciji)
+                using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
                 {
-                    cmd.CommandText = "INSERT INTO NaAkciji(NId,AkId,Obrisan) VALUES(@NId,@AId,@Obrisan)";
-                    cmd.Parameters.AddWithValue("@NId", item.Id);
-                    cmd.Parameters.AddWithValue("@AId", a.Id);
-                    cmd.Parameters.AddWithValue("@Obrisan", false);
-                    cmd.ExecuteNonQuery();
-                }
-            }
+                    con.Open();
 
-            Projekat.Instance.Akcija.Add(a);
-            return a;
-        }
+                    SqlCommand cmd = con.CreateCommand();
+                    cmd.CommandText = "INSERT INTO Akcija (PocetakAkcije, ZavrsetakAkcije, Popust, Obrisan)  VALUES (@PocetakAkcije, @ZavrsetakAkcije, @Popust, @Obrisan);";
+                    cmd.CommandText += "SELECT SCOPE_IDENTITY();";
+
+
+                    cmd.Parameters.AddWithValue("PocetakAkcije", a.PocetakAkcije);
+                    cmd.Parameters.AddWithValue("ZavrsetakAkcije", a.ZavrsetakAkcije);
+                    cmd.Parameters.AddWithValue("Popust", a.Popust);
+                    cmd.Parameters.AddWithValue("Obrisan", a.Obrisan);
+
+                    a.Id = int.Parse(cmd.ExecuteScalar().ToString());
+
+                    for (int i = 0; i < a.NamjestajNaAkciji.Count; i++)
+                    {
+                        SqlCommand cmd2 = con.CreateCommand();
+                        cmd2.CommandText = "INSERT INTO NaAkciji(Nid,AkId,Obrisan) VALUES(@nIdD,@AId,@Obrisan2)";
+                        cmd2.Parameters.Add(new SqlParameter("@nIdD", a.NamjestajNaAkciji[i].Id));
+                        cmd2.Parameters.Add(new SqlParameter("@AId", a.Id));
+                        cmd2.Parameters.Add(new SqlParameter("@Obrisan2", a.Obrisan));
+                        cmd2.ExecuteNonQuery();
+                    }
+                }
+
+                Projekat.Instance.Akcija.Add(a);
+                return a;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Greska kod kreiranja akcije!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                return null;
+            }
+        } 
 
         public static void Update(Akcija a)
         {
-
-            using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
+            try
             {
-                con.Open();
-
-                SqlCommand cmd = con.CreateCommand();
-
-                cmd.CommandText = "UPDATE Akcija SET PocetakAkcije = @PocetakAkcije, ZavrsetakAkcije = @ZavrsetakAkcije, Popust = @Popust, Obrisan = @Obrisan WHERE Id = @Id;";
-                cmd.CommandText += "SELECT SCOPE_IDENTITY();";
-
-                cmd.Parameters.AddWithValue("Id", a.Id);
-                cmd.Parameters.AddWithValue("PocetakAkcije", a.PocetakAkcije);
-                cmd.Parameters.AddWithValue("ZavrsetakAkcije", a.ZavrsetakAkcije);
-                cmd.Parameters.AddWithValue("Popust", a.Popust);
-                cmd.Parameters.AddWithValue("Obrisan", a.Obrisan);
-
-                cmd.ExecuteNonQuery();
-
-                foreach (var item in a.namjestajNaAkciji)
+                using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
                 {
-                    cmd.CommandText = "UPDATE NaAkciji SET NId = @NId, AId = @AId, Obrisan = @Obrisan;";
+                    con.Open();
+
+                    SqlCommand cmd = con.CreateCommand();
+
+                    cmd.CommandText = "UPDATE Akcija SET PocetakAkcije = @PocetakAkcije, ZavrsetakAkcije = @ZavrsetakAkcije, Popust = @Popust, Obrisan = @Obrisan WHERE Id = @Id;";
                     cmd.CommandText += "SELECT SCOPE_IDENTITY();";
-                    cmd.Parameters.AddWithValue("@NId", item.Id);
-                    cmd.Parameters.AddWithValue("@AId", a.Id);
-                    cmd.Parameters.AddWithValue("@Obrisan", false);
+
+                    cmd.Parameters.AddWithValue("Id", a.Id);
+                    cmd.Parameters.AddWithValue("PocetakAkcije", a.PocetakAkcije);
+                    cmd.Parameters.AddWithValue("ZavrsetakAkcije", a.ZavrsetakAkcije);
+                    cmd.Parameters.AddWithValue("Popust", a.Popust);
+                    cmd.Parameters.AddWithValue("Obrisan", a.Obrisan);
+
+                    cmd.ExecuteNonQuery();
+
+                    foreach (var item in a.namjestajNaAkciji)
+                    {
+                        cmd.CommandText = "UPDATE NaAkciji SET NId = @NId, AId = @AId, Obrisan = @Obrisan;";
+                        cmd.CommandText += "SELECT SCOPE_IDENTITY();";
+                        cmd.Parameters.AddWithValue("@NId", item.Id);
+                        cmd.Parameters.AddWithValue("@AId", a.Id);
+                        cmd.Parameters.AddWithValue("@Obrisan", '0');
+                    }
+                }
+
+                foreach (var akcija in Projekat.Instance.Akcija)
+                {
+                    if (a.Id == akcija.Id)
+                    {
+                        akcija.PocetakAkcije = a.PocetakAkcije;
+                        akcija.ZavrsetakAkcije = a.ZavrsetakAkcije;
+                        akcija.Popust = a.Popust;
+                        akcija.Obrisan = a.Obrisan;
+                        akcija.NamjestajNaAkciji = a.NamjestajNaAkciji;
+                    }
                 }
             }
-
-            foreach (var akcija in Projekat.Instance.Akcija)
+            catch (Exception)
             {
-                if (a.Id == akcija.Id)
-                {
-                    akcija.PocetakAkcije = a.PocetakAkcije;
-                    akcija.ZavrsetakAkcije = a.ZavrsetakAkcije;
-                    akcija.Popust = a.Popust;
-                    akcija.Obrisan = a.Obrisan;
-                    akcija.NamjestajNaAkciji = a.NamjestajNaAkciji;
-                }
+                MessageBox.Show("Greska prilikom izmjene akcije!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
@@ -234,6 +259,107 @@ namespace POP.Model
         {
             a.Obrisan = true;
             Update(a);
+        }
+
+        public static ObservableCollection<Akcija> Order(string text)
+        {
+            try
+            {
+                var akcija = new ObservableCollection<Akcija>();
+
+                using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
+                {
+                    SqlCommand cmd = con.CreateCommand();
+                    SqlDataAdapter da = new SqlDataAdapter();
+                    DataSet ds = new DataSet();
+
+                    cmd.CommandText = "SELECT * FROM Akcija WHERE Obrisan = 0 ORDER BY " + text;
+                    da.SelectCommand = cmd;
+                    da.Fill(ds, "Akcija");
+
+                    foreach (DataRow row in ds.Tables["Akcija"].Rows)
+                    {
+                        var a = new Akcija();
+                        a.Id = Convert.ToInt32(row["Id"]);
+                        a.PocetakAkcije = DateTime.Parse(row["PocetakAkcije"].ToString());
+                        a.ZavrsetakAkcije = DateTime.Parse(row["ZavrsetakAkcije"].ToString());
+                        a.Popust = double.Parse(row["Popust"].ToString());
+                        a.Obrisan = bool.Parse(row["Obrisan"].ToString());
+
+                        DataSet ds2 = new DataSet();
+                        SqlCommand cmd2 = con.CreateCommand();
+                        cmd2.CommandText = "SELECT NId FROM NaAkciji WHERE AkId=@Id;";
+                        cmd2.Parameters.AddWithValue("@Id", a.Id);
+                        da.SelectCommand = cmd2;
+                        da.Fill(ds2, "NaAkciji");
+                        ObservableCollection<Namjestaj> namjestaj = new ObservableCollection<Namjestaj>();
+                        foreach (DataRow dr in ds2.Tables["NaAkciji"].Rows)
+                        {
+                            int id = int.Parse(dr["NId"].ToString());
+                            namjestaj.Add(Namjestaj.GetByid(id));
+                        }
+                        a.NamjestajNaAkciji = namjestaj;
+                        akcija.Add(a);
+                    }
+                }
+                return akcija;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Greska prilikom sortiranja akcije!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                return null;
+            }
+        }
+
+        public static ObservableCollection<Akcija> Search(string text)
+        {
+            try
+            {
+                var akcija = new ObservableCollection<Akcija>();
+
+                using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
+                {
+                    SqlCommand cmd = con.CreateCommand();
+                    SqlDataAdapter da = new SqlDataAdapter();
+                    DataSet ds = new DataSet();
+
+                    cmd.CommandText = "SELECT * FROM Akcija WHERE Obrisan = 0 AND (PocetakAkcije LIKE @tekst OR ZavrsetakAkcije LIKE @tekst OR Popust LIKE @tekst) ";
+                    da.SelectCommand = cmd;
+                    cmd.Parameters.AddWithValue("@tekst", '%' + text + '%');
+                    da.Fill(ds, "Akcija");
+
+                    foreach (DataRow row in ds.Tables["Akcija"].Rows)
+                    {
+                        var a = new Akcija();
+                        a.Id = Convert.ToInt32(row["Id"]);
+                        a.PocetakAkcije = DateTime.Parse(row["PocetakAkcije"].ToString());
+                        a.ZavrsetakAkcije = DateTime.Parse(row["ZavrsetakAkcije"].ToString());
+                        a.Popust = double.Parse(row["Popust"].ToString());
+                        a.Obrisan = bool.Parse(row["Obrisan"].ToString());
+
+                        DataSet ds2 = new DataSet();
+                        SqlCommand cmd2 = con.CreateCommand();
+                        cmd2.CommandText = "SELECT NId FROM NaAkciji WHERE AkId=@Id;";
+                        cmd2.Parameters.AddWithValue("@Id", a.Id);
+                        da.SelectCommand = cmd2;
+                        da.Fill(ds2, "NaAkciji");
+                        ObservableCollection<Namjestaj> namjestaj = new ObservableCollection<Namjestaj>();
+                        foreach (DataRow dr in ds2.Tables["NaAkciji"].Rows)
+                        {
+                            int id = int.Parse(dr["NId"].ToString());
+                            namjestaj.Add(Namjestaj.GetByid(id));
+                        }
+                        a.NamjestajNaAkciji = namjestaj;
+                        akcija.Add(a);
+                    }
+                }
+                return akcija;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Greskaa prilikom pretrage akcije!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                return null;
+            }
         }
         #endregion
     }

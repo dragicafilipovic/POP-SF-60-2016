@@ -26,8 +26,8 @@ namespace POP_SF_60_2016GUI.UI
             InitializeComponent();
             this.prodaja = prodaja;
 
-            dgNamjestaj.ItemsSource = prodaja.NamjestajProdaja;
-            dgDodatnaU.ItemsSource = prodaja.DodatneUsluge;
+            dgNamjestaj.ItemsSource = prodaja.NamjestajPro;
+            dgDodatnaU.ItemsSource = prodaja.DodatnaU;
         }
 
         private void dgNamjestaj_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)

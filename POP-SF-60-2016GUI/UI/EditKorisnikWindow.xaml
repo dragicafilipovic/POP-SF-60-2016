@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF_60_2016GUI.UI"
         mc:Ignorable="d"
-        Title="EditKorisnikWindow" Height="350" Width="300">
+        Title="EditKorisnikWindow" Height="350" Width="300" Background="#FF374D35" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="133*"/>
@@ -30,7 +30,7 @@
         <TextBox x:Name="tbPrezime" Grid.Column="1" HorizontalAlignment="Left" Height="38" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Path=Prezime}" VerticalAlignment="Top" Width="139"/>
         <TextBox x:Name="tbKIme" Grid.Column="1" HorizontalAlignment="Left" Height="38" Margin="10,10,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding Path=KorisnickoIme}" Width="139" />
         <TextBox x:Name="tbLozinka" Grid.Column="1" HorizontalAlignment="Left" Height="38" Margin="10,10,0,0" Grid.Row="3" TextWrapping="Wrap" Text="{Binding Path=Lozinka}" VerticalAlignment="Top" Width="139" />
-        <ComboBox x:Name="cbTipKorisnika" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="4" VerticalAlignment="Top" Text="{Binding Path=TipKorisnika}" Width="139" Height="39"/>
+        <ComboBox x:Name="cbTipKorisnika" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="4" VerticalAlignment="Top" Text="{Binding Path=TipKorisnika}" Width="139" Height="38"/>
 
 
     </Grid>

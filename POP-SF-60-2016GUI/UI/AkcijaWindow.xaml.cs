@@ -30,6 +30,9 @@ namespace POP_SF_60_2016GUI.UI
             view = CollectionViewSource.GetDefaultView(Projekat.Instance.Akcija);
             view.Filter = AkcijaFilter;
             dgAkcija.ItemsSource = Projekat.Instance.Akcija;
+
+            List<string> ponudjeno = new List<string>() { "PocetakAkcije", "ZavrsetakAkcije", "Popust"};
+            cbSort.ItemsSource = ponudjeno;
         }
 
         private bool AkcijaFilter(object obj)
@@ -42,21 +45,27 @@ namespace POP_SF_60_2016GUI.UI
             Akcija a = new Akcija();
             EditAkcijaWindow eaw = new EditAkcijaWindow(a, EditAkcijaWindow.Operacija.DODAVANJE);
             eaw.ShowDialog();
+            view.Refresh();
         }
 
         private void Izmjena_Click(object sender, RoutedEventArgs e)
         {
-            Akcija a = dgAkcija.SelectedItem as Akcija;
-            EditAkcijaWindow eaw = new EditAkcijaWindow(a, EditAkcijaWindow.Operacija.IZMJENA);
-            eaw.ShowDialog();
+            
         }
 
         private void Brisanje_Click(object sender, RoutedEventArgs e)
         {
             var lista = Projekat.Instance.Akcija;
             Akcija a= dgAkcija.SelectedItem as Akcija;
-            Akcija.Delete(a);
-            GenericSerializer.Serialize("akcija.xml", lista);
+            if (MessageBox.Show($"Da li zelite da izbrisete: {a.Id}", "Brisanje", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                foreach (var item in a.NamjestajNaAkciji)
+                {
+                    item.AkcijskaCijena = 0;
+                    Namjestaj.Update(item);
+                }
+                Akcija.Delete(a);
+            }
             view.Refresh();
         }
 
@@ -74,6 +83,20 @@ namespace POP_SF_60_2016GUI.UI
             Akcija a = dgAkcija.SelectedItem as Akcija;
             PrikazAkcijaWindow paw = new PrikazAkcijaWindow(a);
             paw.ShowDialog();
+        }
+
+        private void cbSort_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var tekst = cbSort.SelectedItem as string;
+            view = CollectionViewSource.GetDefaultView(Akcija.Order(tekst));
+            dgAkcija.ItemsSource = view;
+        }
+
+        private void btnPretraga_Click(object sender, RoutedEventArgs e)
+        {
+            var tekst = tbPretraga.Text.Trim();
+            view = CollectionViewSource.GetDefaultView(Akcija.Search(tekst));
+            dgAkcija.ItemsSource = view;
         }
     }
 }

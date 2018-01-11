@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF_60_2016GUI.UI"
         mc:Ignorable="d"
-        Title="EditTipNamjestajaWindow" Height="122.681" Width="267.526" Background="#FF374D35">
+        Title="EditTipNamjestajaWindow" Height="122.681" Width="267.526" Background="#FF374D35" ResizeMode="NoResize">
     <Grid Margin="0,0,0,-2">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="87*"/>

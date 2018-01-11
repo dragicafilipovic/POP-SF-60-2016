@@ -23,6 +23,14 @@ namespace POP_SF_60_2016GUI.UI
         public GlavniWindow()
         {
             InitializeComponent();
+            if (MainWindow.korisnik.TipKorisnika == TipKorisnika.Prodavac)
+            {
+                btnAkcija.Visibility = Visibility.Hidden;
+                btnNamjestaj.Visibility = Visibility.Hidden;
+                btnTip.Visibility = Visibility.Hidden;
+                btnUsluga.Visibility = Visibility.Hidden;
+                btnKorisnik.Visibility = Visibility.Hidden;
+            }
         }
 
         private void Namjestaj_Click(object sender, RoutedEventArgs e)

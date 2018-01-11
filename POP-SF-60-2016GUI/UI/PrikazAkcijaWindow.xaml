@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF_60_2016GUI.UI"
         mc:Ignorable="d"
-        Title="PrikazAkcijaWindow" Height="310" Width="560" Background= "#FF374D35">
+        Title="PrikazAkcijaWindow" Height="310" Width="560" Background= "#FF374D35" ResizeMode="NoResize">
     <Grid>
-        <DataGrid Name="dgAkcijaN" Margin="10,20,20,51"  Width="522" CanUserAddRows="False" AutoGeneratingColumn="dgAkcijaN_AutoGeneratingColumn" />
+        <DataGrid Name="dgAkcijaN" Margin="10,20,20,51"  Width="522" CanUserAddRows="False" ColumnWidth="*" AutoGeneratingColumn="dgAkcijaN_AutoGeneratingColumn" />
         <Button Grid.Row="1" Content="Zatvori"  Margin="454,241,20,10" IsCancel="True"  />
 
     </Grid>

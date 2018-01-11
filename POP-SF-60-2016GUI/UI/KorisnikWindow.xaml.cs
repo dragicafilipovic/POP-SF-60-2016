@@ -31,6 +31,9 @@ namespace POP_SF_60_2016GUI.UI
             view.Filter = KorisnikFilter;
 
             dgKorisnik.ItemsSource = Projekat.Instance.Korisnik;
+
+            List<string> ponudjeno = new List<string>() { "Ime", "Prezime", "KorisnickoIme", "Lozinka", "TipKorisnika" };
+            cbSort.ItemsSource = ponudjeno;
         }
 
         private bool KorisnikFilter(object obj)
@@ -43,13 +46,20 @@ namespace POP_SF_60_2016GUI.UI
             Korisnik k = new Korisnik();
             EditKorisnikWindow ekw = new EditKorisnikWindow(k, EditKorisnikWindow.Operacija.DODAVANJE);
             ekw.ShowDialog();
+            view.Refresh();
         }
 
         private void Izmjena_Click(object sender, RoutedEventArgs e)
         {
-            Korisnik k = dgKorisnik.SelectedItem as Korisnik;
-            EditKorisnikWindow ekw = new EditKorisnikWindow(k, EditKorisnikWindow.Operacija.IZMJENA);
-            ekw.ShowDialog();
+            Korisnik Selektovani = dgKorisnik.SelectedItem as Korisnik;
+            Korisnik kopija = (Korisnik)Selektovani.Clone();
+            var k = new EditKorisnikWindow(kopija, EditKorisnikWindow.Operacija.IZMJENA);
+            if (k.ShowDialog() == true)
+            {
+                int index = Projekat.Instance.Korisnik.IndexOf(Selektovani);
+                Korisnik.Update(kopija);
+                view.Refresh();
+            }
             view.Refresh();
         }
 
@@ -57,8 +67,10 @@ namespace POP_SF_60_2016GUI.UI
         {
             var lista = Projekat.Instance.Korisnik;
             Korisnik k = dgKorisnik.SelectedItem as Korisnik;
-            Korisnik.Delete(k);
-            GenericSerializer.Serialize("korisnik.xml", lista);
+            if (MessageBox.Show($"Da li zelite da izbrisete: {k.Ime}", "Brisanje", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                Korisnik.Delete(k);
+            }
             view.Refresh();
         }
 
@@ -73,6 +85,20 @@ namespace POP_SF_60_2016GUI.UI
             {
                 e.Cancel = true;
             }
+        }
+
+        private void cbSort_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var tekst = cbSort.SelectedItem as string;
+            view = CollectionViewSource.GetDefaultView(Korisnik.Order(tekst));
+            dgKorisnik.ItemsSource = view;
+        }
+
+        private void btnPretraga_Click(object sender, RoutedEventArgs e)
+        {
+            var tekst = tbPretraga.Text.Trim();
+            view = CollectionViewSource.GetDefaultView(Korisnik.Search(tekst));
+            dgKorisnik.ItemsSource = view;
         }
     }
 }

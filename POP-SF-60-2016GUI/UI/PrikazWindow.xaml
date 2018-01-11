@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF_60_2016GUI.UI"
         mc:Ignorable="d"
-        Title="PrikazWindow" Height="400" Width="600" Background="#FF374D35">
+        Title="PrikazWindow" Height="400" Width="600" Background="#FF374D35" ResizeMode="NoResize">
     <Grid>
         <DataGrid Name="dgNamjestaj" Margin="46,28,34,221" Width="512" CanUserAddRows="False" ColumnWidth="*" AutoGeneratingColumn="dgNamjestaj_AutoGeneratingColumn" />
         <DataGrid Name="dgDodatnaU" Margin="46,180,36,69" Width="509" CanUserAddRows="False" ColumnWidth="*" AutoGeneratingColumn="dgDodatnaU_AutoGeneratingColumn"/>

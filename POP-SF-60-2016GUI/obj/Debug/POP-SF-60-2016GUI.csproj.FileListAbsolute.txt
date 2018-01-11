@@ -119,3 +119,7 @@ C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\UI\PrikazWindow.ba
 C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\POP-SF-60-2016GUI_Content.g.cs
 C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\UI\PrikazAkcijaWindow.g.cs
 C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\UI\PrikazAkcijaWindow.baml
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\UI\PreuzmiNamjestaj.g.cs
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\UI\PreuzmiNamjestaj.baml
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\UI\PreuzmiDodatnuUslugu.g.cs
+C:\Users\lenovo\Desktop\Platforme\POP-SF-60-2016GUI\obj\Debug\UI\PreuzmiDodatnuUslugu.baml

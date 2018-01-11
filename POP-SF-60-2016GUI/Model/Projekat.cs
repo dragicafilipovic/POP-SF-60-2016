@@ -1,4 +1,5 @@
 ﻿using POP.Util;
+using POP_SF_60_2016GUI.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -18,6 +19,8 @@ namespace POP.Model
         public ObservableCollection<DodatnaUsluga> DodatnaUsluga { get; set; }
         public ObservableCollection<Akcija> Akcija { get; set; }
         public ObservableCollection<ProdajaNamjestaja> ProdajaNamjestaja { get; set; }
+        public ObservableCollection<Stavke> Stavke { get; set; }
+        public ObservableCollection<Salon> Salon { get; set; }
 
 
         private Projekat()
@@ -28,7 +31,7 @@ namespace POP.Model
             DodatnaUsluga = Model.DodatnaUsluga.GetAll();
 
             Akcija = Model.Akcija.GetAll();
-            ProdajaNamjestaja = GenericSerializer.Deserialize<ProdajaNamjestaja>("prodajaNamjestaja.xml");
+    //        ProdajaNamjestaja = Model.ProdajaNamjestaja.GetAll();
            
         }
 

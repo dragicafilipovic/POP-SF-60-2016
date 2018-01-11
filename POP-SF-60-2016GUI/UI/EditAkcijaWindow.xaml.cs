@@ -36,7 +36,7 @@ namespace POP_SF_60_2016GUI.UI
             this.akcija = akcija;
             this.operacija = operacija;
 
-            dgNAkcija.ItemsSource = Projekat.Instance.Namjestaj;
+            dgNAkcija.ItemsSource=akcija.NamjestajNaAkciji;
 
             tbPopust.DataContext = akcija;
             dpPocetak.DataContext = akcija;
@@ -47,9 +47,20 @@ namespace POP_SF_60_2016GUI.UI
         private void Sacuvaj_Click(object sender, RoutedEventArgs e)
         {
             var lista = Projekat.Instance.Akcija;
-            var selekrovani = dgNAkcija.SelectedItem as Namjestaj;
+            double cijenaN = 0;
+            for (int i = 0; i < akcija.NamjestajNaAkciji.Count; i++)
+            {
+                cijenaN += akcija.NamjestajNaAkciji[i].Cijena;
+            }
+
             if (operacija == Operacija.DODAVANJE)
             {
+                akcija.Id = lista.Count + 1;
+                foreach (var item in akcija.NamjestajNaAkciji)
+                {
+                    item.AkcijskaCijena = item.Cijena - ((item.Cijena * akcija.Popust) / 100);
+                    Namjestaj.Update(item);
+                }
                 Akcija.Create(akcija);
             }
             Akcija.Update(akcija);
@@ -61,7 +72,18 @@ namespace POP_SF_60_2016GUI.UI
 
         private void dgNAkcija_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
+            if ((string)e.Column.Header == "Obrisan" || (string)e.Column.Header == "Id" || (string)e.Column.Header == "Sifra"
+            || (string)e.Column.Header == "TipNamjestajaID")
+            {
+                e.Cancel = true;
+            }
+        }
 
+        private void btnPreuzmi_Click(object sender, RoutedEventArgs e)
+        {
+            PreuzmiNamjestaj pn = new PreuzmiNamjestaj(PreuzmiNamjestaj.TipOperacije.Akcija);
+            if(pn.ShowDialog() == true)
+            akcija.NamjestajNaAkciji.Add(pn.IzabraniN);
         }
     }
 }

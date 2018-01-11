@@ -30,6 +30,9 @@ namespace POP_SF_60_2016GUI.UI
             view.Filter = DodatnaUFilter;
 
             dgUsluga.ItemsSource = Projekat.Instance.DodatnaUsluga;
+
+            List<string> ponudjeno = new List<string>() { "NazivUsluge" , "CijenaUsluge" };
+            cbSort.ItemsSource = ponudjeno;
         }
         private bool DodatnaUFilter(object obj)
         {
@@ -41,21 +44,31 @@ namespace POP_SF_60_2016GUI.UI
             DodatnaUsluga du = new DodatnaUsluga();
             EditDodatnaUslugaWindow duw = new EditDodatnaUslugaWindow(du,EditDodatnaUslugaWindow.Operacija.DODAVANJE);
             duw.ShowDialog();
+            view.Refresh();
         }
 
         private void Izmjena_Click(object sender, RoutedEventArgs e)
         {
-            DodatnaUsluga du = dgUsluga.SelectedItem as DodatnaUsluga;
-            EditDodatnaUslugaWindow duw = new EditDodatnaUslugaWindow(du, EditDodatnaUslugaWindow.Operacija.IZMJENA);
-            duw.ShowDialog();
+            DodatnaUsluga Selektovani = dgUsluga.SelectedItem as DodatnaUsluga;
+            DodatnaUsluga kopija = (DodatnaUsluga)Selektovani.Clone();
+            var u = new EditDodatnaUslugaWindow(kopija, EditDodatnaUslugaWindow.Operacija.IZMJENA);
+            if (u.ShowDialog() == true)
+            {
+                int index = Projekat.Instance.DodatnaUsluga.IndexOf(Selektovani);
+                DodatnaUsluga.Update(kopija);
+                view.Refresh();
+            }
+            view.Refresh();
         }
 
         private void Brisanje_Click(object sender, RoutedEventArgs e)
         {
             var lista = Projekat.Instance.DodatnaUsluga;
             DodatnaUsluga du = dgUsluga.SelectedItem as DodatnaUsluga;
-            DodatnaUsluga.Delete(du);
-            GenericSerializer.Serialize("usluga.xml", lista);
+            if (MessageBox.Show($"Da li zelite da izbrisete: {du.NazivUsluge}", "Brisanje", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                DodatnaUsluga.Delete(du);
+            }
             view.Refresh();
          }
 
@@ -70,6 +83,20 @@ namespace POP_SF_60_2016GUI.UI
             {
                 e.Cancel = true;
             }
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var tekst = cbSort.SelectedItem as string;
+            view = CollectionViewSource.GetDefaultView(DodatnaUsluga.Order(tekst));
+            dgUsluga.ItemsSource = view;
+        }
+
+        private void btnPretraga_Click(object sender, RoutedEventArgs e)
+        {
+            var tekst = tbPretraga.Text.Trim();
+            view = CollectionViewSource.GetDefaultView(DodatnaUsluga.Search(tekst));
+            dgUsluga.ItemsSource = view;
         }
     }
 }

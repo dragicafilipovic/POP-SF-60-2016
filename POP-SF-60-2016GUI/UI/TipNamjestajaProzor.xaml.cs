@@ -30,6 +30,9 @@ namespace POP_SF_60_2016GUI.UI
             InitializeComponent();
 
             dgTipNamjestaj.ItemsSource = Projekat.Instance.TipoviNamjestaja;
+
+            List<string> ponudjeno = new List<string>() { "Naziv"};
+            cbSort.ItemsSource = ponudjeno;
         }
 
         private bool TipNamjestajaFilter(object obj)
@@ -42,21 +45,30 @@ namespace POP_SF_60_2016GUI.UI
             TipNamjestaja tn = new TipNamjestaja();
             EditTipNamjestajaWindow etn = new EditTipNamjestajaWindow(tn, EditTipNamjestajaWindow.Operacija.DODAVANJE);
             etn.ShowDialog();
+            view.Refresh();
         }
 
         private void Izmjena_Click(object sender, RoutedEventArgs e)
         {
-            TipNamjestaja tn = dgTipNamjestaj.SelectedItem as TipNamjestaja;
-            EditTipNamjestajaWindow etn = new EditTipNamjestajaWindow(tn, EditTipNamjestajaWindow.Operacija.IZMJENA);
-            etn.ShowDialog();
+            TipNamjestaja Selektovani = dgTipNamjestaj.SelectedItem as TipNamjestaja;
+            TipNamjestaja kopija = (TipNamjestaja)Selektovani.Clone();
+            var tip = new EditTipNamjestajaWindow(kopija, EditTipNamjestajaWindow.Operacija.IZMJENA);
+            if (tip.ShowDialog() == true)
+            {
+                int index = Projekat.Instance.TipoviNamjestaja.IndexOf(Selektovani);
+                TipNamjestaja.Update(kopija);
+            }
+            view.Refresh();
         }
 
         private void Brisanje_Click(object sender, RoutedEventArgs e)
         {
             var lista = Projekat.Instance.TipoviNamjestaja;
             TipNamjestaja tn = dgTipNamjestaj.SelectedItem as TipNamjestaja;
-            TipNamjestaja.Delete(tn);
-            GenericSerializer.Serialize("tipNamjestaja.xml", lista);
+            if (MessageBox.Show($"Da li zelite da izbrisete: {tn.Naziv}", "Brisanje", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                TipNamjestaja.Delete(tn);
+            }
             view.Refresh();
         }
 
@@ -71,6 +83,20 @@ namespace POP_SF_60_2016GUI.UI
             {
                 e.Cancel = true;
             }
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var tekst = cbSort.SelectedItem as string;
+            view = CollectionViewSource.GetDefaultView(TipNamjestaja.Order(tekst));
+            dgTipNamjestaj.ItemsSource = view; 
+        }
+
+        private void btnPretraga_Click(object sender, RoutedEventArgs e)
+        {
+            var tekst = tbPretraga.Text.Trim();
+            view = CollectionViewSource.GetDefaultView(TipNamjestaja.Search(tekst));
+            dgTipNamjestaj.ItemsSource = view;
         }
     }
 }

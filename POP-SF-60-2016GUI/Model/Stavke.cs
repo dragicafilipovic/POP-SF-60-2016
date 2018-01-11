@@ -1,9 +1,11 @@
-﻿using System;
+﻿using POP.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace POP_SF_60_2016GUI.Model
 {
@@ -11,8 +13,20 @@ namespace POP_SF_60_2016GUI.Model
     {
         private int id;
         private int kolicina;
-        private int prodajaID;
         private bool obrisan;
+        private int namjestajId;
+
+        public int NamjestajID
+        {
+            get { return namjestajId; }
+            set
+            {
+                namjestajId = value;
+                OnPropertyChanged("namjestajId");
+            }
+        }
+
+
 
         public bool Obrisan
         {
@@ -24,16 +38,6 @@ namespace POP_SF_60_2016GUI.Model
             }
         }
 
-
-        public int ProdajaID
-        {
-            get { return prodajaID; }
-            set
-            {
-                prodajaID = value;
-                OnPropertyChanged("ProdajaID");
-            }
-        }
 
 
         public int Kolicina
@@ -54,6 +58,25 @@ namespace POP_SF_60_2016GUI.Model
             {
                 id = value;
                 OnPropertyChanged("Id");
+            }
+        }
+
+        private Namjestaj namjestaj;
+        public Namjestaj Namjestaj
+        {
+            get
+            {
+                if (namjestaj == null)
+                {
+                    namjestaj = Namjestaj.GetID(NamjestajID);
+                }
+                return namjestaj;
+            }
+            set
+            {
+                namjestaj = value;
+                NamjestajID = namjestaj.Id;
+                OnPropertyChanged("Namjestaji");
             }
         }
 

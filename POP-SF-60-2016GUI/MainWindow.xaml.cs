@@ -24,6 +24,7 @@ namespace POP_SF_60_2016GUI
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static Korisnik korisnik;
         public MainWindow()
         {
             InitializeComponent();
@@ -42,6 +43,7 @@ namespace POP_SF_60_2016GUI
                     return;
                 } else if (korisnickoIme == k.KorisnickoIme || lozinka == k.Lozinka)
                 {
+                    korisnik = k;  
                     GlavniWindow gw = new GlavniWindow();
                     this.Close();
                     gw.ShowDialog();
